@@ -1,0 +1,2531 @@
+/* =========================================================
+   CHRONIC AI — CHAT UI
+   PREMIUM DARK GLASS DESIGN
+========================================================= */
+
+:root {
+    --chat-width: 920px;
+
+    --chat-bg: #0b0e14;
+    --chat-surface: #121722;
+    --chat-surface-2: #171d2a;
+
+    --chat-border: rgba(255, 255, 255, 0.07);
+    --chat-border-hover: rgba(255, 255, 255, 0.13);
+
+    --chat-text: #eef1f8;
+    --chat-muted: #8d95aa;
+
+    --chat-primary: #5b6dff;
+    --chat-primary-2: #7658ff;
+
+    --chat-radius: 18px;
+}
+
+
+/* =========================================================
+   CHAT WINDOW
+========================================================= */
+
+.chatWindow {
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 24px;
+
+    padding:
+        28px
+        max(20px, calc((100% - var(--chat-width)) / 2))
+        150px;
+
+    scroll-behavior: smooth;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255,255,255,.10) transparent;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.chatWindow::-webkit-scrollbar {
+    width: 7px;
+}
+
+.chatWindow::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chatWindow::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.10);
+    border-radius: 999px;
+}
+
+.chatWindow::-webkit-scrollbar-thumb:hover {
+    background: rgba(255,255,255,.18);
+}
+
+
+/* =========================================================
+   MESSAGE ROW
+========================================================= */
+
+.messageRow {
+    width: 100%;
+    max-width: var(--chat-width);
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    min-width: 0;
+
+    animation: messageAppear .25s ease;
+}
+
+.messageRow.ai {
+    flex-direction: row;
+}
+
+.messageRow.user {
+    flex-direction: row-reverse;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.avatar {
+    width: 40px;
+    height: 40px;
+
+    min-width: 40px;
+    min-height: 40px;
+
+    margin-top: 2px;
+
+    border-radius: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background:
+        linear-gradient(
+            145deg,
+            #1b2230,
+            #121722
+        );
+
+    border: 1px solid rgba(255,255,255,.08);
+
+    color: #b7c0ff;
+
+    font-size: 17px;
+
+    box-shadow:
+        0 7px 22px rgba(0,0,0,.25);
+
+    transition: .25s ease;
+}
+
+.messageRow.ai .avatar {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(91,109,255,.18),
+            rgba(118,88,255,.10)
+        );
+
+    border-color:
+        rgba(91,109,255,.20);
+
+    color: #8f9cff;
+
+    box-shadow:
+        0 7px 25px rgba(91,109,255,.12);
+}
+
+.messageRow.user .avatar {
+    background:
+        linear-gradient(
+            145deg,
+            #5b6dff,
+            #7658ff
+        );
+
+    color: white;
+
+    border-color:
+        rgba(255,255,255,.12);
+
+    box-shadow:
+        0 7px 24px rgba(91,109,255,.25);
+}
+
+
+/* =========================================================
+   MESSAGE BUBBLE
+========================================================= */
+
+.messageBubble {
+    position: relative;
+
+    min-width: 0;
+
+    width: fit-content;
+    max-width: min(820px, calc(100% - 55px));
+
+    padding: 15px 18px;
+
+    border-radius: var(--chat-radius);
+
+    color: var(--chat-text);
+
+    line-height: 1.72;
+    font-size: 15px;
+
+    word-break: break-word;
+    overflow-wrap: anywhere;
+
+    border: 1px solid var(--chat-border);
+
+    transition:
+        border-color .2s ease,
+        background .2s ease,
+        box-shadow .2s ease;
+}
+
+
+/* =========================================================
+   AI BUBBLE
+========================================================= */
+
+.messageRow.ai .messageBubble {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,25,36,.96),
+            rgba(15,19,28,.96)
+        );
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,.12);
+}
+
+.messageRow.ai .messageBubble:hover {
+    border-color: var(--chat-border-hover);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.18);
+}
+
+
+/* =========================================================
+   USER BUBBLE
+========================================================= */
+
+.messageRow.user .messageBubble {
+    background:
+        linear-gradient(
+            135deg,
+            #596bff,
+            #7057ed
+        );
+
+    color: #fff;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+        0 8px 28px rgba(72,76,190,.20);
+}
+
+
+/* =========================================================
+   USER TEXT
+========================================================= */
+
+.messageRow.user .messageBubble p {
+    margin: 0;
+}
+
+
+/* =========================================================
+   AI MARKDOWN
+========================================================= */
+
+.messageBubble > p:first-child {
+    margin-top: 0;
+}
+
+.messageBubble > p:last-child {
+    margin-bottom: 0;
+}
+
+.messageBubble p {
+    margin: 9px 0;
+}
+
+.messageBubble strong {
+    font-weight: 700;
+    color: inherit;
+}
+
+.messageBubble em {
+    font-style: italic;
+}
+
+
+/* =========================================================
+   HEADINGS
+========================================================= */
+
+.messageBubble h1,
+.messageBubble h2,
+.messageBubble h3,
+.messageBubble h4 {
+    color: inherit;
+    line-height: 1.35;
+}
+
+.messageBubble h1 {
+    margin: 18px 0 10px;
+    font-size: 1.65rem;
+}
+
+.messageBubble h2 {
+    margin: 17px 0 9px;
+    font-size: 1.35rem;
+}
+
+.messageBubble h3 {
+    margin: 15px 0 8px;
+    font-size: 1.15rem;
+}
+
+.messageBubble h4 {
+    margin: 13px 0 7px;
+    font-size: 1rem;
+}
+
+
+/* =========================================================
+   LISTS
+========================================================= */
+
+.messageBubble ul,
+.messageBubble ol {
+    margin: 10px 0;
+    padding-left: 24px;
+}
+
+.messageBubble li {
+    margin: 5px 0;
+}
+
+
+/* =========================================================
+   BLOCKQUOTE
+========================================================= */
+
+.messageBubble blockquote {
+    margin: 14px 0;
+
+    padding:
+        9px
+        15px;
+
+    border-left:
+        3px solid
+        var(--chat-primary);
+
+    border-radius: 0 10px 10px 0;
+
+    background:
+        rgba(91,109,255,.06);
+
+    color: #b7bfd4;
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+.messageBubble a {
+    color: #91a0ff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.messageRow.user .messageBubble a {
+    color: #fff;
+}
+
+
+/* =========================================================
+   HORIZONTAL LINE
+========================================================= */
+
+.messageBubble hr {
+    border: 0;
+
+    border-top:
+        1px solid
+        rgba(255,255,255,.08);
+
+    margin: 18px 0;
+}
+
+
+/* =========================================================
+   INLINE CODE
+========================================================= */
+
+.messageBubble code:not(pre code) {
+    padding: 3px 7px;
+
+    border-radius: 7px;
+
+    background:
+        rgba(255,255,255,.07);
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    color: #c7ceff;
+
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: .9em;
+}
+
+
+/* =========================================================
+   CODE
+========================================================= */
+
+.messageBubble pre {
+    width: 100%;
+    max-width: 100%;
+
+    margin: 15px 0;
+
+    padding: 15px;
+
+    overflow-x: auto;
+
+    border-radius: 13px;
+
+    background: #090d14;
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    box-sizing: border-box;
+}
+
+.messageBubble pre code {
+    font-family:
+        Consolas,
+        "Courier New",
+        monospace;
+
+    font-size: 13px;
+
+    line-height: 1.65;
+
+    color: #dce2f2;
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.messageBubble table {
+    display: block;
+
+    width: 100%;
+
+    overflow-x: auto;
+
+    border-collapse: collapse;
+
+    margin: 16px 0;
+
+    font-size: 14px;
+}
+
+.messageBubble th,
+.messageBubble td {
+    padding: 9px 12px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    white-space: nowrap;
+
+    text-align: left;
+}
+
+.messageBubble th {
+    background:
+        rgba(255,255,255,.05);
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   MESSAGE ACTIONS
+========================================================= */
+
+.messageActions {
+    position: absolute;
+
+    top: -47px;
+    right: 4px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    padding: 5px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(17,21,30,.96);
+
+    border:
+        1px solid
+        rgba(255,255,255,.08);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transform:
+        translateY(5px)
+        scale(.96);
+
+    transition:
+        opacity .2s ease,
+        transform .2s ease;
+}
+
+.messageBubble:hover .messageActions {
+    opacity: 1;
+    pointer-events: auto;
+
+    transform:
+        translateY(0)
+        scale(1);
+}
+
+
+/* =========================================================
+   ACTION BUTTON
+========================================================= */
+
+.actionBtn {
+    width: 31px;
+    height: 31px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 8px;
+
+    background: transparent;
+
+    color: #8f98b1;
+
+    cursor: pointer;
+
+    transition:
+        background .18s ease,
+        color .18s ease,
+        transform .18s ease;
+}
+
+.actionBtn:hover {
+    background:
+        rgba(255,255,255,.08);
+
+    color: #fff;
+
+    transform: translateY(-1px);
+}
+
+.actionBtn.active {
+    background:
+        rgba(91,109,255,.18);
+
+    color: #91a0ff;
+}
+
+
+/* =========================================================
+   MESSAGE FOOTER
+========================================================= */
+
+.messageFooter {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 8px;
+}
+
+.messageTime {
+    font-size: 10px;
+
+    color: rgba(255,255,255,.38);
+
+    user-select: none;
+}
+
+.messageRow.user .messageTime {
+    color: rgba(255,255,255,.60);
+}
+
+
+/* =========================================================
+   TYPING ROW
+========================================================= */
+
+.typingRow {
+    width: 100%;
+    max-width: var(--chat-width);
+
+    margin: 0 auto;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 13px;
+
+    flex-shrink: 0;
+}
+
+
+/* =========================================================
+   TYPING BUBBLE
+========================================================= */
+
+.typingBubble {
+    min-height: 40px;
+
+    padding: 0 17px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 5px;
+
+    border-radius: 15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20,25,36,.96),
+            rgba(15,19,28,.96)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.07);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.14);
+}
+
+.typingBubble span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #8f9cff;
+
+    animation:
+        typingDot 1.25s infinite ease-in-out;
+}
+
+.typingBubble span:nth-child(2) {
+    animation-delay: .16s;
+}
+
+.typingBubble span:nth-child(3) {
+    animation-delay: .32s;
+}
+
+@keyframes typingDot {
+
+    0%,
+    60%,
+    100% {
+        opacity: .3;
+        transform: translateY(0);
+    }
+
+    30% {
+        opacity: 1;
+        transform: translateY(-4px);
+    }
+}
+
+
+/* =========================================================
+   SCROLL BOTTOM
+========================================================= */
+
+.scrollBottomBtn {
+    position: fixed;
+
+    right: 28px;
+    bottom: 115px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255,255,255,.10);
+
+    border-radius: 50%;
+
+    background:
+        rgba(18,22,31,.92);
+
+    backdrop-filter: blur(15px);
+
+    color: #fff;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.35);
+
+    transition: .22s ease;
+
+    z-index: 50;
+}
+
+.scrollBottomBtn:hover {
+    background:
+        linear-gradient(
+            135deg,
+            #5b6dff,
+            #7658ff
+        );
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(91,109,255,.30);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes messageAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(7px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+:root[data-theme="light"] {
+
+    --chat-bg: #f6f7fb;
+    --chat-surface: #ffffff;
+
+    --chat-text: #151925;
+    --chat-muted: #687087;
+
+    --chat-border:
+        rgba(15,23,42,.09);
+
+    --chat-border-hover:
+        rgba(15,23,42,.15);
+}
+
+:root[data-theme="light"] .messageRow.ai .messageBubble {
+    background:
+        rgba(255,255,255,.96);
+
+    color: #171b27;
+
+    border-color:
+        rgba(15,23,42,.08);
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,.05);
+}
+
+:root[data-theme="light"] .typingBubble {
+    background: #fff;
+
+    border-color:
+        rgba(15,23,42,.08);
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,.05);
+}
+
+:root[data-theme="light"] .messageBubble code:not(pre code) {
+    background:
+        rgba(15,23,42,.05);
+
+    border-color:
+        rgba(15,23,42,.06);
+
+    color: #4f46a5;
+}
+
+:root[data-theme="light"] .messageBubble blockquote {
+    color: #596277;
+
+    background:
+        rgba(91,109,255,.05);
+}
+
+:root[data-theme="light"] .messageBubble th,
+:root[data-theme="light"] .messageBubble td {
+    border-color:
+        rgba(15,23,42,.10);
+}
+
+:root[data-theme="light"] .messageBubble th {
+    background:
+        #f5f7fb;
+}
+
+:root[data-theme="light"] .messageActions {
+    background: rgba(255,255,255,.98);
+
+    border-color:
+        rgba(15,23,42,.09);
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.12);
+}
+
+:root[data-theme="light"] .actionBtn {
+    color: #697188;
+}
+
+:root[data-theme="light"] .actionBtn:hover {
+    background:
+        rgba(15,23,42,.06);
+
+    color: #171b27;
+}
+
+:root[data-theme="light"] .messageTime {
+    color: rgba(15,23,42,.45);
+}
+
+:root[data-theme="light"] .scrollBottomBtn {
+    background:
+        rgba(255,255,255,.95);
+
+    color: #202638;
+
+    border-color:
+        rgba(15,23,42,.09);
+
+    box-shadow:
+        0 10px 30px rgba(15,23,42,.12);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1024px) {
+
+    :root {
+        --chat-width: 860px;
+    }
+
+    .chatWindow {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .messageBubble {
+        max-width: calc(100% - 50px);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .chatWindow {
+        gap: 18px;
+
+        padding:
+            20px
+            12px
+            120px;
+    }
+
+    .messageRow,
+    .typingRow {
+        gap: 9px;
+    }
+
+    .avatar {
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+        min-height: 34px;
+
+        border-radius: 11px;
+
+        font-size: 15px;
+    }
+
+    .messageBubble {
+        max-width:
+            calc(100% - 43px);
+
+        padding:
+            13px 15px;
+
+        border-radius: 16px;
+
+        font-size: 14px;
+        line-height: 1.65;
+    }
+
+    .messageActions {
+        top: -42px;
+
+        right: 0;
+
+        max-width:
+            calc(100vw - 65px);
+
+        overflow-x: auto;
+
+        scrollbar-width: none;
+    }
+
+    .messageActions::-webkit-scrollbar {
+        display: none;
+    }
+
+    .actionBtn {
+        width: 29px;
+        height: 29px;
+    }
+
+    .scrollBottomBtn {
+        right: 16px;
+        bottom: 95px;
+
+        width: 40px;
+        height: 40px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .chatWindow {
+        padding:
+            16px
+            9px
+            110px;
+
+        gap: 16px;
+    }
+
+    .messageBubble {
+        padding:
+            12px 13px;
+
+        font-size: 13.5px;
+    }
+
+    .messageBubble h1 {
+        font-size: 1.4rem;
+    }
+
+    .messageBubble h2 {
+        font-size: 1.2rem;
+    }
+
+    .messageBubble h3 {
+        font-size: 1.05rem;
+    }
+
+    .messageBubble pre {
+        padding: 12px;
+    }
+
+    .scrollBottomBtn {
+        right: 12px;
+        bottom: 88px;
+    }
+}
+
+/* =========================================================
+   PROMPT BAR
+========================================================= */
+
+.promptWrapper {
+    position: fixed;
+
+    left: var(--sidebar-width, 270px);
+    right: 0;
+    bottom: 0;
+
+    z-index: 80;
+
+    padding:
+        18px
+        clamp(18px, 4vw, 60px)
+        22px;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(11, 14, 20, .98) 0%,
+            rgba(11, 14, 20, .88) 45%,
+            rgba(11, 14, 20, 0) 100%
+        );
+}
+
+
+/* =========================================================
+   PROMPT CONTAINER
+========================================================= */
+
+.promptContainer {
+    width: min(100%, 920px);
+
+    margin: 0 auto;
+
+    min-height: 62px;
+
+    display: flex;
+    align-items: flex-end;
+
+    gap: 8px;
+
+    padding: 9px 10px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(23, 28, 40, .96),
+            rgba(15, 19, 28, .98)
+        );
+
+    border:
+        1px solid
+        rgba(255,255,255,.09);
+
+    box-shadow:
+        0 18px 55px rgba(0,0,0,.40),
+        0 0 0 1px rgba(255,255,255,.015);
+
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+
+    pointer-events: auto;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+}
+
+
+/* =========================================================
+   FOCUS EFFECT
+========================================================= */
+
+.promptContainer:focus-within {
+    border-color:
+        rgba(91,109,255,.38);
+
+    box-shadow:
+        0 18px 55px rgba(0,0,0,.42),
+        0 0 0 3px rgba(91,109,255,.08),
+        0 0 35px rgba(91,109,255,.08);
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+.promptContainer textarea {
+    flex: 1;
+
+    min-width: 0;
+
+    width: 100%;
+
+    min-height: 42px;
+    max-height: 180px;
+
+    padding:
+        11px 7px;
+
+    resize: none;
+
+    overflow-y: auto;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #f1f4fb;
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(255,255,255,.12)
+        transparent;
+}
+
+
+/* =========================================================
+   TEXTAREA SCROLLBAR
+========================================================= */
+
+.promptContainer textarea::-webkit-scrollbar {
+    width: 5px;
+}
+
+.promptContainer textarea::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.promptContainer textarea::-webkit-scrollbar-thumb {
+    background:
+        rgba(255,255,255,.12);
+
+    border-radius: 999px;
+}
+
+
+/* =========================================================
+   PLACEHOLDER
+========================================================= */
+
+.promptContainer textarea::placeholder {
+    color: #737c94;
+
+    opacity: 1;
+}
+
+
+/* =========================================================
+   TOOL BUTTON
+========================================================= */
+
+.toolBtn {
+    width: 42px;
+    height: 42px;
+
+    min-width: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 13px;
+
+    background:
+        rgba(255,255,255,.045);
+
+    color: #929bb3;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.toolBtn:hover {
+    background:
+        rgba(255,255,255,.09);
+
+    color: #ffffff;
+
+    transform: translateY(-1px);
+}
+
+
+.toolBtn:active {
+    transform: scale(.94);
+}
+
+
+/* =========================================================
+   SEND BUTTON
+========================================================= */
+
+.sendBtn {
+    width: 44px;
+    height: 44px;
+
+    min-width: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 14px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5b6dff,
+            #7658ff
+        );
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 7px 22px rgba(91,109,255,.24);
+
+    transition:
+        transform .2s ease,
+        filter .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.sendBtn:hover {
+    filter: brightness(1.08);
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 10px 28px rgba(91,109,255,.35);
+}
+
+
+.sendBtn:active {
+    transform: scale(.94);
+}
+
+
+/* =========================================================
+   LISTENING
+========================================================= */
+
+.toolBtn.listening {
+    background:
+        rgba(239,68,68,.14);
+
+    color: #ff6577;
+
+    border:
+        1px solid
+        rgba(239,68,68,.18);
+
+    animation:
+        promptVoicePulse 1.4s infinite;
+}
+
+
+@keyframes promptVoicePulse {
+
+    0% {
+        box-shadow:
+            0 0 0 0 rgba(239,68,68,.25);
+    }
+
+    70% {
+        box-shadow:
+            0 0 0 8px rgba(239,68,68,0);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 0 rgba(239,68,68,0);
+    }
+}
+
+
+/* =========================================================
+   ATTACHED FILE
+========================================================= */
+
+.attachedFile {
+    max-width: 210px;
+    min-width: 0;
+
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        0 8px;
+
+    border-radius: 11px;
+
+    background:
+        rgba(91,109,255,.10);
+
+    border:
+        1px solid
+        rgba(91,109,255,.18);
+
+    color: #cbd2ff;
+
+    font-size: 12px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    flex-shrink: 0;
+}
+
+
+.attachedFile > span {
+    min-width: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.attachedFile img {
+    width: 34px !important;
+    height: 34px !important;
+
+    flex-shrink: 0;
+
+    border-radius: 8px !important;
+
+    margin-right: 2px !important;
+}
+
+
+/* =========================================================
+   REMOVE FILE
+========================================================= */
+
+.removeFileBtn {
+    width: 25px;
+    height: 25px;
+
+    min-width: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+    border-radius: 7px;
+
+    background:
+        rgba(255,255,255,.06);
+
+    color: #8d96ad;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+
+.removeFileBtn:hover {
+    background:
+        rgba(255,75,95,.14);
+
+    color: #ff6679;
+}
+
+
+/* =========================================================
+   ATTACHMENT HOVER
+========================================================= */
+
+.attachedFile:hover {
+    background:
+        rgba(91,109,255,.14);
+
+    border-color:
+        rgba(91,109,255,.25);
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+:root[data-theme="light"] .promptWrapper {
+    background:
+        linear-gradient(
+            to top,
+            rgba(246,247,251,.98) 0%,
+            rgba(246,247,251,.90) 45%,
+            rgba(246,247,251,0) 100%
+        );
+}
+
+
+:root[data-theme="light"] .promptContainer {
+    background:
+        rgba(255,255,255,.96);
+
+    border-color:
+        rgba(15,23,42,.10);
+
+    box-shadow:
+        0 18px 55px rgba(15,23,42,.12);
+}
+
+
+:root[data-theme="light"] .promptContainer:focus-within {
+    border-color:
+        rgba(91,109,255,.35);
+
+    box-shadow:
+        0 18px 55px rgba(15,23,42,.12),
+        0 0 0 3px rgba(91,109,255,.07);
+}
+
+
+:root[data-theme="light"] .promptContainer textarea {
+    color: #171b27;
+}
+
+
+:root[data-theme="light"] .promptContainer textarea::placeholder {
+    color: #8b93a7;
+}
+
+
+:root[data-theme="light"] .toolBtn {
+    background:
+        rgba(15,23,42,.045);
+
+    color: #687188;
+}
+
+
+:root[data-theme="light"] .toolBtn:hover {
+    background:
+        rgba(15,23,42,.08);
+
+    color: #171b27;
+}
+
+
+:root[data-theme="light"] .attachedFile {
+    background:
+        rgba(91,109,255,.07);
+
+    border-color:
+        rgba(91,109,255,.15);
+
+    color: #505ca5;
+}
+
+
+/* =========================================================
+   COLLAPSED SIDEBAR
+========================================================= */
+
+.sidebar.collapsed ~ * .promptWrapper {
+    left: var(--sidebar-collapse, 72px);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .promptWrapper {
+        left: 0;
+
+        padding:
+            10px
+            10px
+            14px;
+    }
+
+    .promptContainer {
+        min-height: 58px;
+
+        padding: 7px;
+
+        gap: 5px;
+
+        border-radius: 17px;
+    }
+
+    .toolBtn {
+        width: 38px;
+        height: 38px;
+
+        min-width: 38px;
+
+        border-radius: 11px;
+    }
+
+    .sendBtn {
+        width: 40px;
+        height: 40px;
+
+        min-width: 40px;
+
+        border-radius: 12px;
+    }
+
+    .promptContainer textarea {
+        font-size: 14px;
+
+        min-height: 40px;
+    }
+
+    .attachedFile {
+        max-width: 130px;
+
+        height: 38px;
+
+        font-size: 11px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .promptWrapper {
+        padding:
+            8px
+            7px
+            10px;
+    }
+
+    .promptContainer {
+        border-radius: 15px;
+    }
+
+    .toolBtn:nth-of-type(1),
+    .toolBtn:nth-of-type(2) {
+        width: 34px;
+        min-width: 34px;
+    }
+
+    .toolBtn {
+        width: 36px;
+        min-width: 36px;
+
+        height: 36px;
+    }
+
+    .sendBtn {
+        width: 38px;
+        min-width: 38px;
+
+        height: 38px;
+    }
+
+    .promptContainer textarea {
+        padding:
+            9px 4px;
+
+        font-size: 13px;
+    }
+
+    .attachedFile {
+        max-width: 105px;
+    }
+}   
+
+/* =========================================================
+   MESSAGE RESULT — PREMIUM FIX
+========================================================= */
+
+.messageRow {
+    width: min(100%, 900px);
+    margin-left: auto;
+    margin-right: auto;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    min-width: 0;
+}
+
+
+/* =========================
+   AI MESSAGE
+========================= */
+
+.messageRow.ai {
+    justify-content: flex-start;
+}
+
+.messageRow.ai .messageBubble {
+
+    width: fit-content;
+    max-width: min(82%, 760px);
+
+    padding: 17px 20px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30, 33, 46, .96),
+            rgba(20, 23, 32, .98)
+        );
+
+    border: 1px solid rgba(255,255,255,.07);
+
+    color: #E7EAF5;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.12);
+}
+
+
+/* =========================
+   USER MESSAGE
+========================= */
+
+.messageRow.user {
+    justify-content: flex-end;
+}
+
+.messageRow.user .messageBubble {
+
+    width: fit-content;
+    max-width: min(72%, 650px);
+
+    padding: 13px 18px;
+
+    border-radius: 18px 18px 5px 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5B6DFF,
+            #7648E8
+        );
+
+    color: #FFFFFF;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    box-shadow:
+        0 8px 25px rgba(91,109,255,.20);
+}
+
+
+/* =========================
+   REMOVE WEIRD P MARGINS
+========================= */
+
+.messageBubble > p {
+
+    margin: 0;
+
+}
+
+.messageBubble > p + p {
+
+    margin-top: 12px;
+
+}
+
+
+/* =========================
+   AI MARKDOWN
+========================= */
+
+.messageRow.ai .messageBubble h1,
+.messageRow.ai .messageBubble h2,
+.messageRow.ai .messageBubble h3 {
+
+    color: #FFFFFF;
+
+    line-height: 1.35;
+
+}
+
+
+.messageRow.ai .messageBubble h1 {
+
+    font-size: 23px;
+
+    margin: 4px 0 14px;
+
+}
+
+
+.messageRow.ai .messageBubble h2 {
+
+    font-size: 19px;
+
+    margin: 18px 0 10px;
+
+}
+
+
+.messageRow.ai .messageBubble h3 {
+
+    font-size: 16px;
+
+    margin: 16px 0 8px;
+
+}
+
+
+/* =========================
+   LISTS
+========================= */
+
+.messageBubble ul,
+.messageBubble ol {
+
+    margin: 12px 0;
+
+    padding-left: 24px;
+
+}
+
+
+.messageBubble li {
+
+    margin: 6px 0;
+
+}
+
+
+/* =========================
+   INLINE CODE
+========================= */
+
+.messageBubble code:not(pre code) {
+
+    padding: 3px 7px;
+
+    border-radius: 6px;
+
+    background: rgba(139,92,246,.15);
+
+    color: #C4B5FD;
+
+    font-size: .9em;
+
+}
+
+
+/* =========================
+   CODE BLOCK
+========================= */
+
+.messageBubble pre {
+
+    margin: 16px 0;
+
+    padding: 16px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    overflow-x: auto;
+
+    border-radius: 13px;
+
+    background: #0B1020;
+
+    border: 1px solid rgba(255,255,255,.07);
+
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+.messageBubble a {
+
+    color: #A78BFA;
+
+    font-weight: 500;
+
+}
+
+
+/* =========================
+   TIME
+========================= */
+
+.messageFooter {
+
+    margin-top: 9px;
+
+    display: flex;
+
+    justify-content: flex-end;
+
+}
+
+
+.messageTime {
+
+    font-size: 10px;
+
+    color: rgba(255,255,255,.42);
+
+}
+
+
+/* =========================
+   AI AVATAR
+========================= */
+
+.messageRow.ai .avatar {
+
+    background:
+        linear-gradient(
+            145deg,
+            #25213D,
+            #171927
+        );
+
+    border: 1px solid rgba(139,92,246,.25);
+
+    color: #BFA7FF;
+
+    box-shadow:
+        0 0 20px rgba(139,92,246,.10);
+}
+
+
+/* =========================
+   USER AVATAR
+========================= */
+
+.messageRow.user .avatar {
+
+    background:
+        linear-gradient(
+            145deg,
+            #5B6DFF,
+            #7648E8
+        );
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .messageRow.ai .messageBubble {
+
+        max-width: calc(100% - 48px);
+
+        padding: 14px 16px;
+
+        font-size: 14px;
+
+    }
+
+    .messageRow.user .messageBubble {
+
+        max-width: 82%;
+
+    }
+
+}
+
+/* =======================================================
+   MESSAGE SIDE FIX
+======================================================= */
+
+.chatWindow .messageRow {
+    width: min(100%, var(--chat-width, 900px));
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    min-width: 0;
+}
+
+/* AI → LEFT */
+.chatWindow .messageRow.ai {
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+/* USER → RIGHT */
+.chatWindow .messageRow.user {
+    flex-direction: row-reverse;
+    justify-content: flex-start;
+}
+
+/* AI bubble */
+.chatWindow .messageRow.ai .messageBubble {
+    margin-right: auto;
+    margin-left: 0;
+}
+
+/* User bubble */
+.chatWindow .messageRow.user .messageBubble {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+/* Keep avatar attached to correct side */
+.chatWindow .messageRow.ai .avatar {
+    order: 0;
+}
+
+.chatWindow .messageRow.user .avatar {
+    order: 0;
+}
+
+/* =========================================================
+   CHAT WINDOW
+========================================================= */
+
+.chatWindow {
+    position: relative;
+
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: clamp(18px, 2vw, 26px);
+
+    box-sizing: border-box;
+
+    padding:
+        clamp(20px, 3vw, 36px)
+        clamp(20px, 4vw, 60px)
+        170px;
+
+    /*
+       IMPORTANT:
+       JS streaming ke time auto-scroll karega.
+       CSS smooth ko continuously apply nahi karna.
+    */
+    scroll-behavior: auto;
+
+    overscroll-behavior-y: contain;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-gutter: stable;
+}
+
+
+/* =========================================================
+   BOTTOM ANCHOR
+========================================================= */
+
+.chatBottomAnchor {
+    width: 1px;
+    height: 1px;
+
+    flex-shrink: 0;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.chatWindow::-webkit-scrollbar {
+    width: 7px;
+}
+
+.chatWindow::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.chatWindow::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.20);
+
+    border-radius: 999px;
+
+    transition:
+        background .25s ease;
+}
+
+.chatWindow::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.45);
+}
+
+
+/* Firefox */
+
+.chatWindow {
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(139, 92, 246, .25)
+        transparent;
+}
+
+
+/* =========================================================
+   SCROLL TO BOTTOM
+========================================================= */
+
+.scrollBottomBtn {
+    position: sticky;
+
+    align-self: flex-end;
+
+    bottom: 95px;
+
+    z-index: 100;
+
+    width: 40px;
+    height: 40px;
+
+    margin:
+        -55px
+        18px
+        15px
+        0;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid
+        rgba(255, 255, 255, .10);
+
+    border-radius: 50%;
+
+    background:
+        rgba(25, 28, 39, .90);
+
+    color: #ffffff;
+
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+        0 8px 25px rgba(0,0,0,.25),
+        0 0 20px rgba(139,92,246,.08);
+
+    cursor: pointer;
+
+    transition:
+        transform .2s ease,
+        background .2s ease,
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+.scrollBottomBtn:hover {
+    transform: translateY(-2px);
+
+    background:
+        rgba(139,92,246,.18);
+
+    border-color:
+        rgba(139,92,246,.40);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.30),
+        0 0 25px rgba(139,92,246,.15);
+}
+
+.scrollBottomBtn:active {
+    transform: scale(.94);
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+:root[data-theme="light"] .scrollBottomBtn {
+    background:
+        rgba(255,255,255,.94);
+
+    border-color:
+        rgba(15,23,42,.10);
+
+    color: #111827;
+
+    box-shadow:
+        0 8px 25px rgba(15,23,42,.14);
+}
+
+:root[data-theme="light"] .scrollBottomBtn:hover {
+    background:
+        rgba(139,92,246,.08);
+
+    border-color:
+        rgba(139,92,246,.30);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .chatWindow {
+        padding:
+            18px
+            14px
+            150px;
+    }
+
+    .scrollBottomBtn {
+        bottom: 85px;
+
+        width: 38px;
+        height: 38px;
+
+        margin-right: 10px;
+    }
+
+}
+
+/* =========================================================
+   CHAT HISTORY ITEM — FIX LONG TITLES
+========================================================= */
+
+.chatHistoryItem {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    box-sizing: border-box;
+}
+
+
+/* Chat title */
+
+.chatHistoryItem .chatTitle {
+    flex: 1;
+    min-width: 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    display: block;
+}
+
+
+/* Delete button */
+
+.chatHistoryItem .deleteBtn {
+    flex: 0 0 32px;
+
+    width: 32px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity .2s ease,
+        background .2s ease,
+        color .2s ease;
+}
+
+
+/* Hover par delete button */
+
+.chatHistoryItem:hover .deleteBtn {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Delete button hover */
+
+.chatHistoryItem .deleteBtn:hover {
+    background: rgba(239, 68, 68, .12);
+    color: #ef4444;
+}
+
+
+/* Mobile / compact sidebar */
+
+@media (max-width: 760px) {
+
+    .chatHistoryItem .deleteBtn {
+        opacity: 1;
+        visibility: visible;
+    }
+
+}
+
+.chatHistoryItem {
+    min-width: 0;
+}
+
+.chatHistoryItem .chatTitle {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.chatHistoryItem .deleteBtn {
+    flex-shrink: 0;
+}
+
+/* ===============================
+   PROMPT / TEXTING AREA FIX
+================================ */
+
+.promptBar,
+.promptContainer {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+.promptBar {
+  padding-left: clamp(12px, 2vw, 24px);
+  padding-right: clamp(12px, 2vw, 24px);
+}
+
+.promptBar textarea,
+.promptBar input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* Agar prompt ke andar flex elements hain */
+.promptBar > *,
+.promptContainer > * {
+  min-width: 0;
+}
+
+/* Main chat layout ko horizontal overflow se roko */
+.chatPage,
+.chatContainer,
+.chatMain,
+.chatWindow {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.chatPage,
+.chatContainer {
+  overflow-x: hidden;
+}
+
+/* Mobile / small screen */
+@media (max-width: 768px) {
+  .promptBar {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* =========================================================
+   PROMPT / TEXTING AREA — OVERFLOW FIX
+========================================================= */
+
+.home {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+.homeChatArea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  flex: 1;
+  box-sizing: border-box;
+
+  overflow: hidden;
+}
+
+/* ===============================
+   BOTTOM TEXTING AREA
+================================ */
+
+.homePromptArea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+
+  flex-shrink: 0;
+
+  overflow: visible;
+}
+
+/* Prompt itself */
+.homePromptArea > * {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+/* ===============================
+   PROMPT BAR
+================================ */
+
+.promptBar,
+.promptContainer,
+.promptBox {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+/* ===============================
+   TEXTAREA / INPUT
+================================ */
+
+.promptBar textarea,
+.promptContainer textarea,
+.promptBox textarea,
+.homePromptArea textarea,
+.homePromptArea input {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+
+  box-sizing: border-box;
+}
+
+/* ===============================
+   FLEX CHILDREN
+================================ */
+
+.homePromptArea,
+.homePromptArea > div,
+.promptBar,
+.promptContainer {
+  min-width: 0;
+}
+
+/* =====================================================
+   CHAT HISTORY ITEM
+===================================================== */
+
+.chatHistoryItem {
+    width: 100%;
+    min-width: 0;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 9px 10px;
+
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   CHAT TITLE
+===================================================== */
+
+.chatHistoryItem .chatTitle {
+    flex: 1;
+
+    min-width: 0;
+
+    overflow: hidden;
+
+    white-space: nowrap;
+
+    text-overflow: ellipsis;
+
+    display: block;
+}
+
+
+/* =====================================================
+   DELETE BUTTON
+===================================================== */
+
+.chatHistoryItem .deleteChatBtn {
+    flex: 0 0 auto;
+
+    width: 30px;
+    height: 30px;
+
+    min-width: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+/* =====================================================
+   PREVENT LONG TEXT FROM BREAKING LAYOUT
+===================================================== */
+
+.chatHistoryItem > * {
+    min-width: 0;
+}
+

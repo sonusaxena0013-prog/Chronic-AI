@@ -1,0 +1,1840 @@
+/* =========================================================
+   CHRONIC AI — PROFILE PAGE
+========================================================= */
+
+.profilePage {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding:
+        30px
+        clamp(20px, 4vw, 60px)
+        80px;
+
+    box-sizing: border-box;
+
+    color: #f5f7ff;
+
+    scroll-behavior: smooth;
+}
+
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.profilePage::-webkit-scrollbar {
+    width: 7px;
+}
+
+.profilePage::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.profilePage::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, .22);
+    border-radius: 999px;
+}
+
+.profilePage::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, .45);
+}
+
+
+/* =========================================================
+   COMMON WIDTH
+========================================================= */
+
+.profileHero,
+.profileGrid {
+    width: min(945px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.profileHero {
+    position: relative;
+
+    overflow: hidden;
+
+    border-radius: 22px;
+
+    border:
+        1px solid rgba(255,255,255,.075);
+
+    background:
+        rgba(20,23,38,.82);
+
+    box-shadow:
+        0 15px 45px rgba(0,0,0,.18);
+}
+
+
+/* =========================================================
+   COVER
+========================================================= */
+
+.profileCover {
+    height: 125px;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            120deg,
+            #292a5c,
+            #5140a0 48%,
+            #20223e
+        );
+}
+
+.profileCover::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(170,130,255,.28),
+            transparent 60%
+        );
+}
+
+.coverGlow {
+    position: absolute;
+
+    width: 280px;
+    height: 180px;
+
+    border-radius: 50%;
+
+    filter: blur(45px);
+}
+
+.coverGlowOne {
+    top: -130px;
+    left: 35%;
+
+    background: rgba(139,92,246,.25);
+}
+
+.coverGlowTwo {
+    right: -80px;
+    bottom: -140px;
+
+    background: rgba(91,109,255,.15);
+}
+
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.profileHeroContent {
+    min-height: 110px;
+
+    padding:
+        0
+        24px
+        22px;
+
+    display: flex;
+    align-items: flex-end;
+
+    gap: 18px;
+
+    position: relative;
+}
+
+
+/* =========================================================
+   AVATAR
+========================================================= */
+
+.profileAvatarWrapper {
+    position: relative;
+
+    flex-shrink: 0;
+
+    margin-top: -50px;
+}
+
+.profileAvatar {
+    width: 92px;
+    height: 92px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7862ff,
+            #986cff
+        );
+
+    border:
+        4px solid #171a2b;
+
+    box-shadow:
+        0 0 0 2px rgba(139,92,246,.55),
+        0 10px 30px rgba(0,0,0,.35);
+
+    font-size: 42px;
+    font-weight: 800;
+
+    color: white;
+}
+
+.profileAvatar img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* =========================================================
+   MINI CAMERA
+========================================================= */
+
+.avatarCameraBtn {
+    position: absolute;
+
+    right: -1px;
+    bottom: 1px;
+
+    width: 29px;
+    height: 29px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        2px solid #171a2b;
+
+    background:
+        #5868ff;
+
+    color: white;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 5px 15px rgba(0,0,0,.35);
+
+    transition:
+        transform .2s ease,
+        background .2s ease;
+}
+
+.avatarCameraBtn:hover {
+    transform: scale(1.1);
+
+    background: #7461ff;
+}
+
+
+/* =========================================================
+   IDENTITY
+========================================================= */
+
+.profileIdentity {
+    min-width: 0;
+
+    flex: 1;
+
+    padding-bottom: 1px;
+}
+
+.profileNameRow {
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+}
+
+.profileNameRow h1 {
+    margin: 0;
+
+    font-size: 25px;
+
+    line-height: 1.2;
+
+    font-weight: 800;
+
+    color: #f8f8ff;
+}
+
+.profileRole {
+    padding:
+        4px
+        9px;
+
+    border-radius: 999px;
+
+    background:
+        rgba(91,109,255,.12);
+
+    border:
+        1px solid rgba(109,124,255,.20);
+
+    color: #aeb7ff;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.profileUsername {
+    margin-top: 4px;
+
+    color: #7d86a8;
+
+    font-size: 12px;
+}
+
+.profileIdentity p {
+    margin:
+        8px
+        0
+        0;
+
+    color: #929ab8;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   EDIT BUTTON
+========================================================= */
+
+.editProfileBtn {
+    flex-shrink: 0;
+
+    height: 37px;
+
+    padding:
+        0
+        14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 10px;
+
+    border:
+        1px solid rgba(255,255,255,.08);
+
+    background:
+        rgba(255,255,255,.045);
+
+    color: #d8dcf1;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
+}
+
+.editProfileBtn:hover {
+    background:
+        rgba(91,109,255,.13);
+
+    border-color:
+        rgba(109,124,255,.28);
+
+    transform: translateY(-1px);
+}
+
+
+/* =========================================================
+   GRIDS
+========================================================= */
+
+.profileGrid {
+    display: grid;
+
+    gap: 18px;
+
+    margin-top: 18px;
+}
+
+.topGrid {
+    grid-template-columns:
+        minmax(0, 1.65fr)
+        minmax(250px, .85fr);
+}
+
+.bottomGrid {
+    grid-template-columns:
+        minmax(0, 1.65fr)
+        minmax(250px, .85fr);
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.profileCard {
+    min-width: 0;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    border:
+        1px solid rgba(255,255,255,.065);
+
+    background:
+        rgba(22,26,42,.82);
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.12);
+}
+
+.profileCard .profileAvatar {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.cardLabel {
+    margin-bottom: 9px;
+
+    color: #727da2;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.2px;
+}
+
+
+/* =========================================================
+   MAIN ROW
+========================================================= */
+
+.cardMainRow {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+.profileCardIcon {
+    width: 32px;
+    height: 32px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 9px;
+
+    background:
+        rgba(91,109,255,.09);
+
+    border:
+        1px solid rgba(91,109,255,.12);
+
+    color: #8591ff;
+}
+
+.profileCard h2 {
+    margin: 0;
+
+    font-size: 14px;
+
+    line-height: 1.35;
+
+    color: #e9ebf8;
+}
+
+.profileCard p {
+    margin: 6px 0 0;
+
+    color: #8f98b8;
+
+    font-size: 11px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.activeStatus {
+    display: flex;
+
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 8px;
+
+    color: #64dfaa;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.activeStatus span {
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #5ce2a8;
+
+    box-shadow:
+        0 0 8px rgba(92,226,168,.7);
+}
+
+
+/* =========================================================
+   PERSONAL INFO
+========================================================= */
+
+.personalCard h2 {
+    margin-bottom: 15px;
+}
+
+.infoGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 10px;
+}
+
+.infoBox {
+    min-width: 0;
+
+    min-height: 62px;
+
+    padding: 11px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 9px;
+
+    border-radius: 12px;
+
+    border:
+        1px solid rgba(255,255,255,.055);
+
+    background:
+        rgba(255,255,255,.025);
+}
+
+.infoIcon {
+    color: #7986ff;
+
+    font-size: 12px;
+
+    margin-top: 2px;
+}
+
+.infoBox span {
+    display: block;
+
+    color: #707a9d;
+
+    font-size: 9px;
+
+    margin-bottom: 5px;
+}
+
+.infoBox strong {
+    display: block;
+
+    max-width: 120px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
+
+    color: #dce0f2;
+
+    font-size: 11px;
+}
+
+.infoBox .activeText {
+    color: #62dda8;
+}
+
+
+/* =========================================================
+   OVERVIEW
+========================================================= */
+
+.overviewStats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 8px;
+
+    margin-top: 15px;
+}
+
+.statBox {
+    min-width: 0;
+
+    min-height: 67px;
+
+    padding: 10px 7px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 11px;
+
+    border:
+        1px solid rgba(255,255,255,.055);
+
+    background:
+        rgba(255,255,255,.025);
+
+    text-align: center;
+}
+
+.statIcon {
+    color: #7481ff;
+
+    font-size: 10px;
+
+    margin-bottom: 3px;
+}
+
+.statBox strong {
+    color: #e7e9f7;
+
+    font-size: 12px;
+}
+
+.statBox span {
+    margin-top: 2px;
+
+    color: #69738f;
+
+    font-size: 8px;
+}
+
+
+/* =========================================================
+   EDIT MODAL
+========================================================= */
+
+.profileModalOverlay {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 1000;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px;
+
+    background:
+        rgba(5,7,15,.72);
+
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+.profileModal {
+    width: min(470px, 100%);
+
+    max-height: calc(100vh - 40px);
+
+    overflow-y: auto;
+
+    padding: 22px;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(255,255,255,.09);
+
+    background:
+        linear-gradient(
+            145deg,
+            #191c2d,
+            #121522
+        );
+
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.55);
+}
+
+.profileModal::-webkit-scrollbar {
+    width: 5px;
+}
+
+.profileModal::-webkit-scrollbar-thumb {
+    background: rgba(139,92,246,.3);
+
+    border-radius: 999px;
+}
+
+
+/* =========================================================
+   MODAL HEADER
+========================================================= */
+
+.modalHeader {
+    display: flex;
+
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+}
+
+.modalHeader span {
+    color: #747fa4;
+
+    font-size: 9px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+}
+
+.modalHeader h2 {
+    margin: 5px 0 0;
+
+    color: #f2f3fb;
+
+    font-size: 19px;
+}
+
+.modalCloseBtn {
+    width: 32px;
+    height: 32px;
+
+    border-radius: 9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border:
+        1px solid rgba(255,255,255,.06);
+
+    background:
+        rgba(255,255,255,.035);
+
+    color: #9ba3bf;
+
+    cursor: pointer;
+}
+
+.modalCloseBtn:hover {
+    color: white;
+
+    background:
+        rgba(255,255,255,.08);
+}
+
+
+/* =========================================================
+   MODAL AVATAR
+========================================================= */
+
+.modalAvatarArea {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 22px;
+}
+
+.modalAvatar {
+    width: 70px;
+    height: 70px;
+
+    flex-shrink: 0;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7862ff,
+            #9c6cff
+        );
+
+    color: white;
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    border:
+        3px solid #20243a;
+}
+
+.modalAvatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+.avatarActions {
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+    gap: 6px;
+}
+
+.changePhotoBtn {
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        8px
+        11px;
+
+    border-radius: 9px;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    background:
+        rgba(255,255,255,.05);
+
+    color: #dce0f2;
+
+    font-size: 10px;
+
+    cursor: pointer;
+}
+
+.changePhotoBtn:hover {
+    background:
+        rgba(91,109,255,.12);
+}
+
+.removePhotoBtn {
+    border: none;
+
+    background: transparent;
+
+    color: #ef8491;
+
+    font-size: 9px;
+
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   FORM
+========================================================= */
+
+.profileForm {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+.profileForm label {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    color: #8b95b5;
+
+    font-size: 10px;
+
+    font-weight: 600;
+}
+
+.profileForm input,
+.profileForm textarea {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    border-radius: 10px;
+
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    outline: none;
+
+    background:
+        rgba(255,255,255,.035);
+
+    color: #eef0fa;
+
+    padding:
+        10px
+        11px;
+
+    font-family: inherit;
+
+    font-size: 12px;
+
+    transition:
+        border-color .2s ease,
+        background .2s ease;
+}
+
+.profileForm textarea {
+    resize: vertical;
+
+    min-height: 75px;
+}
+
+.profileForm input:focus,
+.profileForm textarea:focus {
+    border-color:
+        rgba(111,125,255,.5);
+
+    background:
+        rgba(91,109,255,.05);
+}
+
+.profileForm input::placeholder,
+.profileForm textarea::placeholder {
+    color: #59627f;
+}
+
+
+/* =========================================================
+   MODAL ACTIONS
+========================================================= */
+
+.modalActions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 9px;
+
+    margin-top: 21px;
+}
+
+.cancelBtn,
+.saveProfileBtn {
+    height: 38px;
+
+    padding:
+        0
+        14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border-radius: 10px;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.cancelBtn {
+    border:
+        1px solid rgba(255,255,255,.07);
+
+    background:
+        rgba(255,255,255,.035);
+
+    color: #9ca5c2;
+}
+
+.saveProfileBtn {
+    border: none;
+
+    background:
+        linear-gradient(
+            135deg,
+            #536cff,
+            #8258e9
+        );
+
+    color: white;
+
+    box-shadow:
+        0 7px 20px rgba(91,109,255,.22);
+}
+
+.saveProfileBtn:hover {
+    filter: brightness(1.08);
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+:root[data-theme="light"] .profilePage {
+    color: #111827;
+}
+
+:root[data-theme="light"] .profileHero,
+:root[data-theme="light"] .profileCard {
+    background:
+        rgba(255,255,255,.88);
+
+    border-color:
+        rgba(15,23,42,.07);
+
+    box-shadow:
+        0 12px 35px rgba(15,23,42,.06);
+}
+
+:root[data-theme="light"] .profileCover {
+    background:
+        linear-gradient(
+            120deg,
+            #d9d9ff,
+            #a99df7,
+            #e8e5ff
+        );
+}
+
+:root[data-theme="light"] .profileAvatar {
+    border-color: #ffffff;
+}
+
+:root[data-theme="light"] .avatarCameraBtn {
+    border-color: white;
+}
+
+:root[data-theme="light"] .profileNameRow h1,
+:root[data-theme="light"] .profileCard h2 {
+    color: #171a2a;
+}
+
+:root[data-theme="light"] .profileUsername {
+    color: #6b7280;
+}
+
+:root[data-theme="light"] .profileIdentity p,
+:root[data-theme="light"] .profileCard p {
+    color: #64748b;
+}
+
+:root[data-theme="light"] .editProfileBtn {
+    background: rgba(15,23,42,.035);
+
+    border-color: rgba(15,23,42,.08);
+
+    color: #374151;
+}
+
+:root[data-theme="light"] .infoBox,
+:root[data-theme="light"] .statBox {
+    background: rgba(15,23,42,.025);
+
+    border-color: rgba(15,23,42,.06);
+}
+
+:root[data-theme="light"] .infoBox strong,
+:root[data-theme="light"] .statBox strong {
+    color: #1f2937;
+}
+
+:root[data-theme="light"] .infoBox span,
+:root[data-theme="light"] .statBox span {
+    color: #64748b;
+}
+
+:root[data-theme="light"] .profileModalOverlay {
+    background: rgba(15,23,42,.35);
+}
+
+:root[data-theme="light"] .profileModal {
+    background: #ffffff;
+
+    border-color: rgba(15,23,42,.08);
+
+    box-shadow: 0 30px 80px rgba(15,23,42,.2);
+}
+
+:root[data-theme="light"] .modalHeader h2 {
+    color: #111827;
+}
+
+:root[data-theme="light"] .profileForm input,
+:root[data-theme="light"] .profileForm textarea {
+    background: #f8fafc;
+
+    border-color: #e2e8f0;
+
+    color: #111827;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .profilePage {
+        padding:
+            25px
+            20px
+            70px;
+    }
+
+    .topGrid,
+    .bottomGrid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .profilePage {
+        padding:
+            18px
+            12px
+            60px;
+    }
+
+    .profileCover {
+        height: 100px;
+    }
+
+    .profileHeroContent {
+        padding:
+            0
+            17px
+            18px;
+
+        align-items: flex-start;
+
+        flex-wrap: wrap;
+    }
+
+    .profileAvatarWrapper {
+        margin-top: -42px;
+    }
+
+    .profileAvatar {
+        width: 78px;
+        height: 78px;
+
+        font-size: 34px;
+    }
+
+    .profileIdentity {
+        padding-top: 5px;
+
+        width:
+            calc(100% - 100px);
+    }
+
+    .profileNameRow h1 {
+        font-size: 20px;
+    }
+
+    .profileIdentity p {
+        font-size: 11px;
+    }
+
+    .editProfileBtn {
+        width: 100%;
+
+        margin-top: 5px;
+    }
+
+    .infoGrid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .profileCard {
+        padding: 16px;
+    }
+
+    .overviewStats {
+        gap: 6px;
+    }
+
+}
+
+/* =========================================
+   PROFILE AVATAR
+========================================= */
+
+.profileAvatarWrapper {
+  position: relative;
+  width: 82px;
+  height: 82px;
+  flex-shrink: 0;
+}
+
+.profileAvatarButton {
+  width: 82px;
+  height: 82px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profileMainAvatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 50%;
+}
+
+.profileAvatarFallback {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 34px;
+  font-weight: 700;
+
+  background: #7657ff;
+  color: white;
+}
+
+
+/* =========================================
+   CAMERA BUTTON
+========================================= */
+
+.profileCameraBtn {
+  position: absolute;
+
+  right: -2px;
+  bottom: -1px;
+
+  width: 27px;
+  height: 27px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #315df5;
+  color: white;
+
+  border: 3px solid #101522;
+
+  cursor: pointer;
+
+  z-index: 5;
+}
+
+.profileCameraBtn:hover {
+  transform: scale(1.08);
+}
+
+
+/* =========================================
+   IMAGE PREVIEW OVERLAY
+========================================= */
+
+.avatarPreviewOverlay {
+  position: fixed;
+  inset: 0;
+
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(0, 0, 0, 0.72);
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* =========================================
+   PREVIEW BOX
+========================================= */
+
+.avatarPreviewModal {
+  position: relative;
+
+  max-width: min(80vw, 650px);
+  max-height: 80vh;
+
+  padding: 8px;
+
+  border-radius: 18px;
+
+  background: #151a29;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.55);
+
+  animation: avatarPreviewIn 0.18s ease-out;
+}
+
+
+/* =========================================
+   PREVIEW IMAGE
+========================================= */
+
+.avatarPreviewImage {
+  display: block;
+
+  width: min(65vw, 560px);
+  height: min(65vh, 560px);
+
+  object-fit: contain;
+
+  border-radius: 12px;
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.avatarPreviewClose {
+  position: absolute;
+
+  top: -14px;
+  right: -14px;
+
+  width: 36px;
+  height: 36px;
+
+  border-radius: 50%;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  background: #202638;
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  z-index: 10;
+}
+
+.avatarPreviewClose:hover {
+  background: #2b3348;
+}
+
+
+/* =========================================
+   ANIMATION
+========================================= */
+
+@keyframes avatarPreviewIn {
+
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+/* =====================================================
+   PROFILE AVATAR - MAIN
+===================================================== */
+
+.profileAvatarWrapper {
+  position: relative;
+  width: 88px;
+  height: 88px;
+  flex-shrink: 0;
+}
+
+
+/* Clickable image button */
+
+.profileAvatarButton {
+  width: 88px;
+  height: 88px;
+
+  padding: 0;
+  margin: 0;
+
+  border: 0;
+  background: transparent;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  cursor: pointer;
+
+  position: relative;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+
+.profileAvatarButton:hover {
+  transform: scale(1.035);
+
+  box-shadow:
+    0 0 0 3px rgba(124, 92, 246, 0.22),
+    0 0 28px rgba(124, 92, 246, 0.25);
+}
+
+
+/* Actual profile image */
+
+.profileMainAvatar {
+  width: 88px;
+  height: 88px;
+
+  display: block;
+
+  object-fit: cover;
+
+  border-radius: 50%;
+
+  border: 3px solid rgba(139, 92, 246, 0.85);
+
+  background: #111827;
+}
+
+
+/* Fallback initial */
+
+.profileAvatarFallback {
+  width: 88px;
+  height: 88px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7c5cff,
+      #5b45d6
+    );
+
+  color: white;
+
+  font-size: 34px;
+  font-weight: 800;
+
+  border: 3px solid rgba(139, 92, 246, 0.85);
+}
+
+
+/* =====================================================
+   CAMERA BUTTON
+===================================================== */
+
+.avatarCameraBtn {
+  position: absolute;
+
+  right: -2px;
+  bottom: -2px;
+
+  width: 27px;
+  height: 27px;
+
+  padding: 0;
+
+  border: 2px solid #111827;
+
+  border-radius: 50%;
+
+  background: #2563eb;
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  z-index: 5;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+
+.avatarCameraBtn:hover {
+  transform: scale(1.1);
+
+  background: #3b82f6;
+}
+
+
+/* =====================================================
+   AVATAR PREVIEW OVERLAY
+===================================================== */
+
+.avatarPreviewOverlay {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background:
+    rgba(0, 0, 0, 0.78);
+
+  backdrop-filter: blur(12px);
+
+  -webkit-backdrop-filter: blur(12px);
+
+  animation:
+    avatarOverlayIn
+    0.2s ease;
+}
+
+
+/* =====================================================
+   PREVIEW BOX
+===================================================== */
+
+.avatarPreviewModal {
+  position: relative;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 14px;
+
+  padding: 20px;
+
+  border-radius: 20px;
+
+  background: #111827;
+
+  border: 1px solid rgba(
+    255,
+    255,
+    255,
+    0.1
+  );
+
+  box-shadow:
+    0 30px 90px
+    rgba(0, 0, 0, 0.65);
+
+  animation:
+    avatarModalIn
+    0.22s ease;
+}
+
+
+/* =====================================================
+   LARGE PREVIEW IMAGE
+===================================================== */
+
+.avatarPreviewImage {
+  width: min(
+    480px,
+    72vw
+  );
+
+  height: min(
+    480px,
+    72vh
+  );
+
+  max-width: 80vw;
+  max-height: 75vh;
+
+  object-fit: contain;
+
+  display: block;
+
+  border-radius: 14px;
+}
+
+
+/* =====================================================
+   PREVIEW NAME
+===================================================== */
+
+.avatarPreviewName {
+  color: #f3f4f6;
+
+  font-size: 15px;
+
+  font-weight: 600;
+
+  text-align: center;
+}
+
+
+/* =====================================================
+   PREVIEW CLOSE BUTTON
+===================================================== */
+
+.avatarPreviewClose {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  width: 34px;
+  height: 34px;
+
+  padding: 0;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background:
+    rgba(0, 0, 0, 0.6);
+
+  color: white;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+
+  z-index: 10;
+
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+.avatarPreviewClose:hover {
+  background:
+    rgba(255, 255, 255, 0.15);
+
+  transform: scale(1.06);
+}
+
+
+/* =====================================================
+   ANIMATIONS
+===================================================== */
+
+@keyframes avatarOverlayIn {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+
+}
+
+
+@keyframes avatarModalIn {
+
+  from {
+    opacity: 0;
+    transform: scale(0.94);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+  .profileAvatarWrapper,
+  .profileAvatarButton,
+  .profileMainAvatar,
+  .profileAvatarFallback {
+
+    width: 76px;
+    height: 76px;
+
+  }
+
+
+  .profileAvatarFallback {
+
+    font-size: 29px;
+
+  }
+
+
+  .avatarPreviewModal {
+
+    width: min(
+      92vw,
+      520px
+    );
+
+    padding: 15px;
+
+  }
+
+
+  .avatarPreviewImage {
+
+    width: 80vw;
+
+    height: 65vh;
+
+  }
+
+}

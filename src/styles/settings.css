@@ -1,0 +1,1134 @@
+/* ===================================================
+   SETTINGS PAGE
+=================================================== */
+
+.settingsPage{
+
+    width:100%;
+    height:100vh;
+
+    display:grid;
+    grid-template-columns:300px 1fr;
+
+    background:var(--bg-primary);
+
+    overflow:hidden;
+
+}
+
+/* ===================================================
+   SIDEBAR
+=================================================== */
+
+.settingsSidebar{
+
+    display:flex;
+    flex-direction:column;
+
+    background:rgba(255,255,255,.60);
+    backdrop-filter:blur(30px);
+
+    border-right:1px solid rgba(255,255,255,.45);
+
+    padding:28px;
+
+    box-shadow:
+    8px 0 40px rgba(0,0,0,.05);
+
+}
+
+/* ===================================================
+   LOGO
+=================================================== */
+
+.settingsLogo{
+
+    display:flex;
+    align-items:center;
+
+    gap:18px;
+
+    margin-bottom:40px;
+
+}
+
+.settingsLogoIcon{
+
+    width:62px;
+    height:62px;
+
+    border-radius:18px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(
+    135deg,
+    #2563EB,
+    #7C3AED);
+
+    color:white;
+
+    font-size:24px;
+
+    font-weight:700;
+
+    box-shadow:
+
+    0 12px 35px rgba(37,99,235,.25);
+
+}
+
+.settingsLogo h2{
+
+    font-size:22px;
+
+    color:var(--text-primary);
+
+}
+
+.settingsLogo span{
+
+    color:var(--text-secondary);
+
+    font-size:14px;
+
+}
+
+/* ===================================================
+   NAVIGATION
+=================================================== */
+
+.settingsNav{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:12px;
+
+}
+
+.settingsNavItem{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:16px;
+
+    width:100%;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:transparent;
+
+    transition:.25s;
+
+    text-align:left;
+
+}
+
+.settingsNavItem:hover {
+    background: rgba(124, 58, 237, 0.12);
+    border-color: rgba(124, 58, 237, 0.35);
+    transform: translateX(4px);
+}
+
+.settingsNavItem.active{
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #2563EB,
+    #7C3AED);
+
+    color:white;
+
+}
+
+.settingsNavIcon{
+
+    width:48px;
+
+    height:48px;
+
+    border-radius:14px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:22px;
+
+    background:rgba(255,255,255,.15);
+
+}
+
+.settingsNavItem h4{
+
+    font-size:16px;
+
+    margin-bottom:2px;
+
+}
+
+.settingsNavItem p{
+
+    font-size:13px;
+
+    opacity:.75;
+
+}
+
+/* ===================================================
+   FOOTER
+=================================================== */
+
+.settingsSidebarFooter{
+
+    margin-top:auto;
+
+}
+
+.footerCard{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:14px;
+
+    padding:18px;
+
+    border-radius:18px;
+
+    background:white;
+
+    box-shadow:
+
+    0 10px 30px rgba(0,0,0,.05);
+
+}
+
+.statusDot{
+
+    width:12px;
+
+    height:12px;
+
+    border-radius:50%;
+
+    background:#22C55E;
+
+    animation:pulse 1.5s infinite;
+
+}
+
+@keyframes pulse{
+
+0%{
+
+transform:scale(.9);
+
+opacity:.5;
+
+}
+
+50%{
+
+transform:scale(1.25);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:scale(.9);
+
+opacity:.5;
+
+}
+
+}
+
+/* ===================================================
+   RIGHT CONTENT
+=================================================== */
+
+.settingsContent{
+
+    overflow:auto;
+
+    padding:50px;
+
+}
+
+/* ===================================================
+   HERO
+=================================================== */
+
+.settingsHero{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:35px;
+
+}
+
+.settingsHero h1{
+
+    font-size:42px;
+
+    font-weight:800;
+
+    color:var(--text-primary);
+
+}
+
+.settingsHero p{
+
+    margin-top:8px;
+
+    color:var(--text-secondary);
+
+    font-size:16px;
+
+}
+
+.heroBadge{
+
+    padding:12px 20px;
+
+    border-radius:999px;
+
+    background:
+
+    linear-gradient(
+    135deg,
+    #2563EB,
+    #7C3AED);
+
+    color:white;
+
+    font-weight:700;
+
+    box-shadow:
+
+    0 12px 35px rgba(37,99,235,.18);
+
+}
+
+/* ===================================================
+   BODY
+=================================================== */
+
+.settingsBody{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:28px;
+
+}
+
+/* ==========================================
+   SETTINGS SECTION
+========================================== */
+
+.settingsSection{
+
+    display:flex;
+    flex-direction:column;
+    gap:24px;
+
+}
+
+/* ==========================================
+   PREMIUM CARD
+========================================== */
+
+.settingsCard{
+
+    background:var(--bg-card);
+
+    backdrop-filter:blur(25px);
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    padding:28px;
+
+    box-shadow:var(--shadow-md);
+
+    transition:.3s;
+
+}
+
+.settingsCard:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:0 20px 45px rgba(0,0,0,.10);
+
+}
+
+.settingsCard h2{
+
+    font-size:30px;
+
+    color:var(--text-primary);
+
+    margin-bottom:8px;
+
+}
+
+.settingsCard h3{
+
+    font-size:20px;
+
+    margin-bottom:18px;
+
+    color:var(--text-primary);
+
+}
+
+.settingsCard p{
+
+    color:var(--text-secondary);
+
+    line-height:1.7;
+
+}
+
+/* ==========================================
+   THEME GRID
+========================================== */
+
+.themeGrid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:18px;
+
+}
+
+.themeCard{
+
+    background:white;
+
+    border:2px solid transparent;
+
+    border-radius:20px;
+
+    padding:20px;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.themeCard:hover{
+
+    transform:translateY(-5px);
+
+    border-color:var(--primary);
+
+}
+
+.themeCard.active{
+
+    border-color:var(--primary);
+
+    box-shadow:
+
+    0 10px 30px rgba(37,99,235,.18);
+
+}
+
+.themePreview{
+
+    height:120px;
+
+    border-radius:16px;
+
+    overflow:hidden;
+
+    margin-bottom:15px;
+
+}
+
+.lightPreview{
+
+    width:100%;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    white,
+
+    #EEF2F7
+
+    );
+
+}
+
+.darkPreview{
+
+    width:100%;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+    180deg,
+
+    #111827,
+
+    #030712
+
+    );
+
+}
+
+.systemPreview{
+
+    width:100%;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+    90deg,
+
+    white 50%,
+
+    #111827 50%
+
+    );
+
+}
+
+.themeCard span{
+
+    font-weight:600;
+
+    color:var(--text-primary);
+
+}
+
+/* ==========================================
+   COLOR PICKER
+========================================== */
+
+.colorGrid{
+
+    display:flex;
+
+    gap:18px;
+
+    flex-wrap:wrap;
+
+}
+
+.colorBtn{
+
+    width:50px;
+
+    height:50px;
+
+    border-radius:50%;
+
+    border:3px solid white;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+.colorBtn:hover{
+
+    transform:scale(1.12);
+
+}
+
+.colorBtn.selected{
+
+    transform:scale(1.15);
+
+    box-shadow:
+
+    0 0 0 4px var(--primary);
+
+}
+
+/* ==========================================
+   SETTING ROW
+========================================== */
+
+.settingRow{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:18px 0;
+
+    border-bottom:1px solid var(--border);
+
+}
+
+.settingRow:last-child{
+
+    border:none;
+
+}
+
+.settingRow h4{
+
+    margin-bottom:5px;
+
+    color:var(--text-primary);
+
+}
+
+.settingRow span{
+
+    color:var(--text-secondary);
+
+    font-size:14px;
+
+}
+
+/* ==========================================
+   PREMIUM SWITCH
+========================================== */
+
+.switch{
+
+    position:relative;
+
+    width:62px;
+
+    height:34px;
+
+}
+
+.switch input{
+
+    display:none;
+
+}
+
+.slider{
+
+    position:absolute;
+
+    inset:0;
+
+    background:#CBD5E1;
+
+    border-radius:999px;
+
+    transition:.3s;
+
+    cursor:pointer;
+
+}
+
+.slider::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:26px;
+
+    height:26px;
+
+    left:4px;
+
+    top:4px;
+
+    background:white;
+
+    border-radius:50%;
+
+    transition:.3s;
+
+    box-shadow:0 3px 10px rgba(0,0,0,.20);
+
+}
+
+.switch input:checked + .slider{
+
+    background:linear-gradient(
+
+    135deg,
+
+    var(--primary),
+
+    #7C3AED
+
+    );
+
+}
+
+.switch input:checked + .slider::before{
+
+    transform:translateX(28px);
+
+}
+
+/* ==========================================
+   PREMIUM SELECT
+========================================== */
+
+.premiumSelect{
+
+    width:250px;
+
+    height:50px;
+
+    border:none;
+
+    outline:none;
+
+    padding:0 18px;
+
+    border-radius:14px;
+
+    background:white;
+
+    box-shadow:
+
+    0 8px 20px rgba(0,0,0,.06);
+
+    font-size:15px;
+
+    cursor:pointer;
+
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+.settingsContent::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+.settingsContent::-webkit-scrollbar-thumb{
+
+    background:rgba(100,116,139,.35);
+
+    border-radius:999px;
+
+}
+
+.settingsContent::-webkit-scrollbar-thumb:hover{
+
+    background:rgba(100,116,139,.55);
+
+}
+
+/* ==========================================
+   SMOOTH ANIMATION
+========================================== */
+
+.settingsCard,
+.themeCard,
+.settingsNavItem,
+.footerCard,
+.colorBtn{
+
+    transition:
+
+    .25s ease;
+
+}
+
+.settingsCard{
+
+    animation:fadeUp .45s ease;
+
+}
+
+@keyframes fadeUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(18px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
+
+/* ==========================================
+   GLASS EFFECT
+========================================== */
+
+.settingsCard{
+
+backdrop-filter:blur(30px);
+
+-webkit-backdrop-filter:blur(30px);
+
+}
+
+.settingsSidebar{
+
+backdrop-filter:blur(40px);
+
+-webkit-backdrop-filter:blur(40px);
+
+}
+
+/* ==========================================
+   DARK MODE
+========================================== */
+
+:root[data-theme="dark"] .settingsSidebar{
+
+background:rgba(17,24,39,.85);
+
+border-right:1px solid rgba(255,255,255,.08);
+
+}
+
+:root[data-theme="dark"] .settingsCard{
+
+background:rgba(17,24,39,.75);
+
+}
+
+:root[data-theme="dark"] .themeCard{
+
+background:#1E293B;
+
+color:white;
+
+}
+
+:root[data-theme="dark"] .footerCard{
+
+background:#1E293B;
+
+}
+
+:root[data-theme="dark"] .premiumSelect{
+
+background:#1E293B;
+
+color:white;
+
+}
+
+:root[data-theme="dark"] .slider{
+
+background:#475569;
+
+}
+
+/* ==========================================
+   LIGHT MODE
+========================================== */
+
+:root[data-theme="light"] .settingsSidebar{
+
+background:rgba(255,255,255,.78);
+
+}
+
+:root[data-theme="light"] .settingsCard{
+
+background:rgba(255,255,255,.82);
+
+}
+
+:root[data-theme="light"] .themeCard{
+
+background:rgb(243, 221, 221);
+
+}
+
+:root[data-theme="light"] .footerCard{
+
+background:white;
+
+}
+
+:root[data-theme="light"] .premiumSelect{
+
+background:white;
+
+}
+
+/* ==========================================
+   TABLET
+========================================== */
+
+@media (max-width:1100px){
+
+.settingsPage{
+
+grid-template-columns:90px 1fr;
+
+}
+
+.settingsLogo h2,
+.settingsLogo span{
+
+display:none;
+
+}
+
+.settingsNavItem{
+
+justify-content:center;
+
+}
+
+.settingsNavItem h4,
+.settingsNavItem p{
+
+display:none;
+
+}
+
+.settingsHero{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:20px;
+
+}
+
+.themeGrid{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width:768px){
+
+.settingsPage{
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+.settingsSidebar{
+
+width:100%;
+
+padding:20px;
+
+border-right:none;
+
+border-bottom:1px solid var(--border);
+
+}
+
+.settingsNav{
+
+flex-direction:row;
+
+overflow-x:auto;
+
+gap:12px;
+
+padding-bottom:10px;
+
+}
+
+.settingsNavItem{
+
+min-width:170px;
+
+}
+
+.settingsContent{
+
+padding:22px;
+
+}
+
+.themeGrid{
+
+grid-template-columns:1fr;
+
+}
+
+.settingsHero h1{
+
+font-size:34px;
+
+}
+
+.heroBadge{
+
+width:100%;
+
+text-align:center;
+
+}
+
+.colorGrid{
+
+justify-content:center;
+
+}
+
+.settingRow{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:16px;
+
+}
+
+.premiumSelect{
+
+width:100%;
+
+}
+
+}
+
+/* ==========================================
+   HOVER GLOW
+========================================== */
+
+.themeCard:hover,
+.settingsCard:hover{
+
+box-shadow:
+
+0 18px 45px rgba(37,99,235,.10);
+
+}
+
+.colorBtn:hover{
+
+box-shadow:
+
+0 0 0 5px rgba(37,99,235,.18);
+
+}
+
+.settingCard{
+    background:var(--card-bg);
+    border:1px solid var(--border);
+    border-radius:16px;
+    padding:20px;
+    margin-top:20px;
+}
+
+.settingRow{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.settingRow:last-child{
+    border:none;
+}
+
+.settingRow span{
+    font-size:15px;
+    font-weight:500;
+}
+
+.dangerBtn{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    background:#ff3b30;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+}
+
+.dangerBtn:hover{
+    background:#d62828;
+}
+
+.aboutItem{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 0;
+  border-bottom:1px solid var(--border-color);
+}
+
+
+.aboutItem h4{
+  margin:0;
+  font-size:15px;
+}
+
+
+.aboutItem span{
+  color:var(--text-secondary);
+  font-size:14px;
+}
+/* ==========================================
+   END
+========================================== */

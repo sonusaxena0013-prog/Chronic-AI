@@ -1,0 +1,695 @@
+/* ===========================
+   Welcome Screen
+=========================== */
+
+.welcome {
+    flex: 1;
+    width: 100%;
+    max-width: var(--container-width);
+    margin: 0 auto;
+
+    padding:
+        clamp(32px, 4vw, 56px)
+        clamp(18px, 3vw, 32px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* ===========================
+   Hero
+=========================== */
+
+.hero {
+    width: 100%;
+    max-width: 920px;
+    text-align: center;
+    margin-bottom: clamp(32px, 4vw, 52px);
+}
+
+.hero h1 {
+    font-size: var(--font-title);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    color: var(--text-primary);
+}
+
+.hero span {
+    background: linear-gradient(
+        90deg,
+        var(--primary),
+        #06B6D4
+    );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    margin: 22px auto 0;
+
+    max-width: 760px;
+
+    color: var(--text-secondary);
+
+    font-size: clamp(15px, 1.1vw, 19px);
+
+    line-height: 1.8;
+}
+
+
+/* ===========================
+   Cards
+=========================== */
+
+.cards {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* ===========================
+   Base Card
+=========================== */
+
+.card {
+    min-height: 180px;
+
+    padding: 26px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    border-radius: var(--radius-lg);
+
+    background: var(--bg-card);
+
+    border: 1px solid var(--border);
+
+    backdrop-filter: blur(18px);
+
+    cursor: pointer;
+
+    position: relative;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    transition:
+        transform 0.30s ease,
+        border-color 0.30s ease,
+        box-shadow 0.30s ease;
+}
+
+
+/* ===========================
+   CARD HOVER
+=========================== */
+
+.card:hover {
+    transform: translateY(-6px);
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 22px 48px
+        rgba(124, 58, 237, 0.24);
+}
+
+
+/* =========================================================
+   HOVER TECH GRID
+========================================================= */
+
+.welcome .cards .card::before {
+    content: "";
+
+    position: absolute;
+
+    /*
+       Bigger than card so the moving grid
+       never leaves an empty area.
+    */
+    inset: -80px;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background-image:
+        linear-gradient(
+            rgba(130, 100, 255, 0.10) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            rgba(130, 100, 255, 0.10) 1px,
+            transparent 1px
+        );
+
+    background-size: 28px 28px;
+
+    background-position: 0 0, 0 0;
+
+    transition:
+        opacity 0.40s ease;
+}
+
+
+/* =========================================================
+   MOVING PURPLE LIGHT
+========================================================= */
+
+.welcome .cards .card::after {
+    content: "";
+
+    position: absolute;
+
+    width: 190px;
+    height: 190px;
+
+    top: -110px;
+    left: -110px;
+
+    border-radius: 50%;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.30) 0%,
+            rgba(99, 102, 241, 0.14) 35%,
+            transparent 72%
+        );
+
+    filter: blur(12px);
+
+    transition:
+        opacity 0.35s ease;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+.welcome .cards .card:hover {
+    transform: translateY(-6px);
+
+    border-color:
+        rgba(139, 92, 246, 0.65);
+
+    box-shadow:
+        0 22px 48px
+        rgba(124, 58, 237, 0.24),
+
+        0 0 30px
+        rgba(124, 92, 246, 0.12);
+}
+
+
+/* ===========================
+   SHOW GRID
+=========================== */
+
+.welcome .cards .card:hover::before {
+    opacity: 1;
+
+    animation:
+        cardGridMove 4.5s linear infinite;
+}
+
+
+/* ===========================
+   SHOW MOVING GLOW
+=========================== */
+
+.welcome .cards .card:hover::after {
+    opacity: 1;
+
+    animation:
+        cardGlowMove 3.2s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   GRID ANIMATION
+========================================================= */
+
+@keyframes cardGridMove {
+
+    0% {
+        background-position:
+            0 0,
+            0 0;
+    }
+
+    50% {
+        background-position:
+            28px 28px,
+            28px 28px;
+    }
+
+    100% {
+        background-position:
+            56px 56px,
+            56px 56px;
+    }
+}
+
+
+/* =========================================================
+   GLOW ANIMATION
+========================================================= */
+
+@keyframes cardGlowMove {
+
+    0% {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    50% {
+        transform:
+            translate(230px, 130px)
+            scale(1.25);
+    }
+
+    100% {
+        transform:
+            translate(450px, 0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   KEEP CARD CONTENT ABOVE EFFECT
+========================================================= */
+
+.welcome .cards .card > * {
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================================
+   EMOJI
+========================================================= */
+
+.emoji {
+    font-size: 36px;
+    margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   CARD TITLE
+========================================================= */
+
+.card h3 {
+    font-size: var(--font-heading);
+
+    font-weight: 700;
+
+    margin-bottom: 12px;
+
+    color: var(--text-primary);
+}
+
+
+/* =========================================================
+   CARD TEXT
+========================================================= */
+
+.card p {
+    color: var(--text-secondary);
+
+    font-size: var(--font-body);
+
+    line-height: 1.75;
+}
+
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width: 1024px) {
+
+    .welcome {
+        padding: 32px 20px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+        gap: 18px;
+    }
+}
+
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width: 768px) {
+
+    .welcome {
+        justify-content: flex-start;
+        padding: 28px 18px;
+    }
+
+    .hero {
+        margin-bottom: 32px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .card {
+        min-height: auto;
+        padding: 20px;
+    }
+}
+
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media (max-width: 480px) {
+
+    .welcome {
+        padding: 20px 14px;
+    }
+
+    .hero h1 {
+        line-height: 1.18;
+    }
+
+    .emoji {
+        font-size: 30px;
+    }
+
+    .card {
+        padding: 18px;
+    }
+}
+
+
+/* =========================================================
+   Suggestions
+========================================================= */
+
+.suggestions {
+    width: 100%;
+    max-width: 900px;
+
+    margin-top: 40px;
+}
+
+
+.suggestions h4 {
+    margin-bottom: 18px;
+
+    text-align: center;
+
+    color: var(--text-secondary);
+
+    font-size: 16px;
+
+    font-weight: 600;
+}
+
+
+.suggestionGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
+    gap: 16px;
+}
+
+
+.suggestionCard {
+    padding: 16px 18px;
+
+    border-radius: 16px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border:
+        1px solid
+        rgba(255, 255, 255, 0.08);
+
+    color: var(--text-primary);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease;
+
+    text-align: left;
+}
+
+
+.suggestionCard:hover {
+    transform: translateY(-3px);
+
+    border-color: var(--primary);
+
+    background:
+        rgba(255, 255, 255, 0.08);
+}
+
+
+@media (max-width: 768px) {
+
+    .suggestionGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .welcome .cards .card,
+    .welcome .cards .card::before,
+    .welcome .cards .card::after {
+
+        animation: none !important;
+
+        transition: none !important;
+    }
+}
+
+/* =========================================================
+   CHRONIC AI — WELCOME CARD PARALLELOGRAM EFFECT
+========================================================= */
+
+.welcome .cards .card {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+
+    transition:
+        transform 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease !important;
+}
+
+
+/* ---------------------------------------------------------
+   MOVING SLANTED LINES
+--------------------------------------------------------- */
+
+.welcome .cards .card::before {
+    content: "" !important;
+
+    position: absolute !important;
+    inset: -80px !important;
+
+    z-index: 0 !important;
+    pointer-events: none !important;
+
+    opacity: 0 !important;
+
+    background:
+        repeating-linear-gradient(
+            120deg,
+            transparent 0px,
+            transparent 26px,
+            rgba(139, 92, 246, 0.18) 27px,
+            rgba(139, 92, 246, 0.18) 29px,
+            transparent 30px,
+            transparent 55px
+        ) !important;
+
+    transform: translateX(-80px) skewX(-20deg) !important;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.6s ease !important;
+}
+
+
+/* ---------------------------------------------------------
+   PARALLELOGRAM LIGHT
+--------------------------------------------------------- */
+
+.welcome .cards .card::after {
+    content: "" !important;
+
+    position: absolute !important;
+
+    width: 180px !important;
+    height: 420px !important;
+
+    top: -120px !important;
+    left: -220px !important;
+
+    z-index: 1 !important;
+    pointer-events: none !important;
+
+    opacity: 0 !important;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(139, 92, 246, 0.22),
+            rgba(6, 182, 212, 0.14),
+            transparent
+        ) !important;
+
+    transform: skewX(-20deg) !important;
+
+    filter: blur(8px) !important;
+}
+
+
+/* ---------------------------------------------------------
+   HOVER
+--------------------------------------------------------- */
+
+.welcome .cards .card:hover {
+    transform: translateY(-7px) !important;
+
+    border-color:
+        rgba(139, 92, 246, 0.75) !important;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.30),
+        0 0 30px rgba(139, 92, 246, 0.18) !important;
+}
+
+
+/* ---------------------------------------------------------
+   SHOW PATTERN
+--------------------------------------------------------- */
+
+.welcome .cards .card:hover::before {
+    opacity: 1 !important;
+
+    transform:
+        translateX(70px)
+        skewX(-20deg) !important;
+
+    animation:
+        cardParallelogram 3s linear infinite !important;
+}
+
+
+/* ---------------------------------------------------------
+   SHOW LIGHT
+--------------------------------------------------------- */
+
+.welcome .cards .card:hover::after {
+    opacity: 1 !important;
+
+    animation:
+        cardLightSweep 2.2s ease-in-out infinite !important;
+}
+
+
+/* ---------------------------------------------------------
+   CONTENT ABOVE EFFECT
+--------------------------------------------------------- */
+
+.welcome .cards .card > * {
+    position: relative !important;
+    z-index: 3 !important;
+}
+
+
+/* =========================================================
+   PATTERN ANIMATION
+========================================================= */
+
+@keyframes cardParallelogram {
+
+    0% {
+        background-position: 0 0;
+    }
+
+    50% {
+        background-position: 55px 0;
+    }
+
+    100% {
+        background-position: 110px 0;
+    }
+}
+
+
+/* =========================================================
+   LIGHT SWEEP
+========================================================= */
+
+@keyframes cardLightSweep {
+
+    0% {
+        left: -220px;
+    }
+
+    50% {
+        left: calc(100% + 80px);
+    }
+
+    100% {
+        left: -220px;
+    }
+}
+/* ===========================
+   END OF FILE
+=========================== */

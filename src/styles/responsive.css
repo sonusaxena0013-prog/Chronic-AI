@@ -1,0 +1,207 @@
+/* =====================================================
+   Ultra Responsive Layout
+===================================================== */
+
+/* ===========================
+   Large Desktop (2560px+)
+=========================== */
+
+@media (min-width:2560px){
+
+    :root{
+
+        --sidebar-width:290px;
+
+        --navbar-height:72px;
+
+        --container-width:1600px;
+
+        --chat-width:1200px;
+
+        --prompt-width:1200px;
+
+        --font-title:68px;
+
+        --font-heading:32px;
+
+        --font-body:18px;
+
+    }
+
+}
+
+/* ===========================
+   Full HD Desktop
+=========================== */
+
+@media (max-width:1920px){
+
+    :root{
+
+        --container-width:min(1400px,92vw);
+
+    }
+
+}
+
+/* ===========================
+   Desktop
+=========================== */
+
+@media (max-width:1600px){
+
+    :root{
+
+        --container-width:min(1300px,92vw);
+
+    }
+
+}
+
+/* ===========================
+   Large Laptop
+=========================== */
+
+@media (max-width:1440px){
+
+    :root{
+
+        --sidebar-width:240px;
+
+        --container-width:min(1200px,94vw);
+
+    }
+
+}
+
+/* ===========================
+   Laptop
+=========================== */
+
+@media (max-width:1366px){
+
+    :root{
+
+        --sidebar-width:225px;
+
+        --font-title:clamp(32px,3.8vw,52px);
+
+        --font-heading:clamp(20px,1.7vw,26px);
+
+    }
+
+}
+
+/* ===========================
+   Small Laptop
+=========================== */
+
+@media (max-width:1200px){
+
+    :root{
+
+        --sidebar-width:210px;
+
+        --container-width:96vw;
+
+    }
+
+}
+
+/* ===========================
+   Tablet Landscape
+=========================== */
+
+@media (max-width:1024px){
+
+    :root{
+
+        --sidebar-width:80px;
+
+        --font-title:40px;
+
+        --font-heading:24px;
+
+        --font-body:15px;
+
+    }
+
+}
+
+/* ===========================
+   Tablet
+=========================== */
+
+@media (max-width:900px){
+
+    :root{
+
+        --container-width:96vw;
+
+    }
+
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:768px){
+
+    :root{
+
+        --font-title:34px;
+
+        --font-heading:22px;
+
+        --font-body:15px;
+
+        --font-small:14px;
+
+    }
+
+    .app{
+
+        overflow:hidden;
+
+    }
+
+}
+
+/* ===========================
+   Small Mobile
+=========================== */
+
+@media (max-width:480px){
+
+    :root{
+
+        --font-title:30px;
+
+        --font-heading:20px;
+
+        --font-body:14px;
+
+        --font-small:13px;
+
+    }
+
+}
+
+/* ===========================
+   Very Small Mobile
+=========================== */
+
+@media (max-width:360px){
+
+    :root{
+
+        --font-title:28px;
+
+        --font-heading:18px;
+
+        --font-body:13px;
+
+    }
+
+}

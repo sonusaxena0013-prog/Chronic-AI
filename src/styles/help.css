@@ -1,0 +1,1067 @@
+/* =========================================================
+   CHRONIC AI — HELP PAGE
+========================================================= */
+
+.helpPage {
+    width: 100%;
+    min-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 48px clamp(24px, 5vw, 80px) 60px;
+
+    color: #f8fafc;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(99, 102, 241, 0.09),
+            transparent 40%
+        );
+
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.helpHero {
+    width: min(920px, 100%);
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    gap: 22px;
+
+    padding: 28px 30px;
+
+    border: 1px solid rgba(255, 255, 255, 0.065);
+    border-radius: 22px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 0.035),
+            rgba(255, 255, 255, 0.012)
+        );
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.16);
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+.helpHeroIcon {
+    width: 62px;
+    height: 62px;
+
+    flex: 0 0 62px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+
+    color: #a78bfa;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139, 92, 246, 0.2),
+            rgba(99, 102, 241, 0.08)
+        );
+
+    border: 1px solid rgba(139, 92, 246, 0.18);
+
+    box-shadow:
+        0 0 35px rgba(139, 92, 246, 0.08);
+}
+
+
+.helpHeroContent {
+    min-width: 0;
+}
+
+
+.helpEyebrow {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #8b7cff;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 1.7px;
+}
+
+
+.helpHero h1 {
+    margin: 0;
+
+    color: #f8fafc;
+
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.1;
+
+    letter-spacing: -1.5px;
+}
+
+
+.helpHero h1 span {
+    color: #8b7cff;
+}
+
+
+.helpHero p {
+    margin: 10px 0 0;
+
+    color: #7f8aa6;
+
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+.helpSearchSection {
+    width: min(760px, 100%);
+
+    margin: 30px auto 48px;
+}
+
+
+.helpSearchBox {
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 0 18px;
+
+    border: 1px solid rgba(255, 255, 255, 0.075);
+    border-radius: 15px;
+
+    background:
+        rgba(14, 20, 36, 0.75);
+
+    color: #69748f;
+
+    box-shadow:
+        0 18px 45px rgba(0, 0, 0, 0.18);
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.helpSearchBox:focus-within {
+    border-color:
+        rgba(139, 92, 246, 0.35);
+
+    box-shadow:
+        0 0 0 3px rgba(139, 92, 246, 0.06),
+        0 18px 45px rgba(0, 0, 0, 0.18);
+}
+
+
+.helpSearchBox input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #f1f5f9;
+
+    font-size: 13px;
+}
+
+
+.helpSearchBox input::placeholder {
+    color: #59647d;
+}
+
+
+.helpSearchClear {
+    width: 27px;
+    height: 27px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    border-radius: 8px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    color: #8b95ad;
+
+    cursor: pointer;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   SECTION
+========================================================= */
+
+.helpSection {
+    width: min(920px, 100%);
+
+    margin: 0 auto 48px;
+}
+
+
+.helpSectionHeading {
+    margin-bottom: 18px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+
+.helpSectionHeading span {
+    color: #7c6cff;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    letter-spacing: 1.6px;
+}
+
+
+.helpSectionHeading h2 {
+    margin: 5px 0 0;
+
+    color: #eef2ff;
+
+    font-size: 21px;
+    font-weight: 750;
+
+    letter-spacing: -0.4px;
+}
+
+
+.helpSectionHeading > p {
+    max-width: 300px;
+
+    margin: 0;
+
+    color: #66718b;
+
+    font-size: 11px;
+    line-height: 1.5;
+
+    text-align: right;
+}
+
+
+/* =========================================================
+   CATEGORY CARDS
+========================================================= */
+
+.helpCategoryGrid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 12px;
+}
+
+
+.helpCategoryCard {
+    position: relative;
+
+    min-height: 118px;
+
+    padding: 19px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.018);
+
+    color: inherit;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.22s ease,
+        background 0.22s ease,
+        border-color 0.22s ease,
+        box-shadow 0.22s ease;
+}
+
+
+.helpCategoryCard:hover {
+    transform: translateY(-3px);
+
+    background:
+        rgba(139, 92, 246, 0.055);
+
+    border-color:
+        rgba(139, 92, 246, 0.18);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+
+.helpCategoryIcon {
+    width: 40px;
+    height: 40px;
+
+    flex: 0 0 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    background:
+        rgba(139, 92, 246, 0.1);
+
+    border: 1px solid
+        rgba(139, 92, 246, 0.12);
+
+    color: #a78bfa;
+}
+
+
+.helpCategoryText {
+    min-width: 0;
+
+    padding-right: 20px;
+}
+
+
+.helpCategoryText h3 {
+    margin: 2px 0 6px;
+
+    color: #e9edfa;
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.helpCategoryText p {
+    margin: 0;
+
+    color: #6f7a94;
+
+    font-size: 11px;
+    line-height: 1.55;
+}
+
+
+.helpCategoryArrow {
+    position: absolute;
+
+    top: 20px;
+    right: 18px;
+
+    color: #59647d;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.helpCategoryCard:hover
+.helpCategoryArrow {
+    color: #a78bfa;
+
+    transform: translate(2px, -2px);
+}
+
+
+/* =========================================================
+   FAQ
+========================================================= */
+
+.faqSection {
+    margin-top: 5px;
+}
+
+
+.faqList {
+    overflow: hidden;
+
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    border-radius: 16px;
+
+    background:
+        rgba(255, 255, 255, 0.012);
+}
+
+
+.faqItem {
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.045);
+}
+
+
+.faqItem:last-child {
+    border-bottom: none;
+}
+
+
+.faqQuestion {
+    width: 100%;
+
+    min-height: 59px;
+
+    padding: 0 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #dfe5f5;
+
+    text-align: left;
+
+    font-size: 12px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.faqQuestion:hover {
+    background:
+        rgba(139, 92, 246, 0.04);
+
+    color: #ffffff;
+}
+
+
+.faqQuestion svg {
+    flex-shrink: 0;
+
+    color: #65708a;
+
+    transition:
+        transform 0.25s ease,
+        color 0.25s ease;
+}
+
+
+.faqChevronOpen {
+    transform: rotate(180deg);
+
+    color: #a78bfa !important;
+}
+
+
+.faqOpen .faqQuestion {
+    background:
+        rgba(139, 92, 246, 0.035);
+
+    color: #ffffff;
+}
+
+
+.faqAnswer {
+    padding: 0 50px 17px 18px;
+
+    color: #747f99;
+
+    font-size: 11px;
+
+    line-height: 1.7;
+
+    background:
+        rgba(139, 92, 246, 0.018);
+}
+
+
+/* =========================================================
+   NO RESULTS
+========================================================= */
+
+.helpNoResults {
+    min-height: 190px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    color: #68738c;
+}
+
+
+.helpNoResults svg {
+    margin-bottom: 10px;
+
+    color: #8b7cff;
+}
+
+
+.helpNoResults h3 {
+    margin: 0;
+
+    color: #e5e9f5;
+
+    font-size: 13px;
+}
+
+
+.helpNoResults p {
+    margin: 5px 0 0;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   SUPPORT CARD
+========================================================= */
+
+.helpSupport {
+    width: min(920px, 100%);
+
+    margin: 0 auto;
+
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 15px;
+
+    border: 1px solid
+        rgba(139, 92, 246, 0.13);
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(139, 92, 246, 0.07),
+            rgba(255, 255, 255, 0.015)
+        );
+}
+
+
+.helpSupportIcon {
+    width: 45px;
+    height: 45px;
+
+    flex: 0 0 45px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    color: #a78bfa;
+
+    background:
+        rgba(139, 92, 246, 0.11);
+}
+
+
+.helpSupportText {
+    flex: 1;
+}
+
+
+.helpSupportText > span {
+    color: #7c6cff;
+
+    font-size: 8px;
+    font-weight: 800;
+
+    letter-spacing: 1.5px;
+}
+
+
+.helpSupportText h2 {
+    margin: 4px 0 3px;
+
+    color: #eef2ff;
+
+    font-size: 16px;
+}
+
+
+.helpSupportText p {
+    margin: 0;
+
+    color: #68738d;
+
+    font-size: 10.5px;
+}
+
+
+.helpContactBtn {
+    min-height: 38px;
+
+    padding: 0 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 7px;
+
+    border: 1px solid
+        rgba(139, 92, 246, 0.2);
+
+    border-radius: 10px;
+
+    background:
+        rgba(139, 92, 246, 0.1);
+
+    color: #b9adff;
+
+    font-size: 10.5px;
+    font-weight: 650;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.helpContactBtn:hover {
+    transform: translateY(-1px);
+
+    background:
+        rgba(139, 92, 246, 0.16);
+
+    border-color:
+        rgba(139, 92, 246, 0.3);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.helpFooter {
+    width: min(920px, 100%);
+
+    margin: 35px auto 0;
+    padding-top: 18px;
+
+    display: flex;
+    justify-content: space-between;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.045);
+
+    color: #4f5a72;
+
+    font-size: 9px;
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+[data-theme="light"] .helpPage {
+    color: #172033;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(99, 102, 241, 0.06),
+            transparent 40%
+        );
+}
+
+
+[data-theme="light"] .helpHero,
+[data-theme="light"] .helpCategoryCard,
+[data-theme="light"] .faqList {
+    border-color:
+        rgba(15, 23, 42, 0.075);
+
+    background:
+        rgba(255, 255, 255, 0.72);
+}
+
+
+[data-theme="light"] .helpHero h1,
+[data-theme="light"] .helpSectionHeading h2,
+[data-theme="light"] .helpSupportText h2 {
+    color: #172033;
+}
+
+
+[data-theme="light"] .helpHero p,
+[data-theme="light"] .helpSectionHeading > p {
+    color: #64748b;
+}
+
+
+[data-theme="light"] .helpSearchBox {
+    background:
+        rgba(255, 255, 255, 0.85);
+
+    border-color:
+        rgba(15, 23, 42, 0.08);
+
+    color: #64748b;
+}
+
+
+[data-theme="light"] .helpSearchBox input {
+    color: #172033;
+}
+
+
+[data-theme="light"] .helpSearchBox input::placeholder {
+    color: #94a3b8;
+}
+
+
+[data-theme="light"] .helpCategoryText h3,
+[data-theme="light"] .faqQuestion {
+    color: #263247;
+}
+
+
+[data-theme="light"] .helpCategoryText p,
+[data-theme="light"] .faqAnswer {
+    color: #64748b;
+}
+
+
+[data-theme="light"] .faqList {
+    background: rgba(255, 255, 255, 0.7);
+}
+
+
+[data-theme="light"] .faqItem {
+    border-bottom-color:
+        rgba(15, 23, 42, 0.055);
+}
+
+
+[data-theme="light"] .faqOpen .faqQuestion {
+    background:
+        rgba(99, 102, 241, 0.035);
+}
+
+
+[data-theme="light"] .helpSupport {
+    border-color:
+        rgba(99, 102, 241, 0.14);
+
+    background:
+        rgba(255, 255, 255, 0.7);
+}
+
+
+[data-theme="light"] .helpSupportText p {
+    color: #64748b;
+}
+
+
+[data-theme="light"] .helpFooter {
+    border-top-color:
+        rgba(15, 23, 42, 0.06);
+
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .helpPage {
+        padding:
+            28px 18px 45px;
+    }
+
+
+    .helpHero {
+        padding: 22px;
+
+        align-items: flex-start;
+    }
+
+
+    .helpHeroIcon {
+        width: 50px;
+        height: 50px;
+
+        flex-basis: 50px;
+
+        border-radius: 14px;
+    }
+
+
+    .helpHero h1 {
+        font-size: 28px;
+    }
+
+
+    .helpCategoryGrid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .helpSectionHeading {
+        align-items: flex-start;
+        flex-direction: column;
+
+        gap: 6px;
+    }
+
+
+    .helpSectionHeading > p {
+        text-align: left;
+    }
+
+
+    .helpSupport {
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+
+    .helpSupportText {
+        min-width: calc(100% - 65px);
+    }
+
+
+    .helpContactBtn {
+        width: 100%;
+
+        justify-content: center;
+
+        margin-top: 5px;
+    }
+
+
+    .helpFooter {
+        flex-direction: column;
+
+        gap: 6px;
+    }
+}
+
+
+@media (max-width: 430px) {
+
+    .helpHero {
+        gap: 14px;
+    }
+
+
+    .helpHeroIcon {
+        display: none;
+    }
+
+
+    .helpHero h1 {
+        font-size: 25px;
+    }
+
+
+    .helpSearchSection {
+        margin-bottom: 35px;
+    }
+
+
+    .faqAnswer {
+        padding-right: 18px;
+    }
+}
+
+/* =========================================================
+   HELP PAGE — SCROLL FIX
+========================================================= */
+
+.helpPage {
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    box-sizing: border-box;
+
+    padding: 32px;
+}
+
+
+/* Scrollbar */
+
+.helpPage::-webkit-scrollbar {
+    width: 7px;
+}
+
+.helpPage::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.helpPage::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.25);
+    border-radius: 999px;
+}
+
+.helpPage::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.45);
+}
+
+
+/* Firefox */
+
+.helpPage {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(139, 92, 246, 0.35) transparent;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .helpPage {
+        padding: 20px 15px;
+    }
+
+}
+
+/* =========================================================
+   HELP PAGE — DEFINITIVE SCROLL FIX
+========================================================= */
+
+.main {
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: 100vh !important;
+
+    display: flex !important;
+    flex-direction: column !important;
+
+    overflow: hidden !important;
+}
+
+.pageContent {
+    flex: 1 1 auto !important;
+
+    width: 100% !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: 0 !important;
+
+    overflow: hidden !important;
+}
+
+
+/* =========================================================
+   ACTUAL HELP SCROLL CONTAINER
+========================================================= */
+
+.helpPage {
+    position: relative;
+
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+
+    box-sizing: border-box;
+
+    overflow-x: hidden !important;
+    overflow-y: auto !important;
+
+    padding: 32px;
+
+    scrollbar-width: thin;
+    scrollbar-color:
+        rgba(139, 92, 246, 0.4)
+        transparent;
+}
+
+
+/* Chrome / Edge scrollbar */
+
+.helpPage::-webkit-scrollbar {
+    width: 7px;
+}
+
+.helpPage::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.helpPage::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.35);
+    border-radius: 999px;
+}
+
+.helpPage::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.6);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .helpPage {
+        padding: 22px 16px;
+    }
+
+}

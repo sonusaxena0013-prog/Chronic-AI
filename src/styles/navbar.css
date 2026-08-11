@@ -1,0 +1,2045 @@
+/* ==========================================================
+   CHRONIC AI — NAVBAR
+   CLEAN / SINGLE SOURCE VERSION
+========================================================== */
+
+
+/* ==========================================================
+   NAVBAR VARIABLES
+========================================================== */
+
+:root {
+
+    --navbar-height: 68px;
+
+    --navbar-padding: 22px;
+
+    --navbar-border: rgba(0,0,0,.07);
+
+    --navbar-bg:
+        rgba(255,255,255,.72);
+
+    --navbar-text: #111827;
+
+    --navbar-muted: #667085;
+
+    --navbar-control-bg:
+        rgba(255,255,255,.55);
+
+    --navbar-control-border:
+        rgba(0,0,0,.07);
+
+    --navbar-menu-bg:
+        rgba(255,255,255,.97);
+
+    --navbar-shadow:
+        0 10px 40px rgba(0,0,0,.08);
+
+    --navbar-transition:
+        .25s cubic-bezier(.4,0,.2,1);
+}
+
+
+/* ==========================================================
+   DARK VARIABLES
+========================================================== */
+
+:root[data-theme="dark"] {
+
+    --navbar-border:
+        rgba(255,255,255,.06);
+
+    --navbar-bg:
+        rgba(16,18,26,.78);
+
+    --navbar-text: #FFFFFF;
+
+    --navbar-muted: #8B90A7;
+
+    --navbar-control-bg:
+        rgba(255,255,255,.05);
+
+    --navbar-control-border:
+        rgba(255,255,255,.07);
+
+    --navbar-menu-bg:
+        rgba(18,20,28,.98);
+
+    --navbar-shadow:
+        0 10px 40px rgba(0,0,0,.35);
+}
+
+
+/* ==========================================================
+   NAVBAR
+========================================================== */
+
+.navbar {
+
+    width: 100%;
+
+    height: var(--navbar-height);
+    min-height: var(--navbar-height);
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 18px;
+
+    padding:
+        0 var(--navbar-padding);
+
+    position: relative;
+
+    z-index: 100;
+
+    background:
+        var(--navbar-bg);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    border-bottom:
+        1px solid var(--navbar-border);
+
+    box-shadow:
+        var(--navbar-shadow);
+
+    color:
+        var(--navbar-text);
+
+    transition:
+        background .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+
+/* ==========================================================
+   LEFT
+========================================================== */
+
+.navbarLeft {
+
+    flex:
+        0 0 180px;
+
+    min-width: 0;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-start;
+}
+
+
+/* ==========================================================
+   LEFT LOGO
+========================================================== */
+
+.navbarLogo {
+
+    width: 0px;
+    height: 0px;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(86,110,255,.22)
+        );
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+.navbarLogo:hover {
+
+    transform:
+        scale(1.06);
+
+    filter:
+        drop-shadow(
+            0 0 14px
+            rgba(86,110,255,.38)
+        );
+}
+
+
+/* ==========================================================
+   CENTER
+========================================================== */
+
+.navbarCenter {
+
+    flex:
+        1 1 auto;
+
+    min-width: 0;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding:
+        0 20px;
+}
+
+
+/* ==========================================================
+   SEARCH
+========================================================== */
+
+.searchBox {
+
+    width:
+        min(520px, 100%);
+
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 11px;
+
+    padding:
+        0 15px;
+
+    border-radius: 14px;
+
+    background:
+        var(--navbar-control-bg);
+
+    border:
+        1px solid var(--navbar-control-border);
+
+    transition:
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+}
+
+.searchBox:hover {
+
+    border-color:
+        rgba(91,109,255,.20);
+
+}
+
+.searchBox:focus-within {
+
+    border-color:
+        #5B6DFF;
+
+    background:
+        var(--navbar-control-bg);
+
+    box-shadow:
+        0 0 0 3px
+        rgba(91,109,255,.12);
+}
+
+
+/* ==========================================================
+   SEARCH ICON
+========================================================== */
+
+.searchIcon {
+
+    flex-shrink: 0;
+
+    color:
+        var(--navbar-muted);
+
+}
+
+
+/* ==========================================================
+   SEARCH INPUT
+========================================================== */
+
+.searchBox input {
+
+    flex:
+        1 1 auto;
+
+    min-width: 0;
+
+    width: 100%;
+
+    height: 100%;
+
+    padding: 0;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    color:
+        var(--navbar-text);
+
+    font-size: 14px;
+
+}
+
+.searchBox input::placeholder {
+
+    color:
+        var(--navbar-muted);
+
+    opacity: .9;
+}
+
+
+/* ==========================================================
+   CLEAR SEARCH
+========================================================== */
+
+.searchClear {
+
+    width: 28px;
+    height: 28px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    color:
+        var(--navbar-muted);
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        color .2s ease,
+        transform .2s ease;
+}
+
+.searchClear:hover {
+
+    background:
+        rgba(255,255,255,.08);
+
+    color:
+        var(--navbar-text);
+
+    transform:
+        scale(1.05);
+}
+
+
+/* ==========================================================
+   RIGHT
+========================================================== */
+
+.navbarRight {
+
+    flex:
+        0 0 180px;
+
+    min-width: 0;
+
+    height: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+}
+
+
+/* ==========================================================
+   MODEL WRAPPER
+========================================================== */
+
+.modelWrapper {
+
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+
+/* ==========================================================
+   MODEL BUTTON
+========================================================== */
+
+.modelBtn {
+
+    height: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    padding:
+        0 14px;
+
+    border:
+        1px solid var(--navbar-control-border);
+
+    border-radius: 11px;
+
+    background:
+        var(--navbar-control-bg);
+
+    color:
+        var(--navbar-text);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background .22s ease,
+        border-color .22s ease,
+        transform .22s ease,
+        box-shadow .22s ease;
+}
+
+.modelBtn:hover {
+
+    background:
+        rgba(91,109,255,.10);
+
+    border-color:
+        rgba(91,109,255,.22);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 25px
+        rgba(91,109,255,.15);
+}
+
+
+/* ==========================================================
+   MODEL ARROW
+========================================================== */
+
+.modelBtn svg {
+
+    transition:
+        transform .25s ease;
+}
+
+.modelArrowOpen {
+
+    transform:
+        rotate(180deg);
+}
+
+
+/* ==========================================================
+   MODEL MENU
+========================================================== */
+
+.modelMenu {
+
+    position: absolute;
+
+    top:
+        calc(100% + 10px);
+
+    right: 0;
+
+    width: 285px;
+
+    padding: 16px;
+
+    border-radius: 17px;
+
+    background:
+        var(--navbar-menu-bg);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    border:
+        1px solid var(--navbar-control-border);
+
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.22);
+
+    z-index: 999;
+
+    animation:
+        navbarPopup .22s
+        cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* ==========================================================
+   MODEL HEADING
+========================================================== */
+
+.menuHeading {
+
+    margin-bottom: 12px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    text-transform: uppercase;
+
+    letter-spacing: .5px;
+
+    color:
+        var(--navbar-muted);
+}
+
+
+/* ==========================================================
+   ACTIVE MODEL
+========================================================== */
+
+.modelActive {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 10px;
+
+    padding:
+        12px 13px;
+
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #5865F2,
+            #6C5CE7
+        );
+
+    color:
+        #FFFFFF;
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+.modelActive small {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    opacity: .85;
+}
+
+
+/* ==========================================================
+   MENU DIVIDER
+========================================================== */
+
+.menuDivider {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin:
+        14px 0;
+
+    background:
+        var(--navbar-border);
+}
+
+
+/* ==========================================================
+   MODEL INFO
+========================================================== */
+
+.modelInfo {
+
+    margin: 0;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    color:
+        var(--navbar-muted);
+}
+
+
+/* ==========================================================
+   COMING SOON
+========================================================== */
+
+.comingSoon {
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    font-weight: 600;
+
+    color:
+        #6C7BFF;
+}
+
+
+/* ==========================================================
+   BRAND BUTTON
+========================================================== */
+
+.brandButton {
+
+    width: 48px;
+    height: 48px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 12px;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    overflow: hidden;
+
+    transition:
+        background .25s ease,
+        transform .25s ease;
+}
+
+.brandButton:hover {
+
+    background:
+        rgba(91,109,255,.08);
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* ==========================================================
+   MINI LOGO — FIXED
+========================================================== */
+
+.navbarMiniLogo {
+
+    width: 95px;
+    height: 105px;
+
+    max-width: 95px;
+    max-height: 105px;
+
+    object-fit: contain;
+
+    display: block;
+
+    filter:
+        drop-shadow(
+            0 0 8px
+            rgba(86,110,255,.25)
+        );
+
+    transition:
+        transform .3s ease,
+        filter .3s ease;
+}
+
+.brandButton:hover .navbarMiniLogo {
+
+    transform:
+        rotate(-5deg)
+        scale(1.08);
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(91,109,255,.45)
+        );
+}
+
+
+/* ==========================================================
+   OPTIONAL ICON BUTTON
+========================================================== */
+
+.iconBtn {
+
+    width: 40px;
+    height: 40px;
+
+    flex-shrink: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding: 0;
+
+    border:
+        1px solid var(--navbar-control-border);
+
+    border-radius: 11px;
+
+    background:
+        var(--navbar-control-bg);
+
+    color:
+        var(--navbar-text);
+
+    cursor: pointer;
+
+    transition:
+        background .22s ease,
+        border-color .22s ease,
+        transform .22s ease,
+        box-shadow .22s ease;
+}
+
+.iconBtn:hover {
+
+    background:
+        rgba(91,109,255,.10);
+
+    border-color:
+        rgba(91,109,255,.20);
+
+    transform:
+        translateY(-1px);
+
+    box-shadow:
+        0 8px 22px
+        rgba(91,109,255,.12);
+}
+
+
+/* ==========================================================
+   NOTIFICATION SUPPORT
+   Kept because old components may still reference it.
+========================================================== */
+
+.notificationWrapper {
+
+    position: relative;
+
+    flex-shrink: 0;
+}
+
+.notifyBadge {
+
+    position: absolute;
+
+    top: -5px;
+    right: -4px;
+
+    min-width: 18px;
+    height: 18px;
+
+    padding: 0 5px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    background:
+        #FF4D67;
+
+    color:
+        #FFFFFF;
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    border:
+        2px solid
+        var(--navbar-menu-bg);
+}
+
+
+/* ==========================================================
+   OLD NOTIFICATION PANEL SUPPORT
+========================================================== */
+
+.notificationMenu {
+
+    position: absolute;
+
+    top:
+        calc(100% + 10px);
+
+    right: 0;
+
+    width: 360px;
+
+    max-height: 520px;
+
+    overflow-y: auto;
+
+    border-radius: 18px;
+
+    background:
+        var(--navbar-menu-bg);
+
+    backdrop-filter:
+        blur(22px);
+
+    -webkit-backdrop-filter:
+        blur(22px);
+
+    border:
+        1px solid
+        var(--navbar-control-border);
+
+    box-shadow:
+        0 24px 70px
+        rgba(0,0,0,.25);
+
+    z-index: 999;
+
+    animation:
+        navbarPopup .22s
+        ease;
+}
+
+
+/* ==========================================================
+   GLOBAL NAVBAR POPUP
+========================================================== */
+
+@keyframes navbarPopup {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(8px)
+            scale(.97);
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* ==========================================================
+   NAVBAR SCROLLBARS
+========================================================== */
+
+.notificationMenu::-webkit-scrollbar,
+.modelMenu::-webkit-scrollbar {
+
+    width: 6px;
+}
+
+.notificationMenu::-webkit-scrollbar-track,
+.modelMenu::-webkit-scrollbar-track {
+
+    background: transparent;
+}
+
+.notificationMenu::-webkit-scrollbar-thumb,
+.modelMenu::-webkit-scrollbar-thumb {
+
+    background:
+        rgba(100,116,139,.35);
+
+    border-radius: 999px;
+}
+
+
+/* ==========================================================
+   MOBILE / RESPONSIVE
+========================================================== */
+
+@media (max-width: 1100px) {
+
+    .navbarLeft {
+
+        flex-basis: 120px;
+    }
+
+    .navbarRight {
+
+        flex-basis: 160px;
+    }
+
+    .navbarCenter {
+
+        padding:
+            0 12px;
+    }
+
+    .searchBox {
+
+        max-width: 430px;
+    }
+}
+
+
+@media (max-width: 760px) {
+
+    .navbar {
+
+        padding:
+            0 14px;
+    }
+
+    .navbarLeft {
+
+        flex-basis: auto;
+    }
+
+    .navbarCenter {
+
+        display: none;
+    }
+
+    .navbarRight {
+
+        flex-basis: auto;
+    }
+
+    .modelWrapper {
+
+        display: none;
+    }
+}
+
+
+@media (max-width: 480px) {
+
+    .navbar {
+
+        height: 62px;
+        min-height: 62px;
+
+        padding:
+            0 10px;
+    }
+
+    .navbarLogo {
+
+        width: 38px;
+        height: 38px;
+    }
+
+    .brandButton {
+
+        width: 42px;
+        height: 42px;
+    }
+
+    .navbarMiniLogo {
+
+        width: 50px;
+        height: 50px;
+    }
+
+    .notificationMenu {
+
+        width: 300px;
+
+        right: -10px;
+    }
+}
+
+/* =======================================================
+   TOP RIGHT NAVBAR LOGO
+======================================================= */
+
+.navbar-logo {
+    width: 50px;
+    height: 50px;
+
+    object-fit: contain;
+
+    flex-shrink: 0;
+
+    display: block;
+}
+
+/* Agar logo button/container ke andar hai */
+.navbar-logo-container {
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+}
+
+.navbar-logo-container img {
+    width: 28px;
+    height: 28px;
+
+    object-fit: contain;
+}
+
+/* =========================================================
+   NAVBAR PROFILE NAME
+========================================================= */
+
+.navbarProfileName {
+    margin-left: 10px;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    color: var(--text-primary, #f5f7ff);
+
+    white-space: nowrap;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    max-width: 160px;
+
+    transition:
+        color .2s ease,
+        opacity .2s ease;
+}
+
+
+/* LIGHT THEME */
+
+:root[data-theme="light"] .navbarProfileName {
+    color: #111827;
+}
+
+
+/* SMALL SCREEN */
+
+@media (max-width: 650px) {
+
+    .navbarProfileName {
+        max-width: 90px;
+        font-size: 14px;
+    }
+
+}
+
+/* =========================================================
+   CHRONIC AI — PREMIUM NAVBAR BRAND
+========================================================= */
+
+.navbarBrand {
+    position: relative;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 7px 9px;
+
+    margin: 0;
+
+    border: 0;
+    outline: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    border-radius: 10px;
+
+    isolation: isolate;
+
+    transition:
+        transform .25s cubic-bezier(.22,1,.36,1),
+        background .25s ease;
+}
+
+
+/* =========================================================
+   SUBTLE GLASS HOVER
+========================================================= */
+
+.navbarBrand::before {
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.055),
+            rgba(139,92,246,.045)
+        );
+
+    border:
+        1px solid rgba(255,255,255,.055);
+
+    opacity: 0;
+
+    transform: scale(.94);
+
+    transition:
+        opacity .3s ease,
+        transform .3s
+        cubic-bezier(.22,1,.36,1);
+
+    z-index: -1;
+}
+
+
+.navbarBrand:hover::before {
+    opacity: 1;
+
+    transform: scale(1);
+}
+
+
+.navbarBrand:hover {
+    transform: translateY(-1px);
+}
+
+
+.navbarBrand:active {
+    transform: scale(.97);
+}
+
+
+/* =========================================================
+   "CHRONIC"
+========================================================= */
+
+.navbarBrandText {
+
+    position: relative;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 650;
+
+    letter-spacing: -0.55px;
+
+    line-height: 1;
+
+    color: #f4f5fb;
+
+    user-select: none;
+
+    transition:
+        color .25s ease,
+        letter-spacing .25s ease;
+}
+
+
+/* =========================================================
+   "AI"
+========================================================= */
+
+.navbarBrandAI {
+
+    position: relative;
+
+    font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 800;
+
+    letter-spacing: -0.55px;
+
+    line-height: 1;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9b8cff 0%,
+            #b28cff 45%,
+            #d0a0ff 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(
+            0 0 12px
+            rgba(139,92,246,.18)
+        );
+
+    user-select: none;
+
+    transition:
+        filter .3s ease,
+        transform .3s
+        cubic-bezier(.22,1,.36,1);
+}
+
+
+/* =========================================================
+   HOVER DETAIL
+========================================================= */
+
+.navbarBrand:hover .navbarBrandText {
+    color: #ffffff;
+
+    letter-spacing: -0.4px;
+}
+
+
+.navbarBrand:hover .navbarBrandAI {
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(139,92,246,.42)
+        );
+
+    transform: translateX(1px);
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+:root[data-theme="light"] .navbarBrandText {
+    color: #171827;
+}
+
+
+:root[data-theme="light"] .navbarBrand:hover .navbarBrandText {
+    color: #090a12;
+}
+
+
+:root[data-theme="light"] .navbarBrandAI {
+
+    background:
+        linear-gradient(
+            135deg,
+            #4f46e5,
+            #7c3aed
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+
+    filter:
+        drop-shadow(
+            0 0 9px
+            rgba(79,70,229,.15)
+        );
+}
+
+
+:root[data-theme="light"] .navbarBrand::before {
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(15,23,42,.035),
+            rgba(99,102,241,.045)
+        );
+
+    border-color:
+        rgba(15,23,42,.06);
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .navbarBrand {
+        gap: 5px;
+
+        padding: 6px 7px;
+    }
+
+    .navbarBrandText,
+    .navbarBrandAI {
+        font-size: 16px;
+    }
+
+}
+
+/* =========================================================
+   CHRONIC AI — NOTIFICATION BELL
+========================================================= */
+
+.notificationWrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+/* =========================================================
+   BELL BUTTON
+========================================================= */
+
+.notificationBtn {
+    position: relative;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 12px;
+
+    background: rgba(255, 255, 255, 0.025);
+
+    color: #9ca7c4;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.notificationBtn:hover {
+    color: #ffffff;
+
+    background: rgba(139, 92, 246, 0.09);
+
+    border-color:
+        rgba(139, 92, 246, 0.25);
+
+    transform: translateY(-1px);
+}
+
+.notificationBtnActive {
+    color: #ffffff;
+
+    background:
+        rgba(139, 92, 246, 0.12);
+
+    border-color:
+        rgba(139, 92, 246, 0.32);
+
+    box-shadow:
+        0 0 20px rgba(139, 92, 246, 0.08);
+}
+
+
+/* =========================================================
+   BADGE
+========================================================= */
+
+.notificationBadge {
+    position: absolute;
+
+    top: -4px;
+    right: -4px;
+
+    min-width: 17px;
+    height: 17px;
+
+    padding: 0 4px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    background: #ef4444;
+
+    border: 2px solid #0b1020;
+
+    color: #ffffff;
+
+    font-size: 9px;
+    font-weight: 800;
+
+    line-height: 1;
+
+    box-shadow:
+        0 0 12px rgba(239, 68, 68, 0.25);
+}
+
+
+/* =========================================================
+   NOTIFICATION PANEL
+========================================================= */
+
+.notificationPanel {
+    position: absolute;
+
+    top: calc(100% + 12px);
+    right: 0;
+
+    width: min(390px, calc(100vw - 28px));
+
+    overflow: hidden;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(18, 24, 42, 0.98),
+            rgba(10, 15, 29, 0.99)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.08);
+
+    box-shadow:
+        0 25px 70px rgba(0, 0, 0, 0.45),
+        0 0 45px rgba(91, 109, 255, 0.08);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    z-index: 9999;
+
+    animation:
+        notificationPanelIn
+        0.22s
+        cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   PANEL ANIMATION
+========================================================= */
+
+@keyframes notificationPanelIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(-8px)
+            scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.notificationHeader {
+    min-height: 76px;
+
+    padding: 18px 18px 15px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 14px;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.065);
+}
+
+.notificationHeader h3 {
+    margin: 0;
+
+    color: #f8fafc;
+
+    font-size: 16px;
+    font-weight: 750;
+
+    letter-spacing: -0.2px;
+}
+
+.notificationHeader span {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #707b98;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   MARK ALL BUTTON
+========================================================= */
+
+.markAllBtn {
+    flex-shrink: 0;
+
+    padding: 5px 7px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #8b7cff;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        color 0.2s ease;
+}
+
+.markAllBtn:hover {
+    color: #b4a9ff;
+}
+
+
+/* =========================================================
+   NOTIFICATION LIST
+========================================================= */
+
+.notificationList {
+    max-height: 430px;
+
+    overflow-y: auto;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(139, 92, 246, 0.25)
+        transparent;
+}
+
+.notificationList::-webkit-scrollbar {
+    width: 5px;
+}
+
+.notificationList::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.notificationList::-webkit-scrollbar-thumb {
+    background:
+        rgba(139, 92, 246, 0.25);
+
+    border-radius: 999px;
+}
+
+
+/* =========================================================
+   NOTIFICATION ITEM
+========================================================= */
+
+.notificationItem {
+    position: relative;
+
+    width: 100%;
+
+    padding: 16px 17px;
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 12px;
+
+    border: none;
+
+    border-bottom:
+        1px solid rgba(255, 255, 255, 0.045);
+
+    background: transparent;
+
+    text-align: left;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease;
+}
+
+.notificationItem:hover {
+    background:
+        rgba(139, 92, 246, 0.055);
+}
+
+.notificationUnread {
+    background:
+        rgba(91, 109, 255, 0.025);
+}
+
+
+/* =========================================================
+   NOTIFICATION ICON
+========================================================= */
+
+.notificationIcon {
+    width: 38px;
+    height: 38px;
+
+    flex: 0 0 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 11px;
+
+    font-size: 17px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.06);
+}
+
+.notificationIcon-update {
+    background:
+        rgba(59, 130, 246, 0.12);
+
+    color: #60a5fa;
+}
+
+.notificationIcon-success {
+    background:
+        rgba(16, 185, 129, 0.12);
+
+    color: #34d399;
+}
+
+.notificationIcon-feature {
+    background:
+        rgba(168, 85, 247, 0.13);
+
+    color: #c084fc;
+}
+
+.notificationIcon-info {
+    background:
+        rgba(245, 158, 11, 0.12);
+
+    color: #fbbf24;
+}
+
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.notificationContent {
+    min-width: 0;
+
+    flex: 1;
+}
+
+.notificationTitleRow {
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+}
+
+.notificationTitleRow h4 {
+    flex: 1;
+
+    min-width: 0;
+
+    margin: 0;
+
+    color: #f1f5f9;
+
+    font-size: 12.5px;
+    font-weight: 700;
+
+    line-height: 1.4;
+}
+
+.notificationTitleRow span {
+    flex-shrink: 0;
+
+    color: #66718c;
+
+    font-size: 9.5px;
+
+    white-space: nowrap;
+}
+
+.notificationContent p {
+    margin: 5px 0 0;
+
+    color: #7f8aa6;
+
+    font-size: 11px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   UNREAD DOT
+========================================================= */
+
+.unreadDot {
+    width: 6px;
+    height: 6px;
+
+    flex: 0 0 6px;
+
+    margin-top: 6px;
+
+    border-radius: 50%;
+
+    background: #7c6cff;
+
+    box-shadow:
+        0 0 10px rgba(124, 108, 255, 0.65);
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.emptyNotifications {
+    min-height: 220px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 30px;
+}
+
+.emptyNotificationIcon {
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 14px;
+
+    background:
+        rgba(139, 92, 246, 0.08);
+
+    color: #8b7cff;
+
+    font-size: 20px;
+}
+
+.emptyNotifications h4 {
+    margin: 0;
+
+    color: #f1f5f9;
+
+    font-size: 13px;
+}
+
+.emptyNotifications p {
+    margin: 5px 0 0;
+
+    color: #69748f;
+
+    font-size: 11px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.notificationFooter {
+    padding: 11px 15px;
+
+    border-top:
+        1px solid rgba(255, 255, 255, 0.055);
+}
+
+.notificationFooter button {
+    width: 100%;
+
+    min-height: 36px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    border: 1px solid rgba(255, 255, 255, 0.06);
+
+    border-radius: 10px;
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    color: #8893ae;
+
+    font-size: 11px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.notificationFooter button:hover {
+    background:
+        rgba(139, 92, 246, 0.08);
+
+    border-color:
+        rgba(139, 92, 246, 0.18);
+
+    color: #c2baff;
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+[data-theme="light"] .notificationBtn {
+    background:
+        rgba(15, 23, 42, 0.025);
+
+    border-color:
+        rgba(15, 23, 42, 0.08);
+
+    color: #64748b;
+}
+
+[data-theme="light"] .notificationBtn:hover,
+[data-theme="light"] .notificationBtnActive {
+    background:
+        rgba(99, 102, 241, 0.07);
+
+    border-color:
+        rgba(99, 102, 241, 0.20);
+
+    color: #4f46e5;
+}
+
+[data-theme="light"] .notificationBadge {
+    border-color: #ffffff;
+}
+
+[data-theme="light"] .notificationPanel {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.99),
+            rgba(247, 248, 252, 0.99)
+        );
+
+    border-color:
+        rgba(15, 23, 42, 0.08);
+
+    box-shadow:
+        0 25px 60px rgba(15, 23, 42, 0.16);
+}
+
+[data-theme="light"] .notificationHeader {
+    border-bottom-color:
+        rgba(15, 23, 42, 0.07);
+}
+
+[data-theme="light"] .notificationHeader h3 {
+    color: #111827;
+}
+
+[data-theme="light"] .notificationHeader span {
+    color: #64748b;
+}
+
+[data-theme="light"] .notificationItem {
+    border-bottom-color:
+        rgba(15, 23, 42, 0.055);
+}
+
+[data-theme="light"] .notificationItem:hover {
+    background:
+        rgba(99, 102, 241, 0.045);
+}
+
+[data-theme="light"] .notificationTitleRow h4 {
+    color: #172033;
+}
+
+[data-theme="light"] .notificationTitleRow span {
+    color: #94a3b8;
+}
+
+[data-theme="light"] .notificationContent p {
+    color: #64748b;
+}
+
+[data-theme="light"] .notificationFooter {
+    border-top-color:
+        rgba(15, 23, 42, 0.06);
+}
+
+[data-theme="light"] .notificationFooter button {
+    background:
+        rgba(15, 23, 42, 0.025);
+
+    border-color:
+        rgba(15, 23, 42, 0.07);
+
+    color: #64748b;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .notificationPanel {
+        position: fixed;
+
+        top: 70px;
+        right: 12px;
+
+        width:
+            min(390px, calc(100vw - 24px));
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .notificationPanel {
+        top: 66px;
+        right: 8px;
+
+        width:
+            calc(100vw - 16px);
+
+        border-radius: 16px;
+    }
+
+    .notificationHeader {
+        padding: 15px;
+    }
+
+    .notificationItem {
+        padding: 14px;
+    }
+
+}
+/* ==========================================================
+   END
+========================================================== */

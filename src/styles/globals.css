@@ -1,0 +1,832 @@
+@import "tailwindcss";
+@import "./variables.css";
+@import "./animations.css";
+
+/* ==========================================
+   RESET
+========================================== */
+
+*{
+
+    margin:0;
+
+    padding:0;
+
+    box-sizing:border-box;
+
+}
+
+html{
+
+    font-size:16px;
+
+}
+
+html,
+body,
+#root{
+
+    width:100%;
+
+    height:100%;
+
+}
+
+body{
+
+    font-family:Inter,"Segoe UI",sans-serif;
+
+    font-size:var(--font-body);
+
+    background:var(--bg-primary);
+
+    color:var(--text-primary);
+
+    overflow:hidden;
+
+    -webkit-font-smoothing:antialiased;
+
+    -moz-osx-font-smoothing:grayscale;
+
+}
+
+a{
+
+    color:inherit;
+
+    text-decoration:none;
+
+}
+
+button{
+
+    border:none;
+
+    outline:none;
+
+    background:none;
+
+    cursor:pointer;
+
+    font:inherit;
+
+}
+
+input,
+textarea{
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:inherit;
+
+    font:inherit;
+
+}
+
+img{
+
+    display:block;
+
+    max-width:100%;
+
+}
+
+/* ==========================================
+   Layout
+========================================== */
+
+.app{
+
+    width:100%;
+
+    height:100dvh;
+
+    display:flex;
+
+    overflow:hidden;
+
+}
+
+.main{
+
+    flex:1;
+
+    min-width:0;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+}
+
+.content{
+
+    flex:1;
+
+    display:flex;
+
+    flex-direction:column;
+
+    overflow:hidden;
+
+    min-height:0;
+
+}
+
+/* ==========================================
+   Background
+========================================== */
+
+body::before{
+
+    content:"";
+
+    position:fixed;
+
+    width:32vw;
+
+    height:32vw;
+
+    min-width:320px;
+
+    min-height:320px;
+
+    max-width:520px;
+
+    max-height:520px;
+
+    top:-12vw;
+
+    left:-12vw;
+
+    border-radius:50%;
+
+    background:var(--primary);
+
+    opacity:.15;
+
+    filter:blur(180px);
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+body::after{
+
+    content:"";
+
+    position:fixed;
+
+    width:28vw;
+
+    height:28vw;
+
+    min-width:260px;
+
+    min-height:260px;
+
+    max-width:460px;
+
+    max-height:460px;
+
+    bottom:-10vw;
+
+    right:-10vw;
+
+    border-radius:50%;
+
+    background:#06B6D4;
+
+    opacity:.10;
+
+    filter:blur(180px);
+
+    pointer-events:none;
+
+    z-index:-1;
+
+}
+
+/* ==========================================
+   Scrollbar
+========================================== */
+
+::-webkit-scrollbar{
+
+    width:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:transparent;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:rgba(255,255,255,.18);
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:rgba(255,255,255,.35);
+
+}
+
+/* =======================================================
+   GLOBAL THEME SYSTEM
+======================================================= */
+
+:root {
+  --primary: #2563eb;
+
+  --bg-primary: #07090d;
+  --bg-secondary: #0d111b;
+  --bg-tertiary: #111827;
+
+  --surface: #0f141f;
+  --surface-hover: #171e2c;
+
+  --border: rgba(255, 255, 255, 0.08);
+  --border-strong: rgba(255, 255, 255, 0.14);
+
+  --text-primary: #f8fafc;
+  --text-secondary: #aab4c5;
+  --text-muted: #6f7b8f;
+
+  --navbar-bg: #0b0e15;
+  --sidebar-bg: #0b101a;
+
+  --glass-bg: rgba(15, 20, 31, 0.82);
+
+  --radius: 14px;
+
+  --font-scale: 1;
+
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+}
+
+/* =======================================================
+   LIGHT THEME
+======================================================= */
+
+:root[data-theme="light"] {
+  --bg-primary: #f5f7fb;
+  --bg-secondary: #ffffff;
+  --bg-tertiary: #eef2f7;
+
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+
+  --border: rgba(15, 23, 42, 0.10);
+  --border-strong: rgba(15, 23, 42, 0.16);
+
+  --text-primary: #111827;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+
+  --navbar-bg: #ffffff;
+  --sidebar-bg: #ffffff;
+
+  --glass-bg: rgba(255, 255, 255, 0.82);
+}
+
+/* =======================================================
+   RESET
+======================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-width: 0;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: calc(16px * var(--font-scale));
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  transition:
+    background var(--transition-normal),
+    color var(--transition-normal);
+}
+
+/* =======================================================
+   GLOBAL THEME
+======================================================= */
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  color: var(--text-primary);
+}
+
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* =======================================================
+   GLASS MODE
+======================================================= */
+
+:root[data-glass="true"] .glass,
+:root[data-glass="true"] .navbar,
+:root[data-glass="true"] .sidebar,
+:root[data-glass="true"] .promptWrapper {
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+/* =======================================================
+   ANIMATIONS
+======================================================= */
+
+:root[data-animations="false"] *,
+:root[data-animations="false"] *::before,
+:root[data-animations="false"] *::after {
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition-duration: 0s !important;
+}
+
+/* =======================================================
+   COMPACT MODE
+======================================================= */
+
+:root[data-compact="true"] {
+  --radius: 10px;
+}
+
+:root[data-compact="true"] .messageRow {
+  gap: 10px;
+}
+
+:root[data-compact="true"] .messageBubble {
+  padding: 11px 15px;
+}
+
+:root[data-compact="true"] .chatWindow {
+  gap: 12px;
+}
+
+/* =======================================================
+   RADIUS
+======================================================= */
+
+:root[data-radius="sharp"] {
+  --radius: 5px;
+}
+
+:root[data-radius="rounded"] {
+  --radius: 14px;
+}
+
+:root[data-radius="pill"] {
+  --radius: 24px;
+}
+
+/* =======================================================
+   FONT SIZE
+======================================================= */
+
+:root[data-font="small"] {
+  --font-scale: 0.92;
+}
+
+:root[data-font="medium"] {
+  --font-scale: 1;
+}
+
+:root[data-font="large"] {
+  --font-scale: 1.08;
+}
+
+/* =======================================================
+   CORNER RADIUS
+======================================================= */
+
+:root[data-radius="sharp"] {
+  --radius: 5px;
+}
+
+:root[data-radius="modern"] {
+  --radius: 10px;
+}
+
+:root[data-radius="rounded"] {
+  --radius: 14px;
+}
+
+:root[data-radius="pill"] {
+  --radius: 24px;
+}
+
+/* =======================================================
+   APPEARANCE SETTINGS — FUNCTIONAL SYSTEM
+======================================================= */
+
+
+/* =======================================================
+   FONT SIZE
+======================================================= */
+
+:root[data-font="small"] {
+    --font-scale: 0.90;
+}
+
+:root[data-font="medium"] {
+    --font-scale: 1;
+}
+
+:root[data-font="large"] {
+    --font-scale: 1.10;
+}
+
+
+/* =======================================================
+   ACCENT COLOR
+======================================================= */
+
+:root {
+    --primary-soft: color-mix(
+        in srgb,
+        var(--primary) 18%,
+        transparent
+    );
+
+    --primary-border: color-mix(
+        in srgb,
+        var(--primary) 45%,
+        transparent
+    );
+
+    --primary-glow: color-mix(
+        in srgb,
+        var(--primary) 30%,
+        transparent
+    );
+}
+
+
+/* =======================================================
+   FONT SIZE — ACTUAL UI
+======================================================= */
+
+html {
+    font-size: calc(16px * var(--font-scale));
+}
+
+body {
+    font-size: calc(1rem * var(--font-scale));
+}
+
+button,
+input,
+textarea,
+select {
+    font-size: inherit;
+}
+
+
+/* =======================================================
+   ACCENT — GLOBAL INTERACTIVE ELEMENTS
+======================================================= */
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+::selection {
+    background: var(--primary);
+    color: #fff;
+}
+
+
+/* =======================================================
+   GLASS EFFECT
+======================================================= */
+
+:root[data-glass="true"] .sidebar,
+:root[data-glass="true"] .navbar,
+:root[data-glass="true"] .promptWrapper,
+:root[data-glass="true"] .settingsCard,
+:root[data-glass="true"] .themeCard,
+:root[data-glass="true"] .suggestionCard,
+:root[data-glass="true"] .card {
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+}
+
+
+/* =======================================================
+   GLASS OFF
+======================================================= */
+
+:root[data-glass="false"] .sidebar,
+:root[data-glass="false"] .navbar,
+:root[data-glass="false"] .promptWrapper,
+:root[data-glass="false"] .settingsCard,
+:root[data-glass="false"] .themeCard,
+:root[data-glass="false"] .suggestionCard,
+:root[data-glass="false"] .card {
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+
+/* =======================================================
+   ANIMATIONS ON
+======================================================= */
+
+:root[data-animations="true"] * {
+    transition:
+        background-color 0.25s ease,
+        border-color 0.25s ease,
+        color 0.25s ease,
+        box-shadow 0.25s ease,
+        transform 0.25s ease;
+}
+
+
+/* =======================================================
+   ANIMATIONS OFF
+======================================================= */
+
+:root[data-animations="false"] *,
+:root[data-animations="false"] *::before,
+:root[data-animations="false"] *::after {
+
+    animation: none !important;
+
+    transition: none !important;
+}
+
+
+/* =======================================================
+   COMPACT MODE
+======================================================= */
+
+:root[data-compact="true"] {
+
+    --radius: 10px;
+}
+
+
+/* Chat */
+
+:root[data-compact="true"] .chatWindow {
+
+    gap: 12px;
+
+    padding-top: 14px;
+    padding-bottom: 14px;
+}
+
+
+/* Messages */
+
+:root[data-compact="true"] .messageRow {
+
+    gap: 9px;
+}
+
+:root[data-compact="true"] .messageBubble {
+
+    padding: 10px 14px;
+
+    line-height: 1.6;
+}
+
+
+/* Sidebar */
+
+:root[data-compact="true"] .sidebar {
+
+    --sidebar-gap: 6px;
+}
+
+:root[data-compact="true"] .sidebar button {
+
+    min-height: 36px;
+}
+
+
+/* Navbar */
+
+:root[data-compact="true"] .navbar {
+
+    min-height: 54px;
+}
+
+
+/* Prompt */
+
+:root[data-compact="true"] .promptContainer {
+
+    padding: 8px 10px;
+}
+
+
+/* Settings */
+
+:root[data-compact="true"] .settingsCard {
+
+    padding: 16px;
+}
+
+
+/* =======================================================
+   RADIUS
+======================================================= */
+
+:root[data-radius="sharp"] {
+
+    --radius: 5px;
+}
+
+:root[data-radius="modern"] {
+
+    --radius: 10px;
+}
+
+:root[data-radius="rounded"] {
+
+    --radius: 16px;
+}
+
+:root[data-radius="pill"] {
+
+    --radius: 24px;
+}
+
+
+/* Apply radius globally */
+
+.settingsCard,
+.themeCard,
+.card,
+.suggestionCard,
+.messageBubble,
+.promptContainer,
+.previewCard,
+.premiumSelect,
+button,
+input,
+textarea {
+
+    border-radius: var(--radius);
+}
+
+
+/* =======================================================
+   ACCENT HOVER
+======================================================= */
+
+.themeCard:hover,
+.suggestionCard:hover,
+.card:hover {
+
+    border-color: var(--primary-border);
+
+    box-shadow:
+        0 0 0 1px var(--primary-soft),
+        0 10px 30px var(--primary-glow);
+}
+
+
+/* =======================================================
+   ACTIVE SETTINGS
+======================================================= */
+
+.themeCard.active {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 1px var(--primary),
+        0 8px 28px var(--primary-glow);
+}
+
+
+/* =======================================================
+   SETTINGS SWITCH
+======================================================= */
+
+.switch input:checked + .slider {
+
+    background: var(--primary);
+
+    box-shadow:
+        0 0 12px var(--primary-glow);
+}
+
+
+/* =======================================================
+   SETTINGS COLOR BUTTON
+======================================================= */
+
+.colorBtn.selected {
+
+    box-shadow:
+        0 0 0 3px var(--bg-primary),
+        0 0 0 5px var(--primary);
+
+}
+
+
+/* =======================================================
+   SETTINGS SELECT
+======================================================= */
+
+.premiumSelect:focus {
+
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px var(--primary-soft);
+}
+
+
+/* =======================================================
+   PREVIEW BUTTON
+======================================================= */
+
+.previewBtn {
+
+    background: var(--primary) !important;
+}
+
+
+/* =======================================================
+   PRIMARY BUTTONS
+======================================================= */
+
+.sendBtn,
+.newChat {
+
+    background: var(--primary);
+}
+
+
+/* =======================================================
+   PRIMARY HOVER
+======================================================= */
+
+.sendBtn:hover,
+.newChat:hover {
+
+    filter: brightness(1.08);
+
+    box-shadow:
+        0 8px 25px var(--primary-glow);
+}

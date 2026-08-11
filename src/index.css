@@ -1,0 +1,357 @@
+@import "./styles/variables.css";
+
+/* =====================================================
+   GLOBAL THEME
+===================================================== */
+
+:root {
+  --bg: #0B1220;
+  --text: #F8FAFC;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+
+  --surface: #111827;
+  --surface-hover: #1E293B;
+  --border: rgba(148, 163, 184, 0.16);
+
+  --scroll-track: #111827;
+  --scroll-thumb: #475569;
+  --scroll-thumb-hover: #64748B;
+
+  color-scheme: dark;
+}
+
+/* =====================================================
+   DARK THEME
+===================================================== */
+
+:root[data-theme="dark"] {
+
+  --bg: #0B1220;
+  --text: #F8FAFC;
+
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+
+  --surface: #111827;
+  --surface-hover: #1E293B;
+  --border: rgba(148, 163, 184, 0.16);
+
+  --scroll-track: #111827;
+  --scroll-thumb: #475569;
+  --scroll-thumb-hover: #64748B;
+
+  color-scheme: dark;
+}
+
+/* =====================================================
+   LIGHT THEME
+===================================================== */
+
+:root[data-theme="light"] {
+
+  --bg: #F6F8FC;
+  --text: #111827;
+
+  --text-primary: #111827;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+
+  --surface: #FFFFFF;
+  --surface-hover: #F1F5F9;
+  --border: rgba(15, 23, 42, 0.10);
+
+  --scroll-track: #EDF2F7;
+  --scroll-thumb: #CBD5E1;
+  --scroll-thumb-hover: #94A3B8;
+
+  color-scheme: light;
+}
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* =====================================================
+   ROOT
+===================================================== */
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+  font-family: "Inter", sans-serif;
+
+  width: 100%;
+  min-height: 100vh;
+
+  background: var(--bg);
+  color: var(--text-primary);
+
+  overflow: hidden;
+
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+}
+
+/* =====================================================
+   DARK BACKGROUND
+===================================================== */
+
+:root[data-theme="dark"] body {
+
+  background:
+
+    radial-gradient(
+      circle at top left,
+      rgba(88, 101, 242, 0.12) 0%,
+      transparent 32%
+    ),
+
+    radial-gradient(
+      circle at bottom right,
+      rgba(0, 212, 255, 0.08) 0%,
+      transparent 38%
+    ),
+
+    #0B1220;
+}
+
+/* =====================================================
+   LIGHT BACKGROUND
+===================================================== */
+
+:root[data-theme="light"] body {
+
+  background:
+
+    radial-gradient(
+      circle at top left,
+      rgba(99, 102, 241, 0.08) 0%,
+      transparent 35%
+    ),
+
+    radial-gradient(
+      circle at top right,
+      rgba(14, 165, 233, 0.06) 0%,
+      transparent 35%
+    ),
+
+    radial-gradient(
+      circle at bottom left,
+      rgba(16, 185, 129, 0.05) 0%,
+      transparent 32%
+    ),
+
+    #F6F8FC;
+}
+
+/* =====================================================
+   ROOT CHILDREN
+===================================================== */
+
+#root {
+  background: transparent;
+  color: var(--text-primary);
+}
+
+/* =====================================================
+   SELECTION
+===================================================== */
+
+::selection {
+  background: #6366F1;
+  color: #FFFFFF;
+}
+
+/* =====================================================
+   LINKS
+===================================================== */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+button {
+  font: inherit;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: inherit;
+  background: transparent;
+  transition: all 0.25s ease;
+}
+
+/* =====================================================
+   INPUTS
+===================================================== */
+
+input,
+textarea,
+select {
+  font: inherit;
+  outline: none;
+  color: var(--text-primary);
+}
+
+/* =====================================================
+   IMAGES
+===================================================== */
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* =====================================================
+   SCROLLBAR
+===================================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--scroll-track);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--scroll-thumb);
+  border-radius: 30px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--scroll-thumb-hover);
+}
+
+/* =====================================================
+   SMOOTH THEME TRANSITION
+===================================================== */
+
+body,
+button,
+input,
+textarea,
+select {
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+/* =====================================================
+   MAIN APP LAYOUT
+===================================================== */
+
+.app {
+  width: 100%;
+  height: 100vh;
+  min-height: 0;
+
+  display: flex;
+
+  overflow: hidden;
+
+  background: transparent;
+}
+
+/* =====================================================
+   MAIN AREA
+===================================================== */
+
+.main {
+  flex: 1 1 auto;
+
+  width: calc(100% - var(--sidebar-width, 260px));
+  min-width: 0;
+  min-height: 0;
+
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background: transparent;
+}
+
+/* =====================================================
+   CONTENT AREA
+===================================================== */
+
+.content {
+  flex: 1 1 auto;
+
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  position: relative;
+
+  background: transparent;
+}
+
+/* =====================================================
+   PAGE ROOTS
+===================================================== */
+
+.content > * {
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 768px) {
+
+  .main {
+    width: 100%;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+}

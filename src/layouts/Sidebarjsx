@@ -1,0 +1,29 @@
+export default function Sidebar() {
+  return (
+    <aside className="sidebar">
+      <div className="logo">
+        <h2>Chronic AI</h2>
+      </div>
+
+      <button className="newChatBtn">
+        + New Chat
+      </button>
+
+      <div className="chatHistory">
+        <h4>Recent Chats</h4>
+
+        <div className="chatItem active">
+          New Conversation
+        </div>
+
+        <div className="chatItem">
+          Water Treatment
+        </div>
+
+        <div className="chatItem">
+          Tender Discussion
+        </div>
+      </div>
+    </aside>
+  );
+}

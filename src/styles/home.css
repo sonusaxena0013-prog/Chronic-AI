@@ -1,0 +1,1746 @@
+/* =========================================================
+   CHRONIC AI — HOME.CSS
+   PREMIUM UI
+   DARK + LIGHT THEME
+   DIAGONAL PARALLELOGRAM CARD SHINE
+   RESPONSIVE
+========================================================= */
+
+
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+.home,
+.homePage,
+main {
+    min-width: 0;
+    min-height: 0;
+    box-sizing: border-box;
+}
+
+.home {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(82, 95, 220, 0.14),
+            transparent 34%
+        ),
+        radial-gradient(
+            circle at 100% 78%,
+            rgba(20, 184, 166, 0.08),
+            transparent 32%
+        ),
+        #080d1b;
+
+    color: #f5f7ff;
+}
+
+
+/* =========================================================
+   HOME CHAT AREA
+========================================================= */
+
+.homeChatArea {
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+
+/* =========================================================
+   CHAT WINDOW
+========================================================= */
+
+.homeChatArea .chatWindow,
+.chatWindow {
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: clamp(18px, 2vw, 26px);
+
+    padding:
+        clamp(20px, 3vw, 36px)
+        clamp(20px, 4vw, 60px)
+        120px;
+
+    box-sizing: border-box;
+
+    scroll-behavior: smooth;
+
+    scroll-padding-top: 20px;
+    scroll-padding-bottom: 120px;
+
+    overscroll-behavior-y: contain;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-gutter: stable;
+
+    background: transparent;
+
+    scrollbar-width: thin;
+
+    scrollbar-color:
+        rgba(139, 92, 246, 0.25)
+        transparent;
+}
+
+
+/* =========================================================
+   CHAT WINDOW SCROLLBAR
+========================================================= */
+
+.homeChatArea .chatWindow::-webkit-scrollbar,
+.chatWindow::-webkit-scrollbar {
+    width: 7px;
+}
+
+.homeChatArea .chatWindow::-webkit-scrollbar-track,
+.chatWindow::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.homeChatArea .chatWindow::-webkit-scrollbar-thumb,
+.chatWindow::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.22);
+
+    border-radius: 999px;
+
+    transition: background 0.25s ease;
+}
+
+.homeChatArea .chatWindow::-webkit-scrollbar-thumb:hover,
+.chatWindow::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.48);
+}
+
+
+/* =========================================================
+   WELCOME
+========================================================= */
+
+.welcome {
+    position: relative;
+
+    isolation: isolate;
+
+    width: 100%;
+    min-height: 100%;
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding:
+        clamp(48px, 7vh, 78px)
+        clamp(20px, 4vw, 60px)
+        180px;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    color: #f5f7ff;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(79, 70, 229, 0.12),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 100% 75%,
+            rgba(6, 182, 212, 0.06),
+            transparent 28%
+        );
+
+    scrollbar-gutter: stable;
+}
+
+
+/* =========================================================
+   WELCOME GLOW
+========================================================= */
+
+.welcome::before {
+    content: "";
+
+    position: absolute;
+
+    top: -180px;
+    left: 50%;
+
+    width: 720px;
+    height: 430px;
+
+    transform: translateX(-50%);
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(91, 109, 255, 0.15),
+            transparent 68%
+        );
+
+    filter: blur(22px);
+
+    pointer-events: none;
+
+    z-index: -1;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    flex-shrink: 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+.hero h1 {
+    margin: 0;
+
+    font-size: clamp(36px, 4.2vw, 54px);
+
+    line-height: 1.12;
+
+    font-weight: 800;
+
+    letter-spacing: -1.8px;
+
+    color: #f8fafc;
+
+    text-shadow:
+        0 0 35px rgba(91, 109, 255, 0.10);
+}
+
+.hero h1 span {
+    display: inline;
+
+    background:
+        linear-gradient(
+            110deg,
+            #8294ff 0%,
+            #6d7cff 38%,
+            #9a73ff 72%,
+            #c084fc 100%
+        );
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+    width: 100%;
+    max-width: 620px;
+
+    margin: 18px auto 0;
+
+    font-size: 15px;
+
+    line-height: 1.7;
+
+    color: #8792b2;
+
+    text-align: center;
+}
+
+
+/* =========================================================
+   QUICK ACTION CARDS
+========================================================= */
+
+.welcome .cards {
+    position: relative;
+
+    width: min(900px, 100%);
+
+    margin: 44px auto 0;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+
+    align-items: stretch;
+
+    justify-content: center;
+
+    perspective: 1000px;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.welcome .cards .card {
+    position: relative;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 158px;
+
+    box-sizing: border-box;
+
+    padding: 22px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    text-align: left;
+
+    overflow: hidden;
+
+    isolation: isolate;
+
+    appearance: none;
+
+    border-radius: 20px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.075);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(25, 29, 45, 0.96),
+            rgba(17, 21, 35, 0.94)
+        );
+
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    color: #ffffff;
+
+    cursor: pointer;
+
+    transform: translateZ(0);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.035),
+        0 12px 32px rgba(0, 0, 0, 0.20);
+
+    transition:
+        transform 0.35s cubic-bezier(.22, 1, .36, 1),
+        border-color 0.35s ease,
+        background 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   CARD AMBIENT GLOW
+========================================================= */
+
+.welcome .cards .card::before {
+    content: "";
+
+    position: absolute;
+
+    width: 230px;
+    height: 230px;
+
+    top: -115px;
+    right: -105px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.19) 0%,
+            rgba(99, 102, 241, 0.09) 38%,
+            transparent 72%
+        );
+
+    opacity: 0.50;
+
+    pointer-events: none;
+
+    transform: scale(0.9);
+
+    z-index: 1;
+
+    transition:
+        opacity 0.45s ease,
+        transform 0.55s cubic-bezier(.22, 1, .36, 1);
+}
+
+
+/* =========================================================
+   INDIVIDUAL CARD GLOW
+========================================================= */
+
+.welcome .cards .card:nth-child(1)::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(56, 189, 248, 0.16),
+            transparent 70%
+        );
+}
+
+.welcome .cards .card:nth-child(2)::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(168, 85, 247, 0.18),
+            transparent 70%
+        );
+}
+
+.welcome .cards .card:nth-child(3)::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(99, 102, 241, 0.16),
+            transparent 70%
+        );
+}
+
+.welcome .cards .card:nth-child(4)::before {
+    background:
+        radial-gradient(
+            circle,
+            rgba(139, 92, 246, 0.20),
+            transparent 70%
+        );
+}
+
+
+/* =========================================================
+   DIAGONAL PARALLELOGRAM SHINE
+========================================================= */
+
+.welcome .cards .card::after {
+    content: "";
+
+    position: absolute;
+
+    top: -60%;
+    bottom: -60%;
+
+    left: -120%;
+
+    width: 55%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.02) 20%,
+            rgba(255, 255, 255, 0.12) 40%,
+            rgba(255, 255, 255, 0.30) 50%,
+            rgba(255, 255, 255, 0.12) 60%,
+            rgba(255, 255, 255, 0.02) 80%,
+            transparent 100%
+        );
+
+    transform: skewX(-22deg);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 999;
+
+    display: block;
+
+    transition:
+        left 0.8s cubic-bezier(.22, 1, .36, 1),
+        opacity 0.15s ease;
+}
+
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.welcome .cards .card:hover {
+    transform:
+        translateY(-7px)
+        scale(1.015);
+
+    border-color:
+        rgba(139, 92, 246, 0.55);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(32, 31, 54, 0.98),
+            rgba(20, 22, 38, 0.97)
+        );
+
+    box-shadow:
+        0 22px 55px rgba(0, 0, 0, 0.30),
+        0 0 0 1px rgba(139, 92, 246, 0.15),
+        0 0 35px rgba(139, 92, 246, 0.16),
+        0 0 70px rgba(91, 109, 255, 0.06);
+}
+
+
+/* =========================================================
+   SHINE SWEEP
+========================================================= */
+
+.welcome .cards .card:hover::after {
+    left: 140%;
+    opacity: 1;
+}
+
+
+/* =========================================================
+   GLOW HOVER
+========================================================= */
+
+.welcome .cards .card:hover::before {
+    opacity: 1;
+
+    transform: scale(1.28);
+}
+
+
+/* =========================================================
+   CARD ICON
+========================================================= */
+
+.welcome .cards .card .emoji {
+    position: relative;
+
+    z-index: 10;
+
+    width: 44px;
+    height: 44px;
+
+    margin-bottom: 17px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.025)
+        );
+
+    border:
+        1px solid rgba(255, 255, 255, 0.075);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.045),
+        0 7px 20px rgba(0, 0, 0, 0.16);
+
+    font-size: 21px;
+
+    transition:
+        transform 0.35s cubic-bezier(.22, 1, .36, 1),
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
+}
+
+
+/* =========================================================
+   ICON HOVER
+========================================================= */
+
+.welcome .cards .card:hover .emoji {
+    transform:
+        translateY(-2px)
+        scale(1.07);
+
+    border-color:
+        rgba(139, 92, 246, 0.40);
+
+    box-shadow:
+        0 0 22px rgba(139, 92, 246, 0.18),
+        inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+
+
+/* =========================================================
+   CARD HEADING
+========================================================= */
+
+.welcome .cards .card h3 {
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    margin: 0;
+
+    font-size: 15px;
+
+    line-height: 1.35;
+
+    font-weight: 700;
+
+    letter-spacing: 0.05px;
+
+    color: #f5f7ff;
+
+    transition: color 0.25s ease;
+}
+
+
+/* =========================================================
+   CARD DESCRIPTION
+========================================================= */
+
+.welcome .cards .card p {
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    margin: 7px 0 0;
+
+    font-size: 12.5px;
+
+    line-height: 1.6;
+
+    font-weight: 400;
+
+    color: #8993b3;
+
+    overflow-wrap: break-word;
+
+    transition: color 0.25s ease;
+}
+
+.welcome .cards .card:hover h3 {
+    color: #ffffff;
+}
+
+.welcome .cards .card:hover p {
+    color: #a8b0cc;
+}
+
+
+/* =========================================================
+   SUGGESTIONS
+========================================================= */
+
+.suggestions {
+    width: min(900px, 100%);
+
+    margin: 38px auto 0;
+
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+}
+
+.suggestions h4 {
+    margin: 0 0 14px;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+    color: #687493;
+}
+
+
+/* =========================================================
+   SUGGESTION GRID
+========================================================= */
+
+.suggestionGrid {
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 9px;
+}
+
+
+/* =========================================================
+   SUGGESTION CARD
+========================================================= */
+
+.suggestionCard {
+    width: 100%;
+    min-width: 0;
+    min-height: 43px;
+
+    padding: 10px 13px;
+
+    box-sizing: border-box;
+
+    border-radius: 12px;
+
+    border:
+        1px solid rgba(255, 255, 255, 0.055);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    color: #8e99b7;
+
+    font-size: 11.5px;
+
+    line-height: 1.4;
+
+    font-weight: 500;
+
+    text-align: center;
+
+    cursor: pointer;
+
+    white-space: normal;
+
+    transition:
+        transform 0.22s ease,
+        border-color 0.22s ease,
+        background 0.22s ease,
+        box-shadow 0.22s ease,
+        color 0.22s ease;
+}
+
+
+/* =========================================================
+   SUGGESTION HOVER
+========================================================= */
+
+.suggestionCard:hover {
+    transform: translateY(-3px);
+
+    border-color:
+        rgba(105, 120, 255, 0.25);
+
+    background:
+        rgba(91, 109, 255, 0.07);
+
+    box-shadow:
+        0 10px 24px rgba(0, 0, 0, 0.14);
+
+    color: #f4f5ff;
+}
+
+.suggestionCard:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   PROMPT AREA
+========================================================= */
+
+.homePromptArea {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 50;
+
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    box-sizing: border-box;
+
+    pointer-events: none;
+}
+
+.homePromptArea .promptWrapper {
+    pointer-events: auto;
+}
+
+
+/* =========================================================
+   PROMPT WRAPPER
+========================================================= */
+
+.promptWrapper {
+    position: fixed;
+
+    left: var(--sidebar-width, 210px);
+    right: 0;
+    bottom: 0;
+
+    width: auto;
+
+    z-index: 200;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    padding:
+        14px
+        24px
+        20px;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(8, 13, 27, 0.97) 0%,
+            rgba(8, 13, 27, 0.80) 35%,
+            rgba(8, 13, 27, 0.34) 68%,
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   PROMPT CONTAINER
+========================================================= */
+
+.promptContainer {
+    width: min(620px, 82%);
+    max-width: 620px;
+
+    height: 48px;
+    min-height: 48px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 7px;
+
+    padding:
+        5px
+        7px
+        5px
+        10px;
+
+    box-sizing: border-box;
+
+    pointer-events: auto;
+
+    border-radius: 18px;
+
+    background:
+        rgba(22, 27, 42, 0.94);
+
+    border:
+        1px solid rgba(255, 255, 255, 0.085);
+
+    backdrop-filter: blur(22px);
+    -webkit-backdrop-filter: blur(22px);
+
+    box-shadow:
+        0 16px 45px rgba(0, 0, 0, 0.34),
+        0 0 30px rgba(91, 109, 255, 0.055);
+
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+/* =========================================================
+   GENERIC PROMPT BAR SUPPORT
+========================================================= */
+
+.homePromptArea .promptBar,
+.promptBar,
+.promptBox {
+    width: min(620px, 82%);
+    max-width: 620px;
+
+    height: 48px;
+    min-height: 48px;
+
+    box-sizing: border-box;
+
+    border-radius: 18px;
+}
+
+
+/* =========================================================
+   PROMPT FOCUS
+========================================================= */
+
+.promptContainer:focus-within {
+    border-color:
+        rgba(120, 112, 255, 0.34);
+
+    box-shadow:
+        0 16px 45px rgba(0, 0, 0, 0.36),
+        0 0 30px rgba(91, 109, 255, 0.08);
+}
+
+
+/* =========================================================
+   TEXTAREA
+========================================================= */
+
+.promptContainer textarea,
+.promptBar textarea,
+.promptBar input {
+    flex: 1 1 auto;
+
+    min-width: 0;
+
+    height: 100%;
+
+    min-height: 0;
+    max-height: 180px;
+
+    padding:
+        0 10px;
+
+    box-sizing: border-box;
+
+    resize: none;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #f5f7ff;
+
+    font-size: 14px;
+
+    line-height: 20px;
+
+    font-family: inherit;
+
+    overflow-y: auto;
+}
+
+.promptContainer textarea::placeholder,
+.promptBar textarea::placeholder,
+.promptBar input::placeholder {
+    color: #78839f;
+}
+
+
+/* =========================================================
+   PROMPT BUTTONS
+========================================================= */
+
+.promptContainer .toolBtn,
+.promptContainer .sendBtn,
+.promptBar button {
+    flex: 0 0 38px;
+
+    width: 38px;
+    height: 38px;
+
+    min-width: 38px;
+    min-height: 38px;
+
+    padding: 0;
+
+    border: none;
+
+    border-radius: 12px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease,
+        color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* =========================================================
+   TOOL BUTTON HOVER
+========================================================= */
+
+.promptContainer .toolBtn:hover,
+.promptBar button:hover {
+    transform: translateY(-1px);
+
+    background:
+        rgba(255, 255, 255, 0.06);
+}
+
+
+/* =========================================================
+   SEND BUTTON HOVER
+========================================================= */
+
+.promptContainer .sendBtn:hover {
+    transform:
+        translateY(-1px)
+        scale(1.04);
+
+    box-shadow:
+        0 0 22px rgba(99, 102, 241, 0.22);
+}
+
+
+/* =========================================================
+   COLLAPSED SIDEBAR
+========================================================= */
+
+.sidebar.collapsed ~ * .promptWrapper {
+    left: var(--sidebar-collapse, 72px);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .welcome {
+        padding:
+            40px
+            20px
+            175px;
+    }
+
+    .welcome .cards {
+        width: min(700px, 100%);
+
+        gap: 14px;
+    }
+
+    .suggestions {
+        width: min(700px, 100%);
+    }
+
+    .suggestionGrid {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .promptWrapper {
+        left: var(--sidebar-width, 210px);
+
+        padding:
+            12px
+            18px
+            18px;
+    }
+
+    .homePromptArea .promptBar,
+    .promptBar,
+    .promptContainer {
+        width: 88%;
+        max-width: 620px;
+    }
+
+    .chatWindow {
+        padding-bottom: 100px;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .promptWrapper {
+        left: 0 !important;
+        right: 0;
+
+        padding:
+            12px
+            12px
+            16px;
+    }
+
+    .promptContainer {
+        width: 100%;
+        max-width: none;
+
+        height: 48px;
+
+        border-radius: 16px;
+    }
+
+    .homePromptArea .promptBar,
+    .promptBar {
+        width: 88%;
+        max-width: none;
+    }
+
+    .welcome {
+        padding:
+            35px
+            14px
+            155px;
+    }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .hero h1 {
+        font-size: 32px;
+
+        letter-spacing: -0.9px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .welcome .cards {
+        grid-template-columns: 1fr;
+
+        gap: 14px;
+
+        margin-top: 35px;
+    }
+
+    .welcome .cards .card {
+        min-height: 165px;
+
+        padding: 20px;
+
+        border-radius: 19px;
+    }
+
+    .welcome .cards .card:hover {
+        transform:
+            translateY(-4px)
+            scale(1.01);
+    }
+
+    .welcome .cards .emoji {
+        width: 44px;
+        height: 44px;
+
+        font-size: 21px;
+
+        margin-bottom: 14px;
+    }
+
+    .suggestions {
+        margin-top: 30px;
+    }
+
+    .suggestionGrid {
+        grid-template-columns:
+            1fr 1fr;
+
+        gap: 8px;
+    }
+
+    .promptContainer {
+        width: 100%;
+        max-width: none;
+
+        height: 48px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+    .welcome {
+        padding:
+            25px
+            10px
+            145px;
+    }
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .welcome .cards {
+        margin-top: 25px;
+    }
+
+    .welcome .cards .card {
+        padding: 18px;
+
+        border-radius: 17px;
+    }
+
+    .welcome .cards .card h3 {
+        font-size: 15px;
+    }
+
+    .welcome .cards .card p {
+        font-size: 12px;
+    }
+
+    .suggestionGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .promptWrapper {
+        padding:
+            10px
+            8px
+            12px;
+    }
+
+    .promptContainer {
+        width: 100%;
+        max-width: none;
+
+        height: 48px;
+
+        border-radius: 15px;
+    }
+
+    .promptContainer .toolBtn,
+    .promptContainer .sendBtn,
+    .promptBar button {
+        width: 36px;
+        height: 36px;
+        min-width: 36px;
+        min-height: 36px;
+    }
+}
+
+
+/* =========================================================
+   GLOBAL BOX SIZING
+========================================================= */
+
+.welcome *,
+.welcome *::before,
+.welcome *::after,
+
+.homePromptArea *,
+.homePromptArea *::before,
+.homePromptArea *::after {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .welcome .cards .card,
+    .welcome .cards .card::before,
+    .welcome .cards .card::after,
+    .welcome .cards .emoji,
+    .suggestionCard,
+    .promptContainer .toolBtn,
+    .promptContainer .sendBtn {
+        transition: none !important;
+
+        animation: none !important;
+    }
+}
+
+
+/* =========================================================
+   LIGHT THEME
+========================================================= */
+
+[data-theme="light"] .home {
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(91, 109, 255, 0.08),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 100% 78%,
+            rgba(20, 184, 166, 0.05),
+            transparent 32%
+        ),
+        #f5f7fb;
+
+    color: #111827;
+}
+
+
+/* =========================================================
+   LIGHT — WELCOME
+========================================================= */
+
+[data-theme="light"] .welcome {
+    color: #111827;
+
+    background:
+        radial-gradient(
+            circle at 50% 0%,
+            rgba(91, 109, 255, 0.07),
+            transparent 38%
+        ),
+        radial-gradient(
+            circle at 100% 75%,
+            rgba(6, 182, 212, 0.035),
+            transparent 28%
+        );
+}
+
+[data-theme="light"] .welcome::before {
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(91, 109, 255, 0.08),
+            transparent 68%
+        );
+}
+
+[data-theme="light"] .hero h1 {
+    color: #111827;
+
+    text-shadow: none;
+}
+
+[data-theme="light"] .hero p {
+    color: #64748b;
+}
+
+
+/* =========================================================
+   LIGHT — CARDS
+========================================================= */
+
+[data-theme="light"] .welcome .cards .card {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.97),
+            rgba(248, 247, 255, 0.94)
+        );
+
+    border-color:
+        rgba(91, 109, 255, 0.10);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 12px 35px rgba(40, 35, 80, 0.07);
+}
+
+
+/* =========================================================
+   LIGHT — CARD HOVER
+========================================================= */
+
+[data-theme="light"] .welcome .cards .card:hover {
+    background:
+        linear-gradient(
+            145deg,
+            #ffffff,
+            #faf8ff
+        );
+
+    border-color:
+        rgba(139, 92, 246, 0.45);
+
+    box-shadow:
+        0 20px 50px rgba(80, 55, 150, 0.12),
+        0 0 0 1px rgba(139, 92, 246, 0.10),
+        0 0 30px rgba(139, 92, 246, 0.08);
+}
+
+
+/* =========================================================
+   LIGHT — CARD SHINE
+========================================================= */
+
+[data-theme="light"] .welcome .cards .card::after {
+    background:
+        linear-gradient(
+            90deg,
+            transparent 0%,
+            rgba(99, 102, 241, 0.015) 15%,
+            rgba(139, 92, 246, 0.06) 32%,
+            rgba(255, 255, 255, 0.60) 48%,
+            rgba(139, 92, 246, 0.06) 64%,
+            rgba(99, 102, 241, 0.015) 82%,
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   LIGHT — CARD TEXT
+========================================================= */
+
+[data-theme="light"] .welcome .cards .card h3 {
+    color: #171525;
+}
+
+[data-theme="light"] .welcome .cards .card p {
+    color: #68708d;
+}
+
+[data-theme="light"] .welcome .cards .card:hover h3 {
+    color: #111827;
+}
+
+[data-theme="light"] .welcome .cards .card:hover p {
+    color: #59627d;
+}
+
+
+/* =========================================================
+   LIGHT — CARD ICON
+========================================================= */
+
+[data-theme="light"] .welcome .cards .emoji {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(139, 92, 246, 0.08),
+            rgba(91, 109, 255, 0.04)
+        );
+
+    border-color:
+        rgba(139, 92, 246, 0.12);
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.9),
+        0 7px 20px rgba(80, 55, 150, 0.08);
+}
+
+
+/* =========================================================
+   LIGHT — SUGGESTIONS
+========================================================= */
+
+[data-theme="light"] .suggestions h4 {
+    color: #64748b;
+}
+
+[data-theme="light"] .suggestionCard {
+    background:
+        rgba(255, 255, 255, 0.86);
+
+    border-color:
+        rgba(15, 23, 42, 0.08);
+
+    color: #475569;
+
+    box-shadow:
+        0 5px 18px rgba(15, 23, 42, 0.025);
+}
+
+[data-theme="light"] .suggestionCard:hover {
+    background:
+        rgba(91, 109, 255, 0.06);
+
+    border-color:
+        rgba(91, 109, 255, 0.18);
+
+    color: #111827;
+}
+
+
+/* =========================================================
+   LIGHT — PROMPT WRAPPER
+========================================================= */
+
+[data-theme="light"] .promptWrapper {
+    background:
+        linear-gradient(
+            to top,
+            rgba(248, 250, 252, 0.97) 0%,
+            rgba(248, 250, 252, 0.78) 35%,
+            rgba(248, 250, 252, 0.35) 68%,
+            transparent 100%
+        );
+}
+
+
+/* =========================================================
+   LIGHT — PROMPT
+========================================================= */
+
+[data-theme="light"] .promptContainer {
+    background:
+        rgba(255, 255, 255, 0.94);
+
+    border-color:
+        rgba(15, 23, 42, 0.10);
+
+    box-shadow:
+        0 15px 45px rgba(15, 23, 42, 0.12),
+        0 0 25px rgba(91, 109, 255, 0.035);
+}
+
+[data-theme="light"] .promptContainer:focus-within {
+    border-color:
+        rgba(99, 102, 241, 0.28);
+
+    box-shadow:
+        0 15px 45px rgba(15, 23, 42, 0.14),
+        0 0 25px rgba(91, 109, 255, 0.06);
+}
+
+[data-theme="light"] .promptContainer textarea,
+[data-theme="light"] .promptBar textarea,
+[data-theme="light"] .promptBar input {
+    color: #111827;
+}
+
+[data-theme="light"] .promptContainer textarea::placeholder,
+[data-theme="light"] .promptBar textarea::placeholder,
+[data-theme="light"] .promptBar input::placeholder {
+    color: #94a3b8;
+}
+
+
+/* =========================================================
+   LIGHT — PROMPT BUTTONS
+========================================================= */
+
+[data-theme="light"] .promptContainer .toolBtn:hover,
+[data-theme="light"] .promptBar button:hover {
+    background:
+        rgba(15, 23, 42, 0.05);
+}
+
+
+/* =========================================================
+   FINAL SAFETY
+========================================================= */
+
+.welcome .cards .card,
+.welcome .cards .card::before,
+.welcome .cards .card::after,
+.promptContainer,
+.promptBar,
+.promptBox {
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   FINAL TEXT BAR CONTROL
+   Prevent overflow / keep bar compact
+========================================================= */
+
+.homePromptArea .promptContainer,
+.homePromptArea .promptBar,
+.homePromptArea .promptBox {
+    flex-shrink: 1;
+
+    overflow: hidden;
+}
+
+.homePromptArea textarea,
+.homePromptArea input {
+    min-width: 0 !important;
+
+    max-width: 100%;
+
+    overflow-x: hidden;
+}
+
+.homePromptArea .promptContainer > *,
+.homePromptArea .promptBar > *,
+.homePromptArea .promptBox > * {
+    min-width: 0;
+}
+
+/* =========================================================
+   CHRONIC AI — FINAL CHAT SCROLL FIX
+   UI/DESIGN UNCHANGED
+========================================================= */
+
+.home {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow: hidden;
+}
+
+
+/* Main content area */
+
+.homeContent {
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Chat messages */
+
+.homeContent > .chatWindow {
+    flex: 1 1 auto;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: clamp(18px, 2vw, 26px);
+
+    padding:
+        clamp(20px, 3vw, 36px)
+        clamp(20px, 4vw, 60px)
+        160px;
+
+    scroll-behavior: smooth;
+
+    scroll-padding-bottom: 160px;
+
+    overscroll-behavior-y: contain;
+
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* Scrollbar */
+
+.homeContent > .chatWindow::-webkit-scrollbar {
+    width: 7px;
+}
+
+.homeContent > .chatWindow::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.homeContent > .chatWindow::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.22);
+    border-radius: 999px;
+}
+
+.homeContent > .chatWindow::-webkit-scrollbar-thumb:hover {
+    background: rgba(139, 92, 246, 0.48);
+}
+
+
+/* Keep prompt bar exactly where it is */
+
+.homePromptArea {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    z-index: 50;
+
+    width: 100%;
+
+    pointer-events: none;
+}
+
+.homePromptArea .promptWrapper {
+    pointer-events: auto;
+}
+
+
+/* Anchor */
+
+.chatBottomAnchor {
+    width: 1px;
+    height: 1px;
+
+    flex-shrink: 0;
+
+    pointer-events: none;
+}
+/* =========================================================
+   END — CHRONIC AI HOME.CSS
+========================================================= */

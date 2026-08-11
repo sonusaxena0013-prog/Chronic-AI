@@ -1,0 +1,122 @@
+/* ===========================
+   DARK THEME
+=========================== */
+
+:root,
+:root[data-theme="dark"]{
+
+    --bg-primary:#09090B;
+    --bg-secondary:#111118;
+    --bg-card:rgba(255,255,255,.05);
+
+    --text-primary:#FFFFFF;
+    --text-secondary:#B4B4C7;
+
+    --primary:#7C3AED;
+    --primary-light:#9F67FF;
+
+    --border:rgba(255,255,255,.08);
+
+    --sidebar-width:clamp(210px,15vw,250px);
+    --navbar-height:clamp(58px,4vw,64px);
+
+    --container-width:min(1280px,92vw);
+    --chat-width:min(900px,92vw);
+    --prompt-width:min(900px,94vw);
+
+    --font-body:clamp(14px,.9vw,16px);
+    --font-small:clamp(12px,.8vw,14px);
+    --font-heading:clamp(20px,1.5vw,28px);
+    --font-title:clamp(34px,3.8vw,58px);
+
+    --space-xs:8px;
+    --space-sm:12px;
+    --space-md:16px;
+    --space-lg:24px;
+    --space-xl:32px;
+    --space-2xl:48px;
+
+    --radius-sm:12px;
+    --radius-md:16px;
+    --radius-lg:22px;
+
+    --shadow:0 12px 30px rgba(0,0,0,.28);
+}
+
+/* ===========================
+   LIGHT THEME
+=========================== */
+
+/* ===========================
+   PREMIUM LIGHT THEME
+=========================== */
+
+:root[data-theme="light"]{
+
+    /* Backgrounds */
+
+    --bg-primary:#F7F9FC;
+    --bg-secondary:#FFFFFF;
+    --bg-card:rgba(255,255,255,.72);
+
+    /* Text */
+
+    --text-primary:#111827;
+    --text-secondary:#6B7280;
+
+    /* Accent */
+
+    --primary:#2563EB;
+    --primary-light:#3B82F6;
+    --primary-hover:#1D4ED8;
+
+    /* Borders */
+
+    --border:rgba(15,23,42,.08);
+    --border-hover:rgba(37,99,235,.18);
+
+    /* Glass */
+
+    --glass:rgba(255,255,255,.62);
+    --glass-border:rgba(255,255,255,.55);
+
+    /* Shadows */
+
+    --shadow-xs:0 2px 8px rgba(15,23,42,.04);
+    --shadow-sm:0 6px 20px rgba(15,23,42,.06);
+    --shadow-md:0 12px 35px rgba(15,23,42,.08);
+    --shadow-lg:0 20px 60px rgba(15,23,42,.12);
+
+    /* Layout */
+
+    --sidebar-width:250px;
+    --navbar-height:64px;
+
+    --container-width:min(1400px,94vw);
+    --chat-width:min(960px,92vw);
+    --prompt-width:min(960px,94vw);
+
+    /* Fonts */
+
+    --font-body:15px;
+    --font-small:13px;
+    --font-heading:24px;
+    --font-title:52px;
+
+    /* Spacing */
+
+    --space-xs:8px;
+    --space-sm:12px;
+    --space-md:16px;
+    --space-lg:24px;
+    --space-xl:32px;
+    --space-2xl:48px;
+
+    /* Radius */
+
+    --radius-sm:14px;
+    --radius-md:18px;
+    --radius-lg:24px;
+    --radius-xl:32px;
+
+}
