@@ -1,0 +1,293 @@
+/* =========================================================
+   CHRONIC AI — MOBILE LAYOUT
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    html,
+    body,
+    #root {
+        width: 100%;
+        min-width: 0;
+        height: 100%;
+        margin: 0;
+        overflow: hidden;
+    }
+
+    .app {
+        width: 100%;
+        height: 100dvh;
+        min-height: 0;
+        overflow: hidden;
+        display: flex;
+    }
+
+    /* -------------------------
+       MOBILE SIDEBAR
+    ------------------------- */
+
+    .sidebar {
+        width: 0 !important;
+        min-width: 0 !important;
+        flex: 0 0 0 !important;
+        overflow: visible;
+        border: 0;
+    }
+
+    .sidebar.collapsed {
+        width: 0 !important;
+        min-width: 0 !important;
+    }
+
+    .sidebar.collapsed > *:not(.mobile-menu-button) {
+        display: none;
+    }
+
+    /* -------------------------
+       MAIN
+    ------------------------- */
+
+    .main {
+        width: 100%;
+        min-width: 0;
+        height: 100dvh;
+        flex: 1;
+        overflow: hidden;
+    }
+
+    /* -------------------------
+       HEADER
+    ------------------------- */
+
+    .header {
+        width: 100%;
+        height: 64px;
+        min-height: 64px;
+        padding: 0 14px;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* -------------------------
+       PAGE CONTENT
+    ------------------------- */
+
+    .pageContent {
+        width: 100%;
+        min-width: 0;
+        height: calc(100dvh - 64px);
+        overflow: hidden;
+        padding: 0;
+    }
+
+    /* -------------------------
+       HOME
+    ------------------------- */
+
+    .home {
+        width: 100%;
+        height: 100%;
+        min-width: 0;
+        overflow-y: auto;
+        overflow-x: hidden;
+        box-sizing: border-box;
+
+        padding:
+            18px
+            14px
+            105px
+            14px;
+    }
+
+    .homeContent {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* -------------------------
+       WELCOME
+    ------------------------- */
+
+    .welcome {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .hero {
+        width: 100%;
+        max-width: 100%;
+        margin: 0 0 22px;
+        padding: 8px 4px 0;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .hero h1 {
+        font-size: clamp(25px, 7vw, 34px);
+        line-height: 1.15;
+        margin: 0 0 10px;
+    }
+
+    .hero p {
+        font-size: 14px;
+        line-height: 1.5;
+        margin: 0 auto;
+        max-width: 330px;
+    }
+
+    /* -------------------------
+       CARDS
+    ------------------------- */
+
+    .cards {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        margin: 0;
+    }
+
+    .cards > * {
+        width: 100%;
+        min-width: 0;
+        box-sizing: border-box;
+    }
+
+    /* -------------------------
+       SUGGESTIONS
+    ------------------------- */
+
+    .suggestions {
+        width: 100%;
+        max-width: 100%;
+        margin-top: 28px;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .suggestions h2,
+    .suggestions h3 {
+        font-size: 15px;
+        margin: 0 0 12px;
+    }
+
+    .suggestions > * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* -------------------------
+       PROMPT AREA
+    ------------------------- */
+
+    .homePromptArea {
+        position: fixed;
+        z-index: 100;
+        left: 0;
+        right: 0;
+        bottom: 0;
+
+        width: 100%;
+        max-width: none;
+
+        padding:
+            8px
+            10px
+            max(8px, env(safe-area-inset-bottom));
+
+        box-sizing: border-box;
+    }
+
+    .homePromptArea > * {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* -------------------------
+       TEXT INPUT
+    ------------------------- */
+
+    .homePromptArea textarea,
+    .homePromptArea input {
+        min-width: 0;
+        max-width: 100%;
+        font-size: 16px;
+    }
+
+    /* -------------------------
+       BUTTONS
+    ------------------------- */
+
+    button {
+        touch-action: manipulation;
+    }
+
+    /* -------------------------
+       REMOVE HORIZONTAL OVERFLOW
+    ------------------------- */
+
+    img,
+    svg,
+    video {
+        max-width: 100%;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .header {
+        height: 58px;
+        min-height: 58px;
+        padding: 0 10px;
+    }
+
+    .pageContent {
+        height: calc(100dvh - 58px);
+    }
+
+    .home {
+        padding:
+            14px
+            10px
+            100px
+            10px;
+    }
+
+    .hero h1 {
+        font-size: 25px;
+    }
+
+    .hero p {
+        font-size: 13px;
+    }
+
+    .cards {
+        gap: 10px;
+    }
+
+    .suggestions {
+        margin-top: 22px;
+    }
+
+    .homePromptArea {
+        padding-left: 7px;
+        padding-right: 7px;
+    }
+}
