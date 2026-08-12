@@ -70,9 +70,14 @@ export function ChatProvider({ children }) {
 
         async function loadChats() {
 
+            /* ---------------------------------------------
+               WAIT FOR AUTH
+            --------------------------------------------- */
+
             if (authLoading) {
                 return;
             }
+
 
             /* ---------------------------------------------
                LOGGED OUT
@@ -81,6 +86,8 @@ export function ChatProvider({ children }) {
             if (!user) {
 
                 chatsRef.current = [];
+
+                currentChatIdRef.current = null;
 
                 if (mounted) {
                     setChats([]);
@@ -91,6 +98,10 @@ export function ChatProvider({ children }) {
                 return;
             }
 
+
+            /* ---------------------------------------------
+               LOADING
+            --------------------------------------------- */
 
             if (mounted) {
                 setLoading(true);
@@ -113,6 +124,10 @@ export function ChatProvider({ children }) {
                 });
 
 
+            /* ---------------------------------------------
+               DATABASE ERROR
+            --------------------------------------------- */
+
             if (error) {
 
                 console.error(
@@ -121,8 +136,13 @@ export function ChatProvider({ children }) {
                 );
 
                 if (mounted) {
+
                     setChats([]);
+
+                    currentChatIdRef.current = null;
+
                     setCurrentChatId(null);
+
                     setLoading(false);
                 }
 
@@ -136,9 +156,12 @@ export function ChatProvider({ children }) {
 
             const formattedChats =
                 (data || []).map((chat) => ({
-                    id: chat.id,
 
-                    userId: chat.user_id,
+                    id:
+                        chat.id,
+
+                    userId:
+                        chat.user_id,
 
                     title:
                         chat.title ||
@@ -151,10 +174,16 @@ export function ChatProvider({ children }) {
                         Array.isArray(chat.messages)
                             ? chat.messages
                             : [],
+
                 }));
 
 
-            chatsRef.current = formattedChats;
+            /* ---------------------------------------------
+               UPDATE REFS
+            --------------------------------------------- */
+
+            chatsRef.current =
+                formattedChats;
 
 
             if (!mounted) {
@@ -162,32 +191,31 @@ export function ChatProvider({ children }) {
             }
 
 
+            /* ---------------------------------------------
+               UPDATE CHAT LIST
+            --------------------------------------------- */
+
             setChats(formattedChats);
 
 
             /* ---------------------------------------------
-               RESTORE FIRST CHAT
+               IMPORTANT
+               
+               DO NOT AUTOMATICALLY OPEN
+               THE FIRST / OLD CHAT.
+               
+               History remains visible in Sidebar,
+               but Home opens as a fresh screen.
             --------------------------------------------- */
 
-            if (formattedChats.length > 0) {
+            currentChatIdRef.current = null;
 
-                const firstChatId =
-                    formattedChats[0].id;
+            setCurrentChatId(null);
 
-                currentChatIdRef.current =
-                    firstChatId;
 
-                setCurrentChatId(
-                    firstChatId
-                );
-
-            } else {
-
-                currentChatIdRef.current = null;
-
-                setCurrentChatId(null);
-            }
-
+            /* ---------------------------------------------
+               FINISH LOADING
+            --------------------------------------------- */
 
             setLoading(false);
         }
@@ -195,6 +223,10 @@ export function ChatProvider({ children }) {
 
         loadChats();
 
+
+        /* ---------------------------------------------
+           CLEANUP
+        --------------------------------------------- */
 
         return () => {
             mounted = false;
@@ -232,9 +264,8 @@ export function ChatProvider({ children }) {
 
 
         /* ---------------------------------------------
-           IMPORTANT:
-           Supabase created_at column is BIGINT.
-           Therefore use Date.now().
+           CREATED AT
+           Supabase column = BIGINT
         --------------------------------------------- */
 
         const createdAt =
@@ -243,14 +274,6 @@ export function ChatProvider({ children }) {
 
         /* ---------------------------------------------
            DATABASE OBJECT
-
-           Matches:
-
-           id          -> uuid
-           user_id     -> uuid
-           title       -> text
-           messages    -> jsonb
-           created_at  -> bigint
         --------------------------------------------- */
 
         const newChat = {
@@ -302,10 +325,17 @@ export function ChatProvider({ children }) {
             console.error(
                 "Create chat error details:",
                 {
-                    code: error.code,
-                    message: error.message,
-                    details: error.details,
-                    hint: error.hint,
+                    code:
+                        error.code,
+
+                    message:
+                        error.message,
+
+                    details:
+                        error.details,
+
+                    hint:
+                        error.hint,
                 }
             );
 
@@ -314,9 +344,7 @@ export function ChatProvider({ children }) {
 
 
         /* ---------------------------------------------
-           LOCAL CHAT
-
-           Prefer DB returned data.
+           FORMAT CREATED CHAT
         --------------------------------------------- */
 
         const formattedChat = {
@@ -349,11 +377,15 @@ export function ChatProvider({ children }) {
         --------------------------------------------- */
 
         const updatedChats = [
+
             formattedChat,
+
             ...chatsRef.current.filter(
                 (chat) =>
-                    chat.id !== formattedChat.id
+                    chat.id !==
+                    formattedChat.id
             ),
+
         ];
 
 
@@ -481,28 +513,18 @@ export function ChatProvider({ children }) {
 
         if (deletingCurrent) {
 
-            const nextChat =
-                updatedChats.length > 0
-                    ? updatedChats[0]
-                    : null;
+            /*
+             * IMPORTANT:
+             * Do NOT automatically switch
+             * to another old chat.
+             *
+             * Return to fresh Home instead.
+             */
 
+            currentChatIdRef.current =
+                null;
 
-            if (nextChat) {
-
-                currentChatIdRef.current =
-                    nextChat.id;
-
-                setCurrentChatId(
-                    nextChat.id
-                );
-
-            } else {
-
-                currentChatIdRef.current =
-                    null;
-
-                setCurrentChatId(null);
-            }
+            setCurrentChatId(null);
         }
 
 
@@ -688,7 +710,7 @@ export function ChatProvider({ children }) {
 
 
         /* ---------------------------------------------
-           ADD MESSAGE LOCALLY
+           OLD MESSAGES
         --------------------------------------------- */
 
         const oldMessages =
@@ -699,9 +721,16 @@ export function ChatProvider({ children }) {
                 : [];
 
 
+        /* ---------------------------------------------
+           NEW MESSAGES
+        --------------------------------------------- */
+
         const newMessages = [
+
             ...oldMessages,
+
             message,
+
         ];
 
 
@@ -745,6 +774,10 @@ export function ChatProvider({ children }) {
         }
 
 
+        /* ---------------------------------------------
+           UPDATED CHAT
+        --------------------------------------------- */
+
         const updatedChat = {
 
             ...existingChat,
@@ -755,6 +788,10 @@ export function ChatProvider({ children }) {
                 newMessages,
         };
 
+
+        /* ---------------------------------------------
+           LOCAL
+        --------------------------------------------- */
 
         const updatedChats =
             chatsRef.current.map(
@@ -772,7 +809,7 @@ export function ChatProvider({ children }) {
 
 
         /* ---------------------------------------------
-           SAVE TO SUPABASE
+           DATABASE
         --------------------------------------------- */
 
         const {
@@ -833,9 +870,7 @@ export function ChatProvider({ children }) {
 
 
         /* ---------------------------------------------
-           CHECK IF CHAT STILL EXISTS
-
-           Important for deleting chat during streaming.
+           CHECK CHAT
         --------------------------------------------- */
 
         const existingChat =
@@ -855,6 +890,10 @@ export function ChatProvider({ children }) {
             return false;
         }
 
+
+        /* ---------------------------------------------
+           OLD MESSAGES
+        --------------------------------------------- */
 
         const oldMessages =
             Array.isArray(
@@ -879,14 +918,19 @@ export function ChatProvider({ children }) {
         if (index === -1) {
 
             newMessages = [
+
                 ...oldMessages,
+
                 message,
+
             ];
 
         } else {
 
             newMessages = [
+
                 ...oldMessages,
+
             ];
 
             newMessages[index] =
@@ -918,7 +962,7 @@ export function ChatProvider({ children }) {
 
 
         /* ---------------------------------------------
-           SAVE STREAM
+           DATABASE
         --------------------------------------------- */
 
         const {
@@ -940,11 +984,6 @@ export function ChatProvider({ children }) {
 
 
         if (error) {
-
-            /* -----------------------------------------
-               If chat was deleted while streaming,
-               don't crash the app.
-            ----------------------------------------- */
 
             if (
                 error.code === "PGRST116" ||
@@ -1089,7 +1128,6 @@ export function ChatProvider({ children }) {
     ===================================================== */
 
     return (
-
         <ChatContext.Provider
             value={{
 
@@ -1121,9 +1159,7 @@ export function ChatProvider({ children }) {
                 loading,
             }}
         >
-
             {children}
-
         </ChatContext.Provider>
     );
 }
