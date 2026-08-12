@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import MainLayout from "./layouts/MainLayout";
+import "../../styles/mobile.css";
 
 import Home from "./pages/Home";
 import Documents from "./pages/Documents";

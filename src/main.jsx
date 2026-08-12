@@ -3,7 +3,7 @@ import "./styles/sidebar.css";
 import "./styles/navbar.css";
 import "./styles/chat.css";
 import "./styles/home.css";
-
+import "../../styles/mobile.css";
 import React from "react";
 import ReactDOM from "react-dom/client";
 
