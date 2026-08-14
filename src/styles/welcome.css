@@ -1,73 +1,215 @@
-/* ===========================
-   Welcome Screen
-=========================== */
+/* =========================================================
+   CHRONIC AI — WELCOME SCREEN
+   PREMIUM DESKTOP + MOBILE RESPONSIVE
+========================================================= */
 
 .welcome {
-    flex: 1;
     width: 100%;
-    max-width: var(--container-width);
-    margin: 0 auto;
-
-    padding:
-        clamp(32px, 4vw, 56px)
-        clamp(18px, 3vw, 32px);
+    min-height: 100%;
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+
+    padding: 48px 28px 32px;
+
+    box-sizing: border-box;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    color: var(--text-primary, #111827);
 }
 
 
-/* ===========================
-   Hero
-=========================== */
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
 
-.hero {
+.welcomeInner {
     width: 100%;
-    max-width: 920px;
+    max-width: 900px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    margin: auto;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.welcomeHero {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     text-align: center;
-    margin-bottom: clamp(32px, 4vw, 52px);
+
+    margin-bottom: 34px;
 }
 
-.hero h1 {
-    font-size: var(--font-title);
-    font-weight: 800;
+
+/* =========================================================
+   AI ICON
+========================================================= */
+
+.welcomeIcon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 18px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
+
+    color: #ffffff;
+
+    box-shadow:
+        0 14px 35px rgba(37, 99, 235, .24);
+
+    animation:
+        welcomeIconFloat 4s ease-in-out infinite;
+}
+
+.welcomeIcon svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.welcomeTitle {
+    margin: 0;
+
+    font-size: clamp(30px, 4vw, 48px);
+
     line-height: 1.08;
-    letter-spacing: -1px;
-    color: var(--text-primary);
+
+    font-weight: 800;
+
+    letter-spacing: -1.5px;
+
+    color:
+        var(
+            --text-primary,
+            #111827
+        );
 }
 
-.hero span {
-    background: linear-gradient(
-        90deg,
-        var(--primary),
-        #06B6D4
-    );
+
+/* Gradient AI text */
+
+.welcomeTitle span {
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #7c3aed
+        );
 
     -webkit-background-clip: text;
     background-clip: text;
+
     -webkit-text-fill-color: transparent;
 }
 
-.hero p {
-    margin: 22px auto 0;
 
-    max-width: 760px;
+/* =========================================================
+   SUBTITLE
+========================================================= */
 
-    color: var(--text-secondary);
+.welcomeSubtitle {
+    max-width: 650px;
 
-    font-size: clamp(15px, 1.1vw, 19px);
+    margin: 14px auto 0;
 
-    line-height: 1.8;
+    font-size: 15px;
+
+    line-height: 1.65;
+
+    color:
+        var(
+            --text-muted,
+            #667085
+        );
+
+    text-align: center;
 }
 
 
-/* ===========================
-   Cards
-=========================== */
+/* =========================================================
+   QUICK PROMPTS SECTION
+========================================================= */
 
-.cards {
+.welcomePrompts {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    margin-top: 4px;
+}
+
+
+/* =========================================================
+   SECTION TITLE
+========================================================= */
+
+.welcomePromptsTitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    margin-bottom: 14px;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: .7px;
+
+    text-transform: uppercase;
+
+    color:
+        var(
+            --text-muted,
+            #667085
+        );
+}
+
+.welcomePromptsTitle svg {
+    width: 15px;
+    height: 15px;
+}
+
+
+/* =========================================================
+   PROMPT GRID
+========================================================= */
+
+.welcomeGrid {
     width: 100%;
 
     display: grid;
@@ -75,621 +217,750 @@
     grid-template-columns:
         repeat(2, minmax(0, 1fr));
 
-    gap: 22px;
+    gap: 12px;
 }
 
 
-/* ===========================
-   Base Card
-=========================== */
+/* =========================================================
+   PROMPT CARD
+========================================================= */
 
-.card {
-    min-height: 180px;
+.welcomeCard {
+    position: relative;
 
-    padding: 26px;
+    min-width: 0;
+    min-height: 92px;
 
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    align-items: center;
 
-    border-radius: var(--radius-lg);
+    padding: 15px;
 
-    background: var(--bg-card);
+    gap: 13px;
 
-    border: 1px solid var(--border);
+    border: 1px solid
+        rgba(0, 0, 0, .07);
 
-    backdrop-filter: blur(18px);
+    border-radius: 17px;
+
+    background:
+        rgba(255, 255, 255, .72);
+
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    color:
+        var(
+            --text-primary,
+            #111827
+        );
+
+    text-align: left;
 
     cursor: pointer;
-
-    position: relative;
 
     overflow: hidden;
 
-    isolation: isolate;
-
-    transition:
-        transform 0.30s ease,
-        border-color 0.30s ease,
-        box-shadow 0.30s ease;
-}
-
-
-/* ===========================
-   CARD HOVER
-=========================== */
-
-.card:hover {
-    transform: translateY(-6px);
-
-    border-color: var(--primary);
-
     box-shadow:
-        0 22px 48px
-        rgba(124, 58, 237, 0.24);
-}
-
-
-/* =========================================================
-   HOVER TECH GRID
-========================================================= */
-
-.welcome .cards .card::before {
-    content: "";
-
-    position: absolute;
-
-    /*
-       Bigger than card so the moving grid
-       never leaves an empty area.
-    */
-    inset: -80px;
-
-    z-index: 0;
-
-    pointer-events: none;
-
-    opacity: 0;
-
-    background-image:
-        linear-gradient(
-            rgba(130, 100, 255, 0.10) 1px,
-            transparent 1px
-        ),
-        linear-gradient(
-            90deg,
-            rgba(130, 100, 255, 0.10) 1px,
-            transparent 1px
-        );
-
-    background-size: 28px 28px;
-
-    background-position: 0 0, 0 0;
+        0 6px 22px rgba(15, 23, 42, .045);
 
     transition:
-        opacity 0.40s ease;
+        transform .25s ease,
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
 }
 
 
 /* =========================================================
-   MOVING PURPLE LIGHT
+   CARD SHINE
 ========================================================= */
 
-.welcome .cards .card::after {
+.welcomeCard::before {
     content: "";
 
     position: absolute;
 
-    width: 190px;
-    height: 190px;
+    top: -100%;
+    left: -80%;
 
-    top: -110px;
-    left: -110px;
-
-    border-radius: 50%;
-
-    z-index: 1;
-
-    pointer-events: none;
-
-    opacity: 0;
+    width: 55%;
+    height: 300%;
 
     background:
-        radial-gradient(
-            circle,
-            rgba(139, 92, 246, 0.30) 0%,
-            rgba(99, 102, 241, 0.14) 35%,
-            transparent 72%
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.55),
+            transparent
         );
 
-    filter: blur(12px);
+    transform:
+        rotate(22deg)
+        translateX(-150%);
+
+    pointer-events: none;
 
     transition:
-        opacity 0.35s ease;
+        transform .8s ease;
+}
+
+.welcomeCard:hover::before {
+    transform:
+        rotate(22deg)
+        translateX(450%);
 }
 
 
 /* =========================================================
-   HOVER EFFECT
+   CARD HOVER
 ========================================================= */
 
-.welcome .cards .card:hover {
-    transform: translateY(-6px);
+.welcomeCard:hover {
+
+    transform:
+        translateY(-4px);
 
     border-color:
-        rgba(139, 92, 246, 0.65);
+        rgba(37, 99, 235, .18);
+
+    background:
+        rgba(255, 255, 255, .94);
 
     box-shadow:
-        0 22px 48px
-        rgba(124, 58, 237, 0.24),
-
-        0 0 30px
-        rgba(124, 92, 246, 0.12);
+        0 15px 35px
+        rgba(37, 99, 235, .10);
 }
 
-
-/* ===========================
-   SHOW GRID
-=========================== */
-
-.welcome .cards .card:hover::before {
-    opacity: 1;
-
-    animation:
-        cardGridMove 4.5s linear infinite;
-}
-
-
-/* ===========================
-   SHOW MOVING GLOW
-=========================== */
-
-.welcome .cards .card:hover::after {
-    opacity: 1;
-
-    animation:
-        cardGlowMove 3.2s ease-in-out infinite;
+.welcomeCard:active {
+    transform:
+        translateY(-1px)
+        scale(.985);
 }
 
 
 /* =========================================================
-   GRID ANIMATION
+   CARD ICON
 ========================================================= */
 
-@keyframes cardGridMove {
+.welcomeCardIcon {
 
-    0% {
-        background-position:
-            0 0,
-            0 0;
-    }
+    width: 42px;
+    height: 42px;
 
-    50% {
-        background-position:
-            28px 28px,
-            28px 28px;
-    }
+    min-width: 42px;
 
-    100% {
-        background-position:
-            56px 56px,
-            56px 56px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,.12),
+            rgba(124,58,237,.10)
+        );
+
+    color:
+        #2563eb;
+
+    transition:
+        transform .25s ease,
+        background .25s ease;
+}
+
+.welcomeCard:hover .welcomeCardIcon {
+    transform:
+        scale(1.08)
+        rotate(-3deg);
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(37,99,235,.18),
+            rgba(124,58,237,.16)
+        );
+}
+
+.welcomeCardIcon svg {
+    width: 20px;
+    height: 20px;
 }
 
 
 /* =========================================================
-   GLOW ANIMATION
+   CARD CONTENT
 ========================================================= */
 
-@keyframes cardGlowMove {
+.welcomeCardContent {
 
-    0% {
-        transform:
-            translate(0, 0)
-            scale(1);
-    }
+    min-width: 0;
 
-    50% {
-        transform:
-            translate(230px, 130px)
-            scale(1.25);
-    }
+    flex: 1;
 
-    100% {
-        transform:
-            translate(450px, 0)
-            scale(1);
-    }
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
 }
 
 
-/* =========================================================
-   KEEP CARD CONTENT ABOVE EFFECT
-========================================================= */
+.welcomeCardTitle {
 
-.welcome .cards .card > * {
-    position: relative;
+    margin: 0;
 
-    z-index: 2;
-}
+    font-size: 14px;
 
-
-/* =========================================================
-   EMOJI
-========================================================= */
-
-.emoji {
-    font-size: 36px;
-    margin-bottom: 18px;
-}
-
-
-/* =========================================================
-   CARD TITLE
-========================================================= */
-
-.card h3 {
-    font-size: var(--font-heading);
+    line-height: 1.3;
 
     font-weight: 700;
 
-    margin-bottom: 12px;
+    color:
+        inherit;
 
-    color: var(--text-primary);
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+.welcomeCardText {
+
+    margin: 0;
+
+    font-size: 12px;
+
+    line-height: 1.45;
+
+    color:
+        var(
+            --text-muted,
+            #667085
+        );
+
+    display: -webkit-box;
+
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
 }
 
 
 /* =========================================================
-   CARD TEXT
+   ARROW
 ========================================================= */
 
-.card p {
-    color: var(--text-secondary);
+.welcomeCardArrow {
 
-    font-size: var(--font-body);
+    width: 30px;
+    height: 30px;
 
-    line-height: 1.75;
-}
+    min-width: 30px;
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-/* ===========================
-   Tablet
-=========================== */
+    border-radius: 9px;
 
-@media (max-width: 1024px) {
-
-    .welcome {
-        padding: 32px 20px;
-    }
-
-    .cards {
-        grid-template-columns: 1fr;
-        gap: 18px;
-    }
-}
-
-
-/* ===========================
-   Mobile
-=========================== */
-
-@media (max-width: 768px) {
-
-    .welcome {
-        justify-content: flex-start;
-        padding: 28px 18px;
-    }
-
-    .hero {
-        margin-bottom: 32px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .card {
-        min-height: auto;
-        padding: 20px;
-    }
-}
-
-
-/* ===========================
-   Small Mobile
-=========================== */
-
-@media (max-width: 480px) {
-
-    .welcome {
-        padding: 20px 14px;
-    }
-
-    .hero h1 {
-        line-height: 1.18;
-    }
-
-    .emoji {
-        font-size: 30px;
-    }
-
-    .card {
-        padding: 18px;
-    }
-}
-
-
-/* =========================================================
-   Suggestions
-========================================================= */
-
-.suggestions {
-    width: 100%;
-    max-width: 900px;
-
-    margin-top: 40px;
-}
-
-
-.suggestions h4 {
-    margin-bottom: 18px;
-
-    text-align: center;
-
-    color: var(--text-secondary);
-
-    font-size: 16px;
-
-    font-weight: 600;
-}
-
-
-.suggestionGrid {
-    display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
-    gap: 16px;
-}
-
-
-.suggestionCard {
-    padding: 16px 18px;
-
-    border-radius: 16px;
-
-    background: rgba(255, 255, 255, 0.05);
-
-    border:
-        1px solid
-        rgba(255, 255, 255, 0.08);
-
-    color: var(--text-primary);
-
-    cursor: pointer;
+    color:
+        #98a2b3;
 
     transition:
-        transform 0.25s ease,
-        border-color 0.25s ease,
-        background 0.25s ease;
-
-    text-align: left;
+        transform .25s ease,
+        color .25s ease,
+        background .25s ease;
 }
 
+.welcomeCard:hover .welcomeCardArrow {
 
-.suggestionCard:hover {
-    transform: translateY(-3px);
-
-    border-color: var(--primary);
+    color:
+        #2563eb;
 
     background:
-        rgba(255, 255, 255, 0.08);
+        rgba(37,99,235,.08);
+
+    transform:
+        translateX(3px);
 }
 
 
-@media (max-width: 768px) {
+/* =========================================================
+   BOTTOM HINT
+========================================================= */
 
-    .suggestionGrid {
-        grid-template-columns: 1fr;
+.welcomeHint {
+
+    margin-top: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    font-size: 11px;
+
+    color:
+        var(
+            --text-muted,
+            #98a2b3
+        );
+
+    opacity: .85;
+}
+
+.welcomeHint svg {
+    width: 13px;
+    height: 13px;
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+:root[data-theme="dark"] .welcome {
+    color: #ffffff;
+}
+
+
+:root[data-theme="dark"] .welcomeTitle {
+    color: #ffffff;
+}
+
+
+:root[data-theme="dark"] .welcomeSubtitle {
+    color: #9299ab;
+}
+
+
+:root[data-theme="dark"] .welcomePromptsTitle {
+    color: #858ca0;
+}
+
+
+:root[data-theme="dark"] .welcomeCard {
+
+    background:
+        rgba(255,255,255,.035);
+
+    border-color:
+        rgba(255,255,255,.07);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0,0,0,.12);
+}
+
+
+:root[data-theme="dark"] .welcomeCard:hover {
+
+    background:
+        rgba(255,255,255,.065);
+
+    border-color:
+        rgba(96,165,250,.22);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0,0,0,.24);
+}
+
+
+:root[data-theme="dark"] .welcomeCardText {
+    color: #8f96a9;
+}
+
+
+:root[data-theme="dark"] .welcomeCardIcon {
+
+    background:
+        rgba(96,165,250,.10);
+
+    color:
+        #60a5fa;
+}
+
+
+:root[data-theme="dark"] .welcomeCard:hover
+.welcomeCardIcon {
+
+    background:
+        rgba(96,165,250,.16);
+}
+
+
+:root[data-theme="dark"] .welcomeCardArrow {
+    color: #687084;
+}
+
+
+:root[data-theme="dark"] .welcomeCard:hover
+.welcomeCardArrow {
+
+    color: #60a5fa;
+
+    background:
+        rgba(96,165,250,.10);
+}
+
+
+:root[data-theme="dark"] .welcomeHint {
+    color: #687084;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+    .welcome {
+        padding:
+            40px 20px 28px;
+    }
+
+    .welcomeInner {
+        max-width: 720px;
+    }
+
+    .welcomeHero {
+        margin-bottom: 28px;
+    }
+
+    .welcomeCard {
+        min-height: 88px;
     }
 }
 
 
 /* =========================================================
-   REDUCED MOTION
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .welcome {
+
+        min-height: 100%;
+
+        justify-content: flex-start;
+
+        padding:
+            30px 14px 24px;
+    }
+
+
+    .welcomeInner {
+        width: 100%;
+        max-width: none;
+    }
+
+
+    .welcomeHero {
+        margin-top: 10px;
+        margin-bottom: 25px;
+    }
+
+
+    /* Smaller icon */
+
+    .welcomeIcon {
+
+        width: 54px;
+        height: 54px;
+
+        border-radius: 17px;
+
+        margin-bottom: 15px;
+    }
+
+    .welcomeIcon svg {
+        width: 26px;
+        height: 26px;
+    }
+
+
+    /* Mobile title */
+
+    .welcomeTitle {
+
+        font-size:
+            clamp(
+                27px,
+                8vw,
+                35px
+            );
+
+        letter-spacing:
+            -1px;
+    }
+
+
+    .welcomeSubtitle {
+
+        max-width: 340px;
+
+        margin-top: 10px;
+
+        font-size: 13px;
+
+        line-height: 1.55;
+    }
+
+
+    /* Prompt section */
+
+    .welcomePrompts {
+        width: 100%;
+    }
+
+
+    .welcomePromptsTitle {
+        margin-bottom: 11px;
+
+        font-size: 10px;
+    }
+
+
+    /* IMPORTANT:
+       Cards stay properly inside mobile width */
+
+    .welcomeGrid {
+
+        width: 100%;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+
+        gap: 9px;
+    }
+
+
+    /* Smaller mobile card */
+
+    .welcomeCard {
+
+        width: 100%;
+        min-width: 0;
+
+        min-height: 104px;
+
+        padding: 12px;
+
+        gap: 9px;
+
+        border-radius: 15px;
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        justify-content: center;
+    }
+
+
+    .welcomeCardIcon {
+
+        width: 34px;
+        height: 34px;
+
+        min-width: 34px;
+
+        border-radius: 10px;
+    }
+
+    .welcomeCardIcon svg {
+
+        width: 17px;
+        height: 17px;
+    }
+
+
+    .welcomeCardContent {
+        width: 100%;
+    }
+
+
+    .welcomeCardTitle {
+
+        font-size: 12px;
+
+        line-height: 1.3;
+    }
+
+
+    .welcomeCardText {
+
+        font-size: 10px;
+
+        line-height: 1.4;
+
+        -webkit-line-clamp: 2;
+    }
+
+
+    /* Arrow positioned bottom-right */
+
+    .welcomeCardArrow {
+
+        position: absolute;
+
+        right: 8px;
+        bottom: 8px;
+
+        width: 24px;
+        height: 24px;
+
+        min-width: 24px;
+    }
+
+    .welcomeCardArrow svg {
+
+        width: 13px;
+        height: 13px;
+    }
+
+
+    .welcomeHint {
+        margin-top: 17px;
+
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 380px) {
+
+    .welcome {
+
+        padding:
+            25px 11px 20px;
+    }
+
+
+    .welcomeHero {
+        margin-bottom: 22px;
+    }
+
+
+    .welcomeTitle {
+        font-size: 26px;
+    }
+
+
+    .welcomeSubtitle {
+        font-size: 12px;
+    }
+
+
+    .welcomeGrid {
+
+        gap: 7px;
+    }
+
+
+    .welcomeCard {
+
+        min-height: 98px;
+
+        padding: 10px;
+
+        border-radius: 13px;
+    }
+
+
+    .welcomeCardIcon {
+
+        width: 31px;
+        height: 31px;
+
+        min-width: 31px;
+    }
+
+
+    .welcomeCardTitle {
+        font-size: 11px;
+    }
+
+
+    .welcomeCardText {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 330px) {
+
+    .welcomeGrid {
+
+        grid-template-columns:
+            1fr;
+    }
+
+
+    .welcomeCard {
+
+        min-height: 76px;
+
+        flex-direction: row;
+
+        align-items: center;
+    }
+
+
+    .welcomeCardText {
+        -webkit-line-clamp: 1;
+    }
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes welcomeIconFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-5px);
+    }
+}
+
+
+/* =========================================================
+   REDUCE MOTION
 ========================================================= */
 
 @media (prefers-reduced-motion: reduce) {
 
-    .welcome .cards .card,
-    .welcome .cards .card::before,
-    .welcome .cards .card::after {
+    .welcomeIcon,
+    .welcomeCard,
+    .welcomeCard::before {
 
         animation: none !important;
 
         transition: none !important;
     }
 }
-
-/* =========================================================
-   CHRONIC AI — WELCOME CARD PARALLELOGRAM EFFECT
-========================================================= */
-
-.welcome .cards .card {
-    position: relative !important;
-    overflow: hidden !important;
-    isolation: isolate !important;
-
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease !important;
-}
-
-
-/* ---------------------------------------------------------
-   MOVING SLANTED LINES
---------------------------------------------------------- */
-
-.welcome .cards .card::before {
-    content: "" !important;
-
-    position: absolute !important;
-    inset: -80px !important;
-
-    z-index: 0 !important;
-    pointer-events: none !important;
-
-    opacity: 0 !important;
-
-    background:
-        repeating-linear-gradient(
-            120deg,
-            transparent 0px,
-            transparent 26px,
-            rgba(139, 92, 246, 0.18) 27px,
-            rgba(139, 92, 246, 0.18) 29px,
-            transparent 30px,
-            transparent 55px
-        ) !important;
-
-    transform: translateX(-80px) skewX(-20deg) !important;
-
-    transition:
-        opacity 0.3s ease,
-        transform 0.6s ease !important;
-}
-
-
-/* ---------------------------------------------------------
-   PARALLELOGRAM LIGHT
---------------------------------------------------------- */
-
-.welcome .cards .card::after {
-    content: "" !important;
-
-    position: absolute !important;
-
-    width: 180px !important;
-    height: 420px !important;
-
-    top: -120px !important;
-    left: -220px !important;
-
-    z-index: 1 !important;
-    pointer-events: none !important;
-
-    opacity: 0 !important;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            rgba(139, 92, 246, 0.22),
-            rgba(6, 182, 212, 0.14),
-            transparent
-        ) !important;
-
-    transform: skewX(-20deg) !important;
-
-    filter: blur(8px) !important;
-}
-
-
-/* ---------------------------------------------------------
-   HOVER
---------------------------------------------------------- */
-
-.welcome .cards .card:hover {
-    transform: translateY(-7px) !important;
-
-    border-color:
-        rgba(139, 92, 246, 0.75) !important;
-
-    box-shadow:
-        0 18px 45px rgba(0, 0, 0, 0.30),
-        0 0 30px rgba(139, 92, 246, 0.18) !important;
-}
-
-
-/* ---------------------------------------------------------
-   SHOW PATTERN
---------------------------------------------------------- */
-
-.welcome .cards .card:hover::before {
-    opacity: 1 !important;
-
-    transform:
-        translateX(70px)
-        skewX(-20deg) !important;
-
-    animation:
-        cardParallelogram 3s linear infinite !important;
-}
-
-
-/* ---------------------------------------------------------
-   SHOW LIGHT
---------------------------------------------------------- */
-
-.welcome .cards .card:hover::after {
-    opacity: 1 !important;
-
-    animation:
-        cardLightSweep 2.2s ease-in-out infinite !important;
-}
-
-
-/* ---------------------------------------------------------
-   CONTENT ABOVE EFFECT
---------------------------------------------------------- */
-
-.welcome .cards .card > * {
-    position: relative !important;
-    z-index: 3 !important;
-}
-
-
-/* =========================================================
-   PATTERN ANIMATION
-========================================================= */
-
-@keyframes cardParallelogram {
-
-    0% {
-        background-position: 0 0;
-    }
-
-    50% {
-        background-position: 55px 0;
-    }
-
-    100% {
-        background-position: 110px 0;
-    }
-}
-
-
-/* =========================================================
-   LIGHT SWEEP
-========================================================= */
-
-@keyframes cardLightSweep {
-
-    0% {
-        left: -220px;
-    }
-
-    50% {
-        left: calc(100% + 80px);
-    }
-
-    100% {
-        left: -220px;
-    }
-}
-/* ===========================
-   END OF FILE
-=========================== */

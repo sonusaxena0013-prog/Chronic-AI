@@ -1,13 +1,22 @@
-/* =====================================================
+/* =========================================================
    CHRONIC AI — SIDEBAR
-   CLEAN / SINGLE SOURCE VERSION
-===================================================== */
+   PREMIUM GLASS / DESKTOP + MOBILE
+   CLEAN SINGLE-SOURCE VERSION
+========================================================= */
+
+
+/* =========================================================
+   ROOT SIDEBAR
+========================================================= */
 
 .sidebar {
+
     --sidebar-current-width: 240px;
 
     width: var(--sidebar-current-width);
     height: 100vh;
+    height: 100dvh;
+
     min-height: 0;
 
     display: flex;
@@ -29,22 +38,24 @@
     backdrop-filter: blur(30px);
     -webkit-backdrop-filter: blur(30px);
 
-    border-right: 1px solid rgba(0,0,0,.06);
+    border-right:
+        1px solid rgba(0,0,0,.06);
 
     box-shadow:
         10px 0 35px rgba(0,0,0,.08),
         0 0 0 1px rgba(255,255,255,.15) inset;
 
     transition:
-        width .28s ease,
+        width .28s cubic-bezier(.22,1,.36,1),
         background .3s ease,
-        border-color .3s ease;
+        border-color .3s ease,
+        box-shadow .3s ease;
 }
 
 
-/* =====================================================
-   DARK
-===================================================== */
+/* =========================================================
+   DARK MODE
+========================================================= */
 
 :root[data-theme="dark"] .sidebar {
 
@@ -55,7 +66,8 @@
             rgba(12,16,25,.98)
         );
 
-    border-right-color: rgba(255,255,255,.06);
+    border-right-color:
+        rgba(255,255,255,.06);
 
     box-shadow:
         12px 0 45px rgba(0,0,0,.45),
@@ -63,15 +75,16 @@
 }
 
 
-/* =====================================================
+/* =========================================================
    GLASS OVERLAY
-===================================================== */
+========================================================= */
 
 .sidebar::before {
 
     content: "";
 
     position: absolute;
+
     inset: 0;
 
     pointer-events: none;
@@ -88,6 +101,7 @@
     z-index: 0;
 }
 
+
 :root[data-theme="dark"] .sidebar::before {
 
     background:
@@ -99,26 +113,29 @@
 }
 
 
-/* Sidebar content above overlay */
+/* Content above glass overlay */
 
 .sidebar > * {
+
     position: relative;
+
     z-index: 1;
 }
 
 
-/* =====================================================
-   COLLAPSED
-===================================================== */
+/* =========================================================
+   COLLAPSED SIDEBAR
+========================================================= */
 
 .sidebar.collapsed {
+
     width: 68px;
 }
 
 
-/* =====================================================
+/* =========================================================
    HEADER
-===================================================== */
+========================================================= */
 
 .sidebarHeader {
 
@@ -136,15 +153,16 @@
 }
 
 
-/* =====================================================
-   TITLE
-===================================================== */
+/* =========================================================
+   SIDEBAR TITLE
+========================================================= */
 
 .sidebarTitle {
 
     margin: 0;
 
     font-size: 20px;
+
     line-height: 1;
 
     font-weight: 700;
@@ -160,14 +178,16 @@
     user-select: none;
 }
 
+
 :root[data-theme="dark"] .sidebarTitle {
+
     color: #FFFFFF;
 }
 
 
-/* =====================================================
+/* =========================================================
    MENU BUTTON
-===================================================== */
+========================================================= */
 
 .menuBtn {
 
@@ -182,11 +202,13 @@
     align-items: center;
     justify-content: center;
 
-    border: 1px solid rgba(0,0,0,.05);
+    border:
+        1px solid rgba(0,0,0,.05);
 
     border-radius: 12px;
 
-    background: rgba(255,255,255,.55);
+    background:
+        rgba(255,255,255,.55);
 
     color: #111827;
 
@@ -196,8 +218,10 @@
         background .22s ease,
         color .22s ease,
         transform .22s ease,
-        box-shadow .22s ease;
+        box-shadow .22s ease,
+        border-color .22s ease;
 }
+
 
 .menuBtn:hover {
 
@@ -207,41 +231,65 @@
 
     transform: translateY(-2px);
 
+    border-color: transparent;
+
     box-shadow:
         0 10px 25px rgba(37,99,235,.25);
 }
 
+
 .menuBtn svg {
-    transition: transform .3s ease;
+
+    transition:
+        transform .3s ease;
 }
 
+
 .menuBtn:hover svg {
-    transform: rotate(180deg);
+
+    transform:
+        rotate(180deg);
 }
+
 
 :root[data-theme="dark"] .menuBtn {
 
-    background: rgba(255,255,255,.05);
+    background:
+        rgba(255,255,255,.05);
 
     color: #FFFFFF;
 
-    border-color: rgba(255,255,255,.08);
+    border-color:
+        rgba(255,255,255,.08);
 }
 
 
-/* =====================================================
-   NEW CHAT
-===================================================== */
+:root[data-theme="dark"] .menuBtn:hover {
+
+    background: #2563EB;
+
+    color: #FFFFFF;
+}
+
+
+/* =========================================================
+   NEW CHAT BUTTON
+========================================================= */
 
 .newChat {
 
-    width: calc(100% - 24px);
+    position: relative;
+
+    width:
+        calc(100% - 24px);
 
     min-height: 46px;
 
-    margin: 4px 12px 14px;
+    margin:
+        4px 12px 14px;
 
-    padding: 0 15px;
+    padding:
+        0 15px;
 
     display: flex;
     align-items: center;
@@ -268,43 +316,173 @@
 
     cursor: pointer;
 
+    overflow: hidden;
+
+    isolation: isolate;
+
+    transform: translateZ(0);
+
     box-shadow:
         0 10px 25px rgba(37,99,235,.25);
 
     transition:
-        transform .22s ease,
-        box-shadow .22s ease;
+        transform .4s cubic-bezier(.22,1,.36,1),
+        box-shadow .5s ease,
+        filter .5s ease;
 }
+
+
+/* =========================================================
+   NEW CHAT GLASS HIGHLIGHT
+========================================================= */
+
+.newChat::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 1px;
+
+    border-radius: inherit;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,.10),
+            transparent 35%,
+            transparent 70%,
+            rgba(255,255,255,.035)
+        );
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   NEW CHAT MIRROR BUBBLE
+========================================================= */
+
+.newChat::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 70px;
+    height: 70px;
+
+    left: -85px;
+    top: -85px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            rgba(255,255,255,.72) 0%,
+            rgba(255,255,255,.32) 18%,
+            rgba(255,255,255,.12) 42%,
+            rgba(255,255,255,.035) 62%,
+            transparent 75%
+        );
+
+    filter: blur(1px);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    transform:
+        translate3d(0,0,0)
+        scale(.72);
+
+    transition:
+        opacity .45s ease,
+        transform 1.25s cubic-bezier(
+            .22,.61,.36,1
+        );
+}
+
+
+/* =========================================================
+   NEW CHAT HOVER
+========================================================= */
+
+.newChat:hover::before {
+
+    opacity: .9;
+
+    transform:
+        translate3d(
+            300px,
+            130px,
+            0
+        )
+        scale(1.15);
+}
+
 
 .newChat:hover {
 
     transform:
-        translateY(-2px)
-        scale(1.01);
+        translateY(-1px);
+
+    filter:
+        brightness(1.045);
 
     box-shadow:
-        0 15px 32px rgba(37,99,235,.35);
+        0 7px 24px rgba(37,99,235,.22),
+        0 0 18px rgba(124,58,237,.10);
 }
+
 
 .newChat:active {
-    transform: scale(.98);
+
+    transform:
+        translateY(0)
+        scale(.985);
 }
+
+
+.newChat svg,
+.newChat span {
+
+    position: relative;
+
+    z-index: 10;
+}
+
 
 .newChat svg {
+
     flex-shrink: 0;
-    transition: transform .25s ease;
+
+    transition:
+        transform .25s ease;
 }
+
 
 .newChat:hover svg {
-    transform: rotate(90deg);
+
+    transform:
+        rotate(90deg);
 }
 
 
-/* Collapsed New Chat */
+/* =========================================================
+   COLLAPSED NEW CHAT
+========================================================= */
 
 .sidebar.collapsed .newChat {
 
     width: 42px;
+
+    min-width: 42px;
 
     margin-left: auto;
     margin-right: auto;
@@ -313,9 +491,9 @@
 }
 
 
-/* =====================================================
-   HISTORY
-===================================================== */
+/* =========================================================
+   HISTORY CONTAINER
+========================================================= */
 
 .history {
 
@@ -324,57 +502,74 @@
     min-height: 0;
 
     overflow-y: auto;
+
     overflow-x: hidden;
 
-    padding: 4px 10px 12px;
+    padding:
+        10px 10px 14px;
+
+    overscroll-behavior:
+        contain;
 }
 
 
-/* =====================================================
+/* =========================================================
    HISTORY SCROLLBAR
-===================================================== */
+========================================================= */
 
 .history::-webkit-scrollbar {
+
     width: 5px;
 }
 
+
 .history::-webkit-scrollbar-track {
+
     background: transparent;
 }
 
+
 .history::-webkit-scrollbar-thumb {
 
-    background: rgba(100,116,139,.35);
+    background:
+        rgba(100,116,139,.35);
 
     border-radius: 10px;
 }
 
+
 .history::-webkit-scrollbar-thumb:hover {
-    background: rgba(100,116,139,.55);
+
+    background:
+        rgba(100,116,139,.55);
 }
 
 
-/* =====================================================
+/* =========================================================
    HISTORY ITEM
-===================================================== */
+========================================================= */
 
 .historyItem {
 
     width: 100%;
 
     min-width: 0;
+
     min-height: 42px;
 
     display: flex;
+
     align-items: center;
 
-    gap: 10px;
+    gap: 6px;
 
     margin-bottom: 5px;
 
-    padding: 8px 10px;
+    padding:
+        7px 9px;
 
-    border: 1px solid transparent;
+    border:
+        1px solid transparent;
 
     border-radius: 10px;
 
@@ -393,35 +588,79 @@
         transform .2s ease;
 }
 
-.historyItem svg {
+
+/* =========================================================
+   HISTORY CHAT BUTTON
+========================================================= */
+
+.historyChatButton {
+
+    flex: 1;
+
+    min-width: 0;
+
+    width: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    overflow: hidden;
+
+    border: none;
+
+    background: transparent;
+
+    color: inherit;
+
+    padding: 0;
+
+    cursor: pointer;
+
+    text-align: left;
+}
+
+
+.historyChatButton svg {
 
     width: 18px;
     height: 18px;
 
     flex-shrink: 0;
 
-    transition: transform .2s ease;
+    transition:
+        transform .2s ease;
 }
+
 
 .historyItem:hover {
 
-    background: rgba(37,99,235,.08);
+    background:
+        rgba(37,99,235,.08);
 
-    border-color: rgba(37,99,235,.10);
+    border-color:
+        rgba(37,99,235,.10);
 
     color: #111827;
 
-    transform: translateX(2px);
-}
-
-.historyItem:hover svg {
-    transform: scale(1.08);
+    transform:
+        translateX(2px);
 }
 
 
-/* =====================================================
-   ACTIVE
-===================================================== */
+.historyItem:hover
+.historyChatButton svg {
+
+    transform:
+        scale(1.08);
+}
+
+
+/* =========================================================
+   ACTIVE CHAT
+========================================================= */
 
 .historyItem.active {
 
@@ -442,6 +681,7 @@
         0 8px 20px rgba(37,99,235,.25);
 }
 
+
 .historyItem.active::before {
 
     content: "";
@@ -449,6 +689,7 @@
     position: absolute;
 
     left: 0;
+
     top: 7px;
     bottom: 7px;
 
@@ -460,15 +701,17 @@
 }
 
 
-/* =====================================================
+/* =========================================================
    HISTORY TITLE
-===================================================== */
+========================================================= */
 
 .historyTitle {
 
     flex: 1;
 
     min-width: 0;
+
+    max-width: 100%;
 
     overflow: hidden;
 
@@ -478,18 +721,23 @@
 
     text-align: left;
 
-    font-size: 15px !important;
+    font-size:
+        15px !important;
 
-    font-weight: 400 !important;
+    font-weight:
+        400 !important;
 
-    line-height: 1.4;
+    line-height:
+        1.4;
 
     color: inherit;
 }
 
+
 .historyTitle::before {
 
-    content: "✦ ";
+    content:
+        "✦ ";
 
     opacity: .6;
 
@@ -497,20 +745,24 @@
 }
 
 
-/* =====================================================
-   DELETE BUTTON
-===================================================== */
+/* =========================================================
+   DELETE CHAT BUTTON
+========================================================= */
 
 .deleteChatBtn {
 
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
 
-    flex-shrink: 0;
+    flex:
+        0 0 32px;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
+
+    padding: 0;
 
     border: none;
 
@@ -522,47 +774,62 @@
 
     opacity: 0;
 
+    visibility: hidden;
+
     cursor: pointer;
 
     transition:
         opacity .2s ease,
+        visibility .2s ease,
         background .2s ease,
         color .2s ease;
 }
 
-.historyItem:hover .deleteChatBtn {
-    opacity: .7;
+
+.historyItem:hover
+.deleteChatBtn,
+.historyItem.active
+.deleteChatBtn {
+
+    opacity: 1;
+
+    visibility: visible;
 }
+
 
 .deleteChatBtn:hover {
 
     opacity: 1 !important;
 
-    background: rgba(239,68,68,.12);
+    background:
+        rgba(239,68,68,.12);
 
-    color: #EF4444;
+    color:
+        #EF4444;
 }
 
 
-/* =====================================================
+/* =========================================================
    EMPTY HISTORY
-===================================================== */
+========================================================= */
 
 .emptyHistory {
 
-    padding: 15px 10px;
+    padding:
+        15px 10px;
 
     text-align: center;
 
-    color: var(--text-muted);
+    color:
+        var(--text-muted);
 
     opacity: .8;
 }
 
 
-/* =====================================================
+/* =========================================================
    SIDEBAR FOOTER
-===================================================== */
+========================================================= */
 
 .sidebarFooter {
 
@@ -572,17 +839,20 @@
 
     padding: 10px;
 
-    border-top: 1px solid rgba(0,0,0,.06);
+    border-top:
+        1px solid rgba(0,0,0,.06);
 }
 
+
 .sidebarFooter > .historyItem {
+
     margin-bottom: 8px;
 }
 
 
-/* =====================================================
-   PROFILE
-===================================================== */
+/* =========================================================
+   PROFILE WRAPPER
+========================================================= */
 
 .profileWrapper {
 
@@ -591,67 +861,122 @@
     width: 100%;
 }
 
+
+/* =========================================================
+   PROFILE CARD
+========================================================= */
+
 .profileCard {
-  width: 100%;
-  min-height: 68px;
 
-  display: flex;
-  align-items: center;
+    width: 100%;
 
-  gap: 10px;
+    min-height: 68px;
 
-  padding: 9px 10px;
+    display: flex;
 
-  border-radius: 14px;
+    align-items: center;
 
-  overflow: hidden;
+    gap: 10px;
+
+    padding:
+        9px 10px;
+
+    border:
+        1px solid transparent;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    background: transparent;
+
+    color: inherit;
+
+    cursor: pointer;
+
+    transition:
+        background .2s ease,
+        border-color .2s ease,
+        transform .2s ease;
 }
+
 
 .profileCard:hover {
 
-    background: rgba(255,255,255,.7);
+    background:
+        rgba(255,255,255,.7);
 
-    border-color: rgba(0,0,0,.12);
+    border-color:
+        rgba(0,0,0,.12);
 }
+
 
 .profileCard:active {
-    transform: scale(.98);
+
+    transform:
+        scale(.98);
 }
 
 
-/* =====================================================
-   PROFILE IMAGE
-===================================================== */
+/* =========================================================
+   PROFILE AVATAR
+========================================================= */
 
 .profileAvatar {
 
-    width: 20px;
-    height:20px;
+    width: 40px !important;
+    height: 40px !important;
 
-    flex-shrink: 0;
+    min-width: 40px !important;
+    min-height: 40px !important;
 
-    border-radius:50;
+    max-width: 40px !important;
+    max-height: 40px !important;
+
+    flex:
+        0 0 40px;
+
+    border-radius: 50%;
 
     object-fit: cover;
 
-    border: 1px solid rgba(0,0,0,.08);
+    object-position: center;
+
+    display: block;
+
+    flex-shrink: 0;
+
+    border:
+        2px solid rgba(139,92,246,.75);
+
+    background:
+        #171B2A;
 }
 
 
-/* =====================================================
+/* =========================================================
    PROFILE INFO
-===================================================== */
+========================================================= */
 
 .profileInfo {
 
     flex: 1;
 
     min-width: 0;
+
+    overflow: hidden;
 }
+
 
 .profileInfo h3 {
 
     margin: 0;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
 
     font-size: 13px;
 
@@ -660,11 +985,18 @@
     color: #111827;
 }
 
+
 .profileInfo span {
 
     display: block;
 
     margin-top: 2px;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+
+    white-space: nowrap;
 
     font-size: 11px;
 
@@ -672,27 +1004,32 @@
 }
 
 
-/* =====================================================
+/* =========================================================
    PROFILE ARROW
-===================================================== */
+========================================================= */
 
 .profileCard > svg {
 
     flex-shrink: 0;
 
-    color: #667085;
+    color:
+        #667085;
 
-    transition: transform .28s ease;
+    transition:
+        transform .28s ease;
 }
+
 
 .profileCard > svg.arrowRotate {
-    transform: rotate(180deg);
+
+    transform:
+        rotate(180deg);
 }
 
 
-/* =====================================================
+/* =========================================================
    PROFILE DROPDOWN
-===================================================== */
+========================================================= */
 
 .profileDropdown {
 
@@ -701,18 +1038,22 @@
     left: 0;
     right: 0;
 
-    bottom: calc(100% + 9px);
+    bottom:
+        calc(100% + 9px);
 
     padding: 7px;
 
     display: flex;
+
     flex-direction: column;
 
     gap: 3px;
 
-    background: #FFFFFF;
+    background:
+        #FFFFFF;
 
-    border: 1px solid rgba(0,0,0,.08);
+    border:
+        1px solid rgba(0,0,0,.08);
 
     border-radius: 14px;
 
@@ -723,8 +1064,15 @@
     z-index: 500;
 
     animation:
-        profileDropUp .25s cubic-bezier(.2,.8,.2,1);
+        profileDropUp
+        .25s
+        cubic-bezier(.2,.8,.2,1);
 }
+
+
+/* =========================================================
+   DROPDOWN BUTTONS
+========================================================= */
 
 .profileDropdown button {
 
@@ -733,11 +1081,13 @@
     min-height: 38px;
 
     display: flex;
+
     align-items: center;
 
     gap: 10px;
 
-    padding: 8px 10px;
+    padding:
+        8px 10px;
 
     border: none;
 
@@ -745,7 +1095,8 @@
 
     background: transparent;
 
-    color: #374151;
+    color:
+        #374151;
 
     font-size: 13px;
 
@@ -759,108 +1110,165 @@
         transform .18s ease;
 }
 
+
 .profileDropdown button:hover {
 
-    background: #F3F4F6;
+    background:
+        #F3F4F6;
 
-    color: #111827;
+    color:
+        #111827;
 
-    transform: translateX(2px);
+    transform:
+        translateX(2px);
 }
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
 
 .profileDropdown .logout {
 
     margin-top: 4px;
 
-    border-top: 1px solid rgba(0,0,0,.08);
+    border-top:
+        1px solid rgba(0,0,0,.08);
 
     border-radius: 8px;
 
-    color: #DC2626;
+    color:
+        #DC2626;
 }
+
 
 .profileDropdown .logout:hover {
 
-    background: rgba(239,68,68,.08);
+    background:
+        rgba(239,68,68,.08);
 
-    color: #DC2626;
+    color:
+        #DC2626;
 }
 
 
-/* =====================================================
-   DARK PROFILE
-===================================================== */
+/* =========================================================
+   DARK MODE — FOOTER
+========================================================= */
 
 :root[data-theme="dark"] .sidebarFooter {
 
-    border-top-color: rgba(255,255,255,.07);
+    border-top-color:
+        rgba(255,255,255,.07);
 }
+
+
+/* =========================================================
+   DARK MODE — PROFILE
+========================================================= */
 
 :root[data-theme="dark"] .profileCard {
 
-    background: rgba(255,255,255,.035);
+    background:
+        rgba(255,255,255,.035);
 
-    border-color: rgba(255,255,255,.07);
+    border-color:
+        rgba(255,255,255,.07);
 
-    color: #FFFFFF;
+    color:
+        #FFFFFF;
 }
+
 
 :root[data-theme="dark"] .profileCard:hover {
 
-    background: rgba(255,255,255,.07);
+    background:
+        rgba(255,255,255,.07);
 
-    border-color: rgba(255,255,255,.12);
+    border-color:
+        rgba(255,255,255,.12);
 }
+
 
 :root[data-theme="dark"] .profileAvatar {
-    border-color: rgba(255,255,255,.12);
+
+    border-color:
+        rgba(255,255,255,.12);
 }
+
 
 :root[data-theme="dark"] .profileInfo h3 {
-    color: #FFFFFF;
+
+    color:
+        #FFFFFF;
 }
+
 
 :root[data-theme="dark"] .profileInfo span {
-    color: #8F95A5;
+
+    color:
+        #8F95A5;
 }
 
+
 :root[data-theme="dark"] .profileCard > svg {
-    color: #8F95A5;
+
+    color:
+        #8F95A5;
 }
+
+
+/* =========================================================
+   DARK MODE — DROPDOWN
+========================================================= */
 
 :root[data-theme="dark"] .profileDropdown {
 
-    background: #181A25;
+    background:
+        #181A25;
 
-    border-color: rgba(255,255,255,.09);
+    border-color:
+        rgba(255,255,255,.09);
 
     box-shadow:
         0 18px 50px rgba(0,0,0,.45),
         0 4px 15px rgba(0,0,0,.25);
 }
 
-:root[data-theme="dark"] .profileDropdown button {
-    color: #D7D9E2;
-}
 
-:root[data-theme="dark"] .profileDropdown button:hover {
+:root[data-theme="dark"]
+.profileDropdown button {
 
-    background: rgba(255,255,255,.07);
-
-    color: #FFFFFF;
-}
-
-:root[data-theme="dark"] .profileDropdown .logout {
-
-    border-top-color: rgba(255,255,255,.07);
-
-    color: #F87171;
+    color:
+        #D7D9E2;
 }
 
 
-/* =====================================================
-   COLLAPSED
-===================================================== */
+:root[data-theme="dark"]
+.profileDropdown button:hover {
+
+    background:
+        rgba(255,255,255,.07);
+
+    color:
+        #FFFFFF;
+}
+
+
+:root[data-theme="dark"]
+.profileDropdown .logout {
+
+    border-top-color:
+        rgba(255,255,255,.07);
+
+    color:
+        #F87171;
+}
+
+
+/* =========================================================
+   COLLAPSED MODE
+========================================================= */
 
 .sidebar.collapsed .sidebarHeader {
 
@@ -870,11 +1278,19 @@
     padding-right: 0;
 }
 
+
+.sidebar.collapsed .sidebarTitle {
+
+    display: none;
+}
+
+
 .sidebar.collapsed .history {
 
     padding-left: 8px;
     padding-right: 8px;
 }
+
 
 .sidebar.collapsed .historyItem {
 
@@ -884,47 +1300,94 @@
     padding-right: 8px;
 }
 
-.sidebar.collapsed .sidebarFooter {
-    padding: 8px;
+
+.sidebar.collapsed
+.historyChatButton {
+
+    justify-content: center;
+
+    width: 100%;
 }
 
-.sidebar.collapsed .profileWrapper {
+
+.sidebar.collapsed
+.historyTitle {
+
     display: none;
 }
 
 
-/* =====================================================
-   ANIMATION
-===================================================== */
+.sidebar.collapsed
+.deleteChatBtn {
+
+    display: none;
+}
+
+
+.sidebar.collapsed .sidebarFooter {
+
+    padding: 8px;
+}
+
+
+.sidebar.collapsed .profileWrapper {
+
+    display: none;
+}
+
+
+/* =========================================================
+   HISTORY ANIMATION
+========================================================= */
 
 .historyItem {
-    animation: sidebarFade .25s ease;
+
+    animation:
+        sidebarFade
+        .25s
+        ease;
 }
+
 
 @keyframes sidebarFade {
 
     from {
+
         opacity: 0;
-        transform: translateX(-6px);
+
+        transform:
+            translateX(-6px);
     }
 
     to {
+
         opacity: 1;
-        transform: translateX(0);
+
+        transform:
+            translateX(0);
     }
 }
+
+
+/* =========================================================
+   PROFILE DROPDOWN ANIMATION
+========================================================= */
 
 @keyframes profileDropUp {
 
     from {
+
         opacity: 0;
+
         transform:
             translateY(12px)
             scale(.96);
     }
 
     to {
+
         opacity: 1;
+
         transform:
             translateY(0)
             scale(1);
@@ -932,307 +1395,28 @@
 }
 
 
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 768px) {
-
-    .sidebar {
-        width: 220px;
-    }
-
-    .sidebar.collapsed {
-        width: 62px;
-    }
-}
-
-@media (max-width: 480px) {
-
-    .sidebar {
-        width: 205px;
-    }
-
-    .sidebar.collapsed {
-        width: 58px;
-    }
-
-    .profileDropdown {
-        left: 4px;
-        right: 4px;
-    }
-}   
-
-/* =====================================================
-   NEW CHAT — PREMIUM MIRROR SHINE HOVER
-===================================================== */
-
-.newChatBtn {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-}
-
-/* Mirror shine layer */
-.newChatBtn::before {
-    content: "";
-    position: absolute;
-
-    top: -80%;
-    left: -65%;
-
-    width: 45%;
-    height: 260%;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.12),
-        rgba(255, 255, 255, 0.45),
-        rgba(255, 255, 255, 0.12),
-        transparent
-    );
-
-    transform: rotate(22deg) translateX(-180%);
-    transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
-
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Shine moves across button */
-.newChatBtn:hover::before {
-    transform: rotate(22deg) translateX(520%);
-}
-
-/* Keep button content above shine */
-.newChatBtn > * {
-    position: relative;
-    z-index: 1;
-}
-
-/* Premium hover */
-.newChatBtn:hover {
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 8px 25px rgba(37, 99, 235, 0.30),
-        0 0 0 1px rgba(255, 255, 255, 0.08);
-
-    filter: brightness(1.08);
-
-    transition:
-        transform 0.25s ease,
-        box-shadow 0.25s ease,
-        filter 0.25s ease;
-}
-
-/* Press */
-.newChatBtn:active {
-    transform: translateY(0) scale(0.98);
-}
 /* =========================================================
-   NEW CHAT — SLOW PREMIUM MIRROR BUBBLE
-========================================================= */
-
-.newChat {
-    position: relative;
-    overflow: hidden;
-    isolation: isolate;
-
-    transform: translateZ(0);
-
-    transition:
-        transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
-        box-shadow 0.5s ease,
-        filter 0.5s ease;
-}
-
-/* ---------------------------------------------------------
-   Soft glass highlight
---------------------------------------------------------- */
-
-.newChat::after {
-    content: "";
-
-    position: absolute;
-    inset: 1px;
-
-    border-radius: inherit;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(255,255,255,0.10),
-            transparent 35%,
-            transparent 70%,
-            rgba(255,255,255,0.035)
-        );
-
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* ---------------------------------------------------------
-   ROUND MIRROR BUBBLE
-   Top-left → Bottom-right
---------------------------------------------------------- */
-
-.newChat::before {
-    content: "";
-
-    position: absolute;
-
-    width: 70px;
-    height: 70px;
-
-    left: -85px;
-    top: -85px;
-
-    border-radius: 50%;
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            rgba(255,255,255,0.72) 0%,
-            rgba(255,255,255,0.32) 18%,
-            rgba(255,255,255,0.12) 42%,
-            rgba(255,255,255,0.035) 62%,
-            transparent 75%
-        );
-
-    filter: blur(1px);
-
-    opacity: 0;
-
-    pointer-events: none;
-
-    z-index: 5;
-
-    transform: translate3d(0, 0, 0) scale(0.72);
-
-    transition:
-        opacity 0.45s ease,
-        transform 1.25s cubic-bezier(
-            0.22,
-            0.61,
-            0.36,
-            1
-        );
-}
-
-/* ---------------------------------------------------------
-   HOVER — SLOW DIAGONAL TRAVEL
---------------------------------------------------------- */
-
-.newChat:hover::before {
-    opacity: 0.9;
-
-    transform:
-        translate3d(
-            300px,
-            130px,
-            0
-        )
-        scale(1.15);
-}
-
-/* ---------------------------------------------------------
-   PREMIUM HOVER
---------------------------------------------------------- */
-
-.newChat:hover {
-    transform: translateY(-1px);
-
-    filter: brightness(1.045);
-
-    box-shadow:
-        0 7px 24px rgba(37, 99, 235, 0.22),
-        0 0 18px rgba(124, 58, 237, 0.10);
-}
-
-/* ---------------------------------------------------------
-   KEEP CONTENT ABOVE EFFECT
---------------------------------------------------------- */
-
-.newChat svg,
-.newChat span {
-    position: relative;
-    z-index: 10;
-}
-
-/* ---------------------------------------------------------
-   PRESS
---------------------------------------------------------- */
-
-.newChat:active {
-    transform: translateY(0) scale(0.985);
-}
-
-/* =========================================================
-   SIDEBAR PROFILE — SMALL AVATAR
+   SIDEBAR PROFILE EXTRA SUPPORT
 ========================================================= */
 
 .sidebarProfile {
+
     display: flex;
+
     align-items: center;
-    gap: 9px;
 
-    min-width: 0;
-}
-
-.sidebarProfile img,
-.sidebarProfileAvatar,
-.profileMiniAvatar {
-    width: 34px !important;
-    height: 34px !important;
-
-    min-width: 34px !important;
-    max-width: 34px !important;
-
-    min-height: 34px !important;
-    max-height: 34px !important;
-
-    border-radius: 50%;
-
-    object-fit: cover;
-}
-
-.sidebarProfileAvatar {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background:
-        linear-gradient(
-            135deg,
-            #7862ff,
-            #986cff
-        );
-
-    color: white;
-
-    font-size: 15px;
-    font-weight: 800;
-}
-
-/* =====================================================
-   SIDEBAR PROFILE — FIXED AVATAR
-===================================================== */
-
-.sidebarProfile {
-    display: flex;
-    align-items: center;
     gap: 10px;
 
     min-width: 0;
+
     width: 100%;
 }
 
 
-/* Avatar container */
+.sidebarProfile img,
+.sidebarProfileAvatar,
+.profileMiniAvatar {
 
-.sidebarProfileAvatar {
     width: 38px !important;
     height: 38px !important;
 
@@ -1242,22 +1426,36 @@
     max-width: 38px !important;
     max-height: 38px !important;
 
-    flex: 0 0 38px !important;
-
     border-radius: 50%;
 
-    overflow: hidden;
+    object-fit: cover;
+
+    flex-shrink: 0;
+}
+
+
+.sidebarProfileAvatar {
 
     display: flex;
+
     align-items: center;
     justify-content: center;
+
+    overflow: hidden;
 
     background:
         linear-gradient(
             135deg,
-            #6d5dfc,
-            #8b5cf6
+            #6D5DFC,
+            #8B5CF6
         );
+
+    color:
+        #FFFFFF;
+
+    font-size: 15px;
+
+    font-weight: 800;
 
     border:
         1px solid rgba(255,255,255,.14);
@@ -1266,9 +1464,8 @@
 }
 
 
-/* Actual image */
-
 .sidebarProfileAvatar img {
+
     width: 100% !important;
     height: 100% !important;
 
@@ -1284,29 +1481,31 @@
 }
 
 
-/* Fallback letter */
-
 .sidebarProfileAvatar span {
+
     width: 100%;
     height: 100%;
 
     display: flex;
+
     align-items: center;
     justify-content: center;
 
     font-size: 17px;
+
     font-weight: 800;
 
-    color: #ffffff;
+    color:
+        #FFFFFF;
 }
 
 
-/* Name */
-
 .sidebarProfileInfo {
+
     min-width: 0;
 
     display: flex;
+
     flex-direction: column;
 
     overflow: hidden;
@@ -1314,6 +1513,7 @@
 
 
 .sidebarProfileInfo strong {
+
     display: block;
 
     max-width: 100%;
@@ -1325,98 +1525,490 @@
     white-space: nowrap;
 
     font-size: 13px;
+
     font-weight: 700;
 
-    color: var(--text-primary, #f5f7ff);
+    color:
+        var(--text-primary, #f5f7ff);
 }
 
 
 .sidebarProfileInfo span {
+
     margin-top: 2px;
 
     font-size: 10px;
 
-    color: #8d96b3;
+    color:
+        #8D96B3;
 
     white-space: nowrap;
 }
 
-/* =========================================
-   SIDEBAR PROFILE AVATAR
-========================================= */
 
-.profileAvatar {
-  width: 48px;
-  height: 48px;
+/* =========================================================
+   MOBILE — TABLET / PHONE
+========================================================= */
 
-  min-width: 48px;
-  min-height: 48px;
+@media (max-width: 768px) {
 
-  max-width: 48px;
-  max-height: 48px;
+    .sidebar {
 
-  border-radius: 50%;
+        --sidebar-current-width: 238px;
 
-  object-fit: cover;
-  object-position: center;
+        width: 238px;
 
-  display: block;
+        height: 100vh;
+        height: 100dvh;
 
-  flex-shrink: 0;
+        box-shadow:
+            14px 0 40px rgba(0,0,0,.28);
 
-  border: 2px solid rgba(139, 92, 246, 0.75);
+        transition:
+            width .28s cubic-bezier(.22,1,.36,1),
+            transform .28s cubic-bezier(.22,1,.36,1);
+    }
 
-  background: #171b2a;
+
+    /* ---------------------------------------------
+       COLLAPSED
+    --------------------------------------------- */
+
+    .sidebar.collapsed {
+
+        width: 64px;
+    }
+
+
+    /* ---------------------------------------------
+       HEADER
+    --------------------------------------------- */
+
+    .sidebarHeader {
+
+        height: 64px;
+        min-height: 64px;
+
+        padding:
+            0 10px;
+
+        gap: 10px;
+    }
+
+
+    .sidebarTitle {
+
+        font-size: 18px;
+
+        letter-spacing:
+            -.2px;
+    }
+
+
+    .menuBtn {
+
+        width: 40px;
+        height: 40px;
+
+        border-radius: 12px;
+    }
+
+
+    /* ---------------------------------------------
+       NEW CHAT
+    --------------------------------------------- */
+
+    .newChat {
+
+        width:
+            calc(100% - 20px);
+
+        min-height: 45px;
+
+        margin:
+            4px 10px 12px;
+
+        border-radius: 13px;
+
+        font-size: 13px;
+    }
+
+
+    .sidebar.collapsed .newChat {
+
+        width: 42px;
+
+        min-width: 42px;
+
+        margin:
+            4px auto 12px;
+    }
+
+
+    /* ---------------------------------------------
+       HISTORY
+    --------------------------------------------- */
+
+    .history {
+
+        padding:
+            6px 8px 12px;
+
+        overscroll-behavior:
+            contain;
+
+        -webkit-overflow-scrolling:
+            touch;
+    }
+
+
+    .historyItem {
+
+        min-height: 44px;
+
+        margin-bottom: 5px;
+
+        padding:
+            7px 9px;
+
+        gap: 7px;
+
+        border-radius: 11px;
+    }
+
+
+    .historyChatButton {
+
+        gap: 8px;
+    }
+
+
+    .historyChatButton svg {
+
+        width: 17px;
+        height: 17px;
+    }
+
+
+    .historyTitle {
+
+        font-size:
+            13px !important;
+
+        line-height:
+            1.35;
+    }
+
+
+    /* ---------------------------------------------
+       DELETE — TOUCH FRIENDLY
+    --------------------------------------------- */
+
+    .deleteChatBtn {
+
+        width: 30px;
+        height: 30px;
+
+        flex:
+            0 0 30px;
+
+        opacity: .75;
+
+        visibility: visible;
+    }
+
+
+    /* ---------------------------------------------
+       FOOTER
+    --------------------------------------------- */
+
+    .sidebarFooter {
+
+        padding: 8px;
+
+        padding-bottom:
+            max(
+                8px,
+                env(safe-area-inset-bottom)
+            );
+    }
+
+
+    .sidebarFooter > .historyItem {
+
+        min-height: 42px;
+
+        margin-bottom: 6px;
+    }
+
+
+    /* ---------------------------------------------
+       PROFILE
+    --------------------------------------------- */
+
+    .profileCard {
+
+        min-height: 62px;
+
+        padding:
+            8px 9px;
+
+        gap: 9px;
+
+        border-radius: 13px;
+    }
+
+
+    .profileAvatar {
+
+        width: 40px !important;
+        height: 40px !important;
+
+        min-width: 40px !important;
+        min-height: 40px !important;
+
+        max-width: 40px !important;
+        max-height: 40px !important;
+    }
+
+
+    .profileInfo h3 {
+
+        font-size: 13px;
+    }
+
+
+    .profileInfo span {
+
+        font-size: 10px;
+    }
+
+
+    /* ---------------------------------------------
+       PROFILE DROPDOWN
+    --------------------------------------------- */
+
+    .profileDropdown {
+
+        left: 0;
+        right: 0;
+
+        bottom:
+            calc(100% + 8px);
+
+        padding: 6px;
+
+        border-radius: 13px;
+    }
+
+
+    .profileDropdown button {
+
+        min-height: 40px;
+
+        padding:
+            8px 9px;
+
+        font-size: 13px;
+    }
+
+
+    /* ---------------------------------------------
+       COLLAPSED PROFILE
+    --------------------------------------------- */
+
+    .sidebar.collapsed .profileWrapper {
+
+        display: none;
+    }
+
+
+    /* ---------------------------------------------
+       MOBILE HOVER FIX
+       Avoid desktop-like jumps on touch
+    --------------------------------------------- */
+
+    .historyItem:hover {
+
+        transform: none;
+    }
+
+
+    .newChat:hover {
+
+        transform: none;
+    }
+
+
+    .menuBtn:hover {
+
+        transform: none;
+    }
 }
 
-.history {
-    flex: 1;
-    min-height: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    padding: 10px 10px 14px;
+
+/* =========================================================
+   SMALL PHONES
+========================================================= */
+
+@media (max-width: 480px) {
+
+    .sidebar {
+
+        width: 222px;
+    }
+
+
+    .sidebar.collapsed {
+
+        width: 60px;
+    }
+
+
+    .sidebarHeader {
+
+        height: 62px;
+        min-height: 62px;
+
+        padding:
+            0 9px;
+    }
+
+
+    .sidebarTitle {
+
+        font-size: 17px;
+    }
+
+
+    .menuBtn {
+
+        width: 38px;
+        height: 38px;
+
+        border-radius: 11px;
+    }
+
+
+    .newChat {
+
+        width:
+            calc(100% - 18px);
+
+        margin:
+            4px 9px 11px;
+
+        min-height: 44px;
+    }
+
+
+    .history {
+
+        padding:
+            5px 7px 10px;
+    }
+
+
+    .historyItem {
+
+        min-height: 43px;
+
+        padding:
+            7px 8px;
+    }
+
+
+    .historyTitle {
+
+        font-size:
+            12.5px !important;
+    }
+
+
+    .profileCard {
+
+        min-height: 60px;
+
+        padding:
+            7px 8px;
+    }
+
+
+    .profileAvatar {
+
+        width: 38px !important;
+        height: 38px !important;
+
+        min-width: 38px !important;
+        min-height: 38px !important;
+
+        max-width: 38px !important;
+        max-height: 38px !important;
+    }
+
+
+    .profileDropdown {
+
+        left: 2px;
+        right: 2px;
+    }
 }
 
-.historyItem {
-    width: 100%;
-    min-width: 0;
-    display: flex;
-    align-items: center;
-    gap: 6px;
+
+/* =========================================================
+   VERY SMALL PHONES
+========================================================= */
+
+@media (max-width: 360px) {
+
+    .sidebar {
+
+        width: 210px;
+    }
+
+
+    .sidebar.collapsed {
+
+        width: 58px;
+    }
+
+
+    .sidebarTitle {
+
+        font-size: 16px;
+    }
+
+
+    .historyTitle {
+
+        font-size:
+            12px !important;
+    }
+
+
+    .profileInfo span {
+
+        display: none;
+    }
 }
 
-.historyChatButton {
-    flex: 1;
-    min-width: 0;
-    width: 0;
-    display: flex;
-    align-items: center;
-    gap: 9px;
-    overflow: hidden;
-}
 
-.historyTitle {
-    flex: 1;
-    min-width: 0;
-    max-width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-}
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
 
-.deleteChatBtn {
-    flex: 0 0 32px;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-}
+@media (prefers-reduced-motion: reduce) {
 
-.historyItem:hover .deleteChatBtn,
-.historyItem.active .deleteChatBtn {
-    opacity: 1;
-    visibility: visible;
+    .sidebar,
+    .menuBtn,
+    .newChat,
+    .historyItem,
+    .deleteChatBtn,
+    .profileCard,
+    .profileDropdown {
+
+        animation: none !important;
+
+        transition: none !important;
+    }
 }
